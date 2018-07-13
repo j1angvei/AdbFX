@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
-<?import javafx.scene.text.Text?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="cn.j1angvei.adbfx.functions.FunctionsController"
-            >
-
-    <Text text="Functions"/>
-</AnchorPane>
+<VBox xmlns:fx="http://javafx.com/fxml/1" prefWidth="200" xmlns="http://javafx.com/javafx/10.0.1">
+    <children>
+        <GridPane>
+            <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0"/>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0"/>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0"/>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0"/>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <children>
+                <ToggleButton mnemonicParsing="false" text="Apps"/>
+                <ToggleButton mnemonicParsing="false" text="Files" GridPane.columnIndex="1"/>
+                <ToggleButton mnemonicParsing="false" text="Device" GridPane.columnIndex="2"/>
+                <ToggleButton mnemonicParsing="false" text="Debug" GridPane.columnIndex="3"/>
+                <ToggleButton mnemonicParsing="false" text="Advanced" GridPane.columnIndex="4"/>
+            </children>
+        </GridPane>
+        <ListView VBox.vgrow="ALWAYS"/>
+    </children>
+</VBox>
