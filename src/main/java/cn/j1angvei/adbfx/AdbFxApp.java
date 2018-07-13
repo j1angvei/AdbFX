@@ -1,6 +1,5 @@
 package cn.j1angvei.adbfx;
 
-import cn.j1angvei.adbfx.home.HomeController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -24,6 +23,7 @@ public class AdbFxApp extends Application {
         BorderPane borderPane = FXMLLoader.load(getClass().getResource("/Home.fxml"));
         Scene scene = new Scene(borderPane);
         primaryStage.setScene(scene);
+        primaryStage.setTitle("AdbFX");
         primaryStage.show();
     }
 }

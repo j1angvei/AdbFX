@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1">
+    <children>
+        <HBox alignment="CENTER">
+            <children>
+                <TextField HBox.hgrow="ALWAYS"/>
+                <Label text="Status:"/>
+                <ChoiceBox/>
+                <Label text="Type:"/>
+                <ChoiceBox/>
+            </children>
+        </HBox>
+        <TableView>
+            <columns>
+                <TableColumn prefWidth="96.0" text="Package name"/>
+                <TableColumn minWidth="0.0" prefWidth="104.0" text="Version  code"/>
+                <TableColumn minWidth="0.0" prefWidth="104.0" text="Version  name"/>
+                <TableColumn minWidth="0.0" prefWidth="104.0" text="First install"/>
+                <TableColumn minWidth="0.0" prefWidth="104.0" text="Last update"/>
+            </columns>
+        </TableView>
+    </children>
+</VBox>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.TextFlow?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1"
+      fx:controller="cn.j1angvei.adbfx.functions.apps.InstallApkController">
+    <children>
+        <TitledPane text="Params Settings">
+            <content>
+                <FlowPane hgap="4.0" vgap="8.0">
+                    <children>
+                        <CheckBox mnemonicParsing="false" text="-l: forward lock application"/>
+                        <CheckBox mnemonicParsing="false" text="-r: replace existing application"/>
+                        <CheckBox mnemonicParsing="false" text="-t: allow test packages"/>
+                        <CheckBox mnemonicParsing="false" text="-s: install application on sdcard"/>
+                        <CheckBox mnemonicParsing="false" text="-f: install application on internal flash"/>
+                        <CheckBox mnemonicParsing="false"
+                                  text="-d: allow version code downgrade (debuggable packages only)"/>
+                        <CheckBox mnemonicParsing="false"
+                                  text="-p: partial application install(install-multiple only)"/>
+                        <CheckBox mnemonicParsing="false" text="-g: grant all runtime permissions"/>
+                    </children>
+                </FlowPane>
+            </content>
+        </TitledPane>
+        <ListView prefHeight="200.0" VBox.vgrow="ALWAYS"/>
+        <GridPane alignment="CENTER" hgap="8.0" vgap="8.0">
+            <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" percentWidth="25.0"/>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="25.0"/>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="25.0"/>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="25.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <children>
+                <Button mnemonicParsing="false" text="Local"/>
+                <Button mnemonicParsing="false" text="History" GridPane.columnIndex="1"/>
+                <Button mnemonicParsing="false" text="Clear" GridPane.columnIndex="2"/>
+                <Button mnemonicParsing="false" text="Start" GridPane.columnIndex="3"/>
+            </children>
+        </GridPane>
+        <StackPane>
+            <children>
+                <TextFlow prefHeight="200.0" prefWidth="200.0"/>
+                <ProgressBar progress="0.0" StackPane.alignment="CENTER"/>
+            </children>
+        </StackPane>
+    </children>
+</VBox>
