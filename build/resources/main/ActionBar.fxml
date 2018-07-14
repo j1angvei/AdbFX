@@ -5,7 +5,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
-<HBox alignment="CENTER" xmlns:fx="http://javafx.com/fxml/1"
+<HBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER"
       fx:controller="cn.j1angvei.adbfx.actionbar.ActionBarController">
     <children>
         <ImageView fitHeight="32.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true"/>

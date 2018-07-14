@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
-<VBox xmlns:fx="http://javafx.com/fxml/1" alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/8.0.171"
+<VBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171"
       fx:controller="cn.j1angvei.adbfx.functions.apps.InstallApkController">
     <children>
-        <TitledPane text="Params Settings">
+        <TitledPane expanded="false" text="Params Settings">
             <content>
-                <VBox spacing="8.0">
+                <VBox spacing="4.0">
                     <children>
                         <CheckBox fx:id="checkLock" mnemonicParsing="false" text="-l: forward lock application"
                                   userData="-l"/>
@@ -26,33 +27,50 @@
                 </VBox>
             </content>
         </TitledPane>
+        <HBox alignment="CENTER_LEFT">
+            <children>
+                <Label text="Input history:"/>
+                <ComboBox fx:id="comboApkHistory" maxWidth="1.7976931348623157E308"
+                          promptText="Choose history apk to install" HBox.hgrow="SOMETIMES">
+                    <HBox.margin>
+                        <Insets left="4.0" right="12.0"/>
+                    </HBox.margin>
+                </ComboBox>
+                <Button fx:id="btnClearHistory" mnemonicParsing="false" text="Clear history"/>
+            </children>
+            <VBox.margin>
+                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"/>
+            </VBox.margin>
+        </HBox>
         <ListView fx:id="listApksToInstall" VBox.vgrow="ALWAYS">
             <placeholder>
                 <Text text="Choose apk from local or drag them here to install"/>
             </placeholder>
         </ListView>
-        <GridPane alignment="CENTER" hgap="8.0" vgap="8.0">
-            <columnConstraints>
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" percentWidth="20.0"/>
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" percentWidth="20.0"/>
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" percentWidth="25.0"/>
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" percentWidth="40.0"/>
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-            </rowConstraints>
+        <HBox spacing="24.0">
             <children>
-                <Button fx:id="btnLocal" mnemonicParsing="false" text="Local"/>
-                <Button fx:id="btnHistory" mnemonicParsing="false" text="History" GridPane.columnIndex="1"/>
-                <Button fx:id="btnClear" mnemonicParsing="false" text="Clear" GridPane.columnIndex="2"/>
-                <Button fx:id="btnStart" mnemonicParsing="false" text="Start" GridPane.columnIndex="3"/>
+                <Button fx:id="btnAddApk" mnemonicParsing="false" text="Add APKS"/>
+                <Button fx:id="btnClearInput" mnemonicParsing="false" text="Clear Apks"/>
+                <Button fx:id="btnStartInstall" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                        text="Start Install" HBox.hgrow="ALWAYS">
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                </Button>
             </children>
-        </GridPane>
-        <ProgressBar fx:id="progressInstall"/>
-        <TitledPane text="Install output" expanded="false">
-            <content>
-                <TextArea fx:id="textResult"/>
-            </content>
-        </TitledPane>
+            <VBox.margin>
+                <Insets bottom="12.0" left="12.0" right="12.0" top="12.0"/>
+            </VBox.margin>
+        </HBox>
+        <StackPane>
+            <children>
+                <TitledPane expanded="false" text="Install output">
+                    <content>
+                        <TextArea fx:id="textResult" prefRowCount="8"/>
+                    </content>
+                </TitledPane>
+                <ProgressBar fx:id="progressInstall" maxWidth="1.7976931348623157E308"/>
+            </children>
+        </StackPane>
     </children>
 </VBox>

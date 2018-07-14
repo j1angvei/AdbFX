@@ -24,7 +24,7 @@ public class FileManager {
         return ourInstance;
     }
 
-    public static void loadByDragDrop(Node node, List<File> observableList, Extension extension) {
+    public static void loadByDragDrop(Node node, List<String> observableList, Extension extension) {
         node.setOnDragOver(event -> {
             Dragboard dragboard = event.getDragboard();
             if (dragboard.hasFiles()) {
@@ -38,8 +38,9 @@ public class FileManager {
             Dragboard dragboard = event.getDragboard();
 
             dragboard.getFiles().forEach(file -> {
-                if (FilenameUtils.wildcardMatch(file.getName(), extension.wildcard) && !observableList.contains(file)) {
-                    observableList.add(file);
+                String path = file.getAbsolutePath();
+                if (FilenameUtils.wildcardMatch(file.getName(), extension.wildcard) && !observableList.contains(path)) {
+                    observableList.add(path);
                 }
             });
 

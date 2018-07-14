@@ -6,7 +6,6 @@ import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import lombok.extern.slf4j.Slf4j;
 
-import java.io.File;
 import java.util.List;
 import java.util.Set;
 
@@ -37,7 +36,7 @@ public class InstallApkService extends Service<String> {
                 return null;
             }
 
-            List<File> apks = mInstallApkModel.getApksToInstall();
+            List<String> apks = mInstallApkModel.getApksToInstall();
             int count = apks.size();
 
             Set<String> args = mInstallApkModel.getInstallArgs();
@@ -48,7 +47,7 @@ public class InstallApkService extends Service<String> {
 
             log.debug("device,{};apks,{};args:{}", device, apks, args);
             for (int i = 0; i < apks.size(); i++) {
-                String path = apks.get(i).getAbsolutePath();
+                String path = apks.get(i);
                 updateProgress(i, count);
                 log.debug("Start:{},path,{}", i, path);
                 device.installPackage(path, false, receiver, argsArray);

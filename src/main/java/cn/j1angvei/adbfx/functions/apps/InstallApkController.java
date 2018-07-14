@@ -11,11 +11,10 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public class InstallApkController extends BaseController<InstallApkModel> {
-    public Button btnLocal;
-    public Button btnHistory;
-    public Button btnClear;
-    public Button btnStart;
-    public ListView<File> listApksToInstall;
+    public Button btnAddApk;
+    public Button btnClearInput;
+    public Button btnStartInstall;
+    public ListView<String> listApksToInstall;
 
     public CheckBox checkLock;
     public CheckBox checkReplace;
@@ -25,6 +24,8 @@ public class InstallApkController extends BaseController<InstallApkModel> {
     public CheckBox checkPermission;
     public ProgressBar progressInstall;
     public TextArea textResult;
+    public ComboBox<String> comboApkHistory;
+    public Button btnClearHistory;
 
     private CheckBox[] checkBoxes;
 
@@ -38,7 +39,7 @@ public class InstallApkController extends BaseController<InstallApkModel> {
     @Override
     protected void initArguments() {
         checkBoxes = new CheckBox[]{checkLock, checkReplace, checkTest, checkSdcard, checkDebug, checkPermission};
-        mInstallApkService = new InstallApkService(getmModel());
+        mInstallApkService = new InstallApkService(getModel());
     }
 
     @Override
@@ -48,9 +49,9 @@ public class InstallApkController extends BaseController<InstallApkModel> {
                 .forEach(checkBox -> checkBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
                     String arg = (String) checkBox.getUserData();
                     if (newValue) {
-                        getmModel().getInstallArgs().add(arg);
+                        getModel().getInstallArgs().add(arg);
                     } else {
-                        getmModel().getInstallArgs().remove(arg);
+                        getModel().getInstallArgs().remove(arg);
                     }
                 }));
         //init args
@@ -58,34 +59,48 @@ public class InstallApkController extends BaseController<InstallApkModel> {
                 .forEach(checkBox -> {
                     if (checkBox.isSelected()) {
                         String arg = (String) checkBox.getUserData();
-                        getmModel().getInstallArgs().add(arg);
+                        getModel().getInstallArgs().add(arg);
                     }
                 });
 
+        /* ********************************************************
+            Apk history
+         ********************************************************* */
+        comboApkHistory.itemsProperty().bind(getModel().getHistoryApks());
+        btnClearHistory.setOnAction(event -> getModel().getHistoryApks().clear());
+        comboApkHistory.setOnAction(event -> {
+            String apkPath = comboApkHistory.getValue();
+            if (apkPath != null) {
+                getModel().addInputApk(apkPath);
+            }
+        });
+        /* ********************************************************
+            Apk input
+         ********************************************************* */
         //apk paths to install
-        listApksToInstall.itemsProperty().bindBidirectional(getmModel().getApksToInstall());
-        FileManager.loadByDragDrop(listApksToInstall, getmModel().getApksToInstall(), FileManager.Extension.APK);
+        listApksToInstall.itemsProperty().bindBidirectional(getModel().getApksToInstall());
+        FileManager.loadByDragDrop(listApksToInstall, getModel().getApksToInstall(), FileManager.Extension.APK);
 
-        btnLocal.setOnAction(event -> {
+        btnAddApk.setOnAction(event -> {
             List<File> addedFiles = FileManager.getInstance().loadFilesByExplorer("Choose *.apk files to install",
                     FileManager.Extension.APK);
-            getmModel().addApkList(addedFiles);
+            addedFiles.forEach(file -> getModel().addInputApk(file.getAbsolutePath()));
         });
-        btnClear.setOnAction(event -> getmModel().getApksToInstall().clear());
+        btnClearInput.setOnAction(event -> getModel().getApksToInstall().clear());
 
         BooleanBinding disableInstall = Bindings.createBooleanBinding(() ->
-                        mInstallApkService.isRunning() || getmModel().getApksToInstall().isEmpty(),
-                mInstallApkService.runningProperty(), getmModel().getApksToInstall().emptyProperty());
-        btnStart.disableProperty().bind(disableInstall);
-        btnStart.setOnAction(event -> mInstallApkService.restart());
+                        mInstallApkService.isRunning() || getModel().getApksToInstall().isEmpty(),
+                mInstallApkService.runningProperty(), getModel().getApksToInstall().emptyProperty());
+        btnStartInstall.disableProperty().bind(disableInstall);
+        btnStartInstall.setOnAction(event -> mInstallApkService.restart());
 
         //run install service
-        btnStart.disableProperty().bind(mInstallApkService.runningProperty());
+        btnStartInstall.disableProperty().bind(mInstallApkService.runningProperty());
         progressInstall.visibleProperty().bind(mInstallApkService.runningProperty());
         progressInstall.progressProperty().bind(mInstallApkService.progressProperty());
+
         //result
         textResult.textProperty().bind(mInstallApkService.valueProperty());
-
     }
 
     @Override

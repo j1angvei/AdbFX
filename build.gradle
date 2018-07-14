@@ -26,4 +26,7 @@ dependencies {
     compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
     compile group: 'ch.qos.logback', name: 'logback-core', version: '1.2.3'
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    //ui
+    compile group: 'org.controlsfx', name: 'controlsfx', version: '8.40.14'
+
 }

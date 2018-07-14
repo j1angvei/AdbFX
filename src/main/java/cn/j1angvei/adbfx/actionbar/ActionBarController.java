@@ -47,8 +47,8 @@ public class ActionBarController extends BaseController<ActionBarModel> {
                 return null;
             }
         });
-        comboAllDevices.itemsProperty().bind(getmModel().getConnectedDevices());
-        getmModel().getConnectedDevices().emptyProperty().addListener((observable, oldValue, newValue) -> {
+        comboAllDevices.itemsProperty().bind(getModel().getConnectedDevices());
+        getModel().getConnectedDevices().emptyProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue) {
                 comboAllDevices.getSelectionModel().clearSelection();
             } else if (comboAllDevices.getValue() == null) {
@@ -60,23 +60,23 @@ public class ActionBarController extends BaseController<ActionBarModel> {
         AndroidDebugBridge.addDeviceChangeListener(new AndroidDebugBridge.IDeviceChangeListener() {
             @Override
             public void deviceConnected(IDevice device) {
-                Platform.runLater(() -> getmModel().getConnectedDevices().add(device));
+                Platform.runLater(() -> getModel().getConnectedDevices().add(device));
             }
 
             @Override
             public void deviceDisconnected(IDevice device) {
-                Platform.runLater(() -> getmModel().getConnectedDevices().remove(device));
+                Platform.runLater(() -> getModel().getConnectedDevices().remove(device));
             }
 
             @Override
             public void deviceChanged(IDevice device, int changeMask) {
                 if (changeMask == IDevice.CHANGE_STATE) {
-                    Platform.runLater(() -> getmModel().getUpdatedDevice().setValue(device));
+                    Platform.runLater(() -> getModel().getUpdatedDevice().setValue(device));
                 }
             }
         });
         //bind chosen device
-        getmModel().getChosenDevice().bind(comboAllDevices.valueProperty());
+        getModel().getChosenDevice().bind(comboAllDevices.valueProperty());
 
         //restart adb daemon
         btnRestartAdb.setOnAction(event -> {

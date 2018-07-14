@@ -2,7 +2,7 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<VBox xmlns:fx="http://javafx.com/fxml/1" prefWidth="200" >
+<VBox xmlns:fx="http://javafx.com/fxml/1" prefWidth="200">
     <children>
         <GridPane>
             <columnConstraints>

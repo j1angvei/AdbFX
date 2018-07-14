@@ -32,7 +32,7 @@ public abstract class BaseController<M> implements Initializable {
         return resourceBundle;
     }
 
-    public final M getmModel() {
+    public final M getModel() {
         return mModel;
     }
 }

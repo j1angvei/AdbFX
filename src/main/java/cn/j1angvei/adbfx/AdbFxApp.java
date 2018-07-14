@@ -4,7 +4,7 @@ import com.android.ddmlib.AndroidDebugBridge;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 
@@ -25,9 +25,11 @@ public class AdbFxApp extends Application {
     public void start(Stage primaryStage) throws Exception {
         FileManager.getInstance().init(primaryStage);
 
-        BorderPane borderPane = FXMLLoader.load(getClass().getResource("/Home.fxml"));
+        AnchorPane borderPane = FXMLLoader.load(getClass().getResource("/Home.fxml"));
         Scene scene = new Scene(borderPane);
         primaryStage.setScene(scene);
+        primaryStage.setWidth(900);
+        primaryStage.setHeight(600);
         primaryStage.setTitle("AdbFX");
         primaryStage.show();
     }

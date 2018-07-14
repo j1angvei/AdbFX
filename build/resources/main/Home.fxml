@@ -1,21 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.BorderPane?>
-<BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml" prefHeight="600"
-            prefWidth="900">
-    <top>
-        <fx:include source="ActionBar.fxml"/>
-    </top>
-    <left>
-        <fx:include source="Functions.fxml"/>
-    </left>
 
-    <right>
-        <fx:include source="History.fxml"/>
-    </right>
-    <center>
-        <fx:include source="Container.fxml"/>
-    </center>
-
-</BorderPane>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ListView?>
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <fx:include source="ActionBar.fxml" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                    AnchorPane.topAnchor="0.0"/>
+        <SplitPane dividerPositions="0.382" AnchorPane.bottomAnchor="0.0"
+                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="56.0">
+            <items>
+                <VBox xmlns:fx="http://javafx.com/fxml/1" prefWidth="200">
+                    <children>
+                        <GridPane>
+                            <columnConstraints>
+                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0"/>
+                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0"/>
+                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0"/>
+                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0"/>
+                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                            <children>
+                                <ToggleButton mnemonicParsing="false" text="Apps"/>
+                                <ToggleButton mnemonicParsing="false" text="Files" GridPane.columnIndex="1"/>
+                                <ToggleButton mnemonicParsing="false" text="Device" GridPane.columnIndex="2"/>
+                                <ToggleButton mnemonicParsing="false" text="Debug" GridPane.columnIndex="3"/>
+                                <ToggleButton mnemonicParsing="false" text="Advanced" GridPane.columnIndex="4"/>
+                            </children>
+                        </GridPane>
+                        <ListView VBox.vgrow="ALWAYS"/>
+                    </children>
+                </VBox>
+                <fx:include source="function/InstallApk.fxml"/>
+            </items>
+        </SplitPane>
+    </children>
+</AnchorPane>
