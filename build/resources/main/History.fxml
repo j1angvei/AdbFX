@@ -1,15 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 
-<?import javafx.scene.text.Text?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="cn.j1angvei.adbfx.history.HistoryController"
-            prefHeight="400.0" prefWidth="600.0">
-    <Text text="History"/>
-</AnchorPane>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" prefWidth="200" >
+    <children>
+        <HBox alignment="CENTER">
+            <children>
+                <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true"/>
+                <TextField promptText="serach history" HBox.hgrow="ALWAYS"/>
+                <Button mnemonicParsing="false" text="Button"/>
+            </children>
+        </HBox>
+        <ListView VBox.vgrow="ALWAYS"/>
+        <GridPane>
+            <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0"/>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <children>
+                <Button mnemonicParsing="false" text="Cancel"/>
+                <Button mnemonicParsing="false" text="Confirm" GridPane.columnIndex="1"/>
+            </children>
+            <VBox.margin>
+                <Insets bottom="4.0" top="4.0"/>
+            </VBox.margin>
+        </GridPane>
+    </children>
+</VBox>

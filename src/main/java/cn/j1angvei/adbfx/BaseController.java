@@ -5,16 +5,20 @@ import javafx.fxml.Initializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public abstract class BaseController implements Initializable {
+public abstract class BaseController<M> implements Initializable {
+    private M mModel;
     private ResourceBundle resourceBundle;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.resourceBundle = resources;
+        mModel = initModel();
         initArguments();
         initView();
         initData();
     }
+
+    protected abstract M initModel();
 
     protected abstract void initArguments();
 
@@ -24,7 +28,11 @@ public abstract class BaseController implements Initializable {
     protected abstract void initData();
 
 
-    public ResourceBundle getResourceBundle() {
+    public final ResourceBundle getResourceBundle() {
         return resourceBundle;
+    }
+
+    public final M getmModel() {
+        return mModel;
     }
 }

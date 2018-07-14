@@ -2,7 +2,7 @@ package cn.j1angvei.adbfx.functions;
 
 public enum Function {
     /**
-     * 安装APK
+     * install apk
      */
     INSTALL_APK(
             "install_apk",
@@ -11,7 +11,7 @@ public enum Function {
             Category.APPS),
 
     /**
-     * 卸载应用
+     * uninstall apk
      */
     UNINSTALL_PKG(
             "uninstall_app",
@@ -19,7 +19,7 @@ public enum Function {
             "/function/UninstallApp.fxml",
             Category.APPS),
     /**
-     * 解析APK
+     * parse apk
      */
     PARSE_APK(
             "parse_apk",
@@ -28,7 +28,7 @@ public enum Function {
             Category.APPS),
 
     /**
-     * 包列表
+     * package list
      */
     PKG_LIST(
             "pkg_list",
@@ -38,7 +38,7 @@ public enum Function {
 
 
     /**
-     * 提取文件
+     * pull file
      */
     PULL_FILES(
             "pkg_list",
@@ -47,7 +47,7 @@ public enum Function {
             Category.FILES),
 
     /**
-     * 推送文件
+     * push file
      */
     PUSH_FILES(
             "pkg_list",
@@ -56,7 +56,7 @@ public enum Function {
             Category.FILES),
 
     /**
-     * 文件管理
+     * file manager
      */
     FILE_MGR(
             "pkg_list",
@@ -65,7 +65,7 @@ public enum Function {
             Category.FILES),
 
     /**
-     * 屏幕截图
+     * screen shot
      */
     SCREEN_SHOT(
             "screen_shot",
@@ -73,7 +73,7 @@ public enum Function {
             "/function/InstallApk.fxml",
             Category.DEVICE),
     /**
-     * 屏幕录制
+     * screen recording
      */
     SCREEN_RECORDING(
             "screen_recording",
@@ -82,7 +82,7 @@ public enum Function {
             Category.DEVICE),
 
     /**
-     * 设备信息
+     * device info
      */
     DEVICE_INFO(
             "screen_recording",
@@ -91,7 +91,7 @@ public enum Function {
             Category.DEVICE),
 
     /**
-     * 设备信息
+     * log cat
      */
     LOGCAT(
             "screen_recording",
@@ -100,7 +100,7 @@ public enum Function {
             Category.DEBUG),
 
     /**
-     * 设备信息
+     * device information
      */
     EMULATE_TOUCH(
             "screen_recording",
@@ -108,7 +108,7 @@ public enum Function {
             "/function/InstallApk.fxml",
             Category.DEBUG),
     /**
-     * 启动组件（activity,intent,service,broadcast）
+     * start component(activity,intent,service,broadcast)
      */
     START_COMPONENT(
             "screen_recording",
@@ -116,7 +116,7 @@ public enum Function {
             "/function/InstallApk.fxml",
             Category.DEBUG),
     /**
-     * 刷机相关（activity,intent,service,broadcast）
+     * flash device(activity, intent, service, broadcast)
      */
     FLASH_DEVICE(
             "screen_recording",
@@ -124,7 +124,7 @@ public enum Function {
             "/function/InstallApk.fxml",
             Category.ADVANCED),
     /**
-     * 运行脚本（activity,intent,service,broadcast）
+     * run script(activity, intent,service,broadcast)
      */
     RUN_SCRIPT(
             "screen_recording",

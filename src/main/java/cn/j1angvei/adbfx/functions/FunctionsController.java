@@ -4,6 +4,11 @@ import cn.j1angvei.adbfx.BaseController;
 
 public class FunctionsController extends BaseController {
     @Override
+    protected Object initModel() {
+        return null;
+    }
+
+    @Override
     protected void initArguments() {
 
     }

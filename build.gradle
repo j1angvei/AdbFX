@@ -1,4 +1,5 @@
 plugins {
+    id "io.franzbecker.gradle-lombok" version "1.14"
     id 'java'
     id 'application'
 }
@@ -12,8 +13,17 @@ mainClassName = 'cn.j1angvei.adbfx.AdbFxApp'
 
 repositories {
     mavenCentral()
+    google()
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    def toolVersion = "26.3.0-alpha02"
+    compile group: 'com.android.tools.ddms', name: 'ddmlib', version: "${toolVersion}"
+    compile group: 'commons-io', name: 'commons-io', version: '2.6'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
+    //log
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+    compile group: 'ch.qos.logback', name: 'logback-core', version: '1.2.3'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
 }

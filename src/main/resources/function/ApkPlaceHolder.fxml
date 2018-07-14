@@ -4,8 +4,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.StackPane?>
 <StackPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-           minWidth="-Infinity" xmlns="http://javafx.com/javafx/10.0.1">
+           minWidth="-Infinity"
+           prefHeight="400.0" prefWidth="600.0">
     <children>
-        <Label text="AdbFX"/>
+        <Label text="choose apk or drag them here to install"/>
     </children>
 </StackPane>
