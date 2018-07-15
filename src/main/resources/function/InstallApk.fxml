@@ -13,9 +13,11 @@
                     <children>
                         <CheckBox fx:id="checkLock" mnemonicParsing="false" text="-l: forward lock application"
                                   userData="-l"/>
-                        <CheckBox fx:id="checkReplace" mnemonicParsing="false" text="-r: replace existing application"
+                        <CheckBox selected="true" fx:id="checkReplace" mnemonicParsing="false"
+                                  text="-r: replace existing application"
                                   userData="-r"/>
-                        <CheckBox fx:id="checkTest" mnemonicParsing="false" text="-t: allow test packages"
+                        <CheckBox selected="true" fx:id="checkTest" mnemonicParsing="false"
+                                  text="-t: allow test packages"
                                   userData="-t"/>
                         <CheckBox fx:id="checkSdcard" mnemonicParsing="false" text="-s: install application on sdcard"
                                   userData="-s"/>
@@ -27,28 +29,33 @@
                 </VBox>
             </content>
         </TitledPane>
-        <HBox alignment="CENTER_LEFT">
-            <children>
-                <Label text="Input history:"/>
-                <ComboBox fx:id="comboApkHistory" maxWidth="1.7976931348623157E308"
-                          promptText="Choose history apk to install" HBox.hgrow="SOMETIMES">
-                    <HBox.margin>
-                        <Insets left="4.0" right="12.0"/>
-                    </HBox.margin>
-                </ComboBox>
-                <Button fx:id="btnClearHistory" mnemonicParsing="false" text="Clear history"/>
-            </children>
-            <VBox.margin>
-                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"/>
-            </VBox.margin>
-        </HBox>
         <ListView fx:id="listApksToInstall" VBox.vgrow="ALWAYS">
             <placeholder>
                 <Text text="Choose apk from local or drag them here to install"/>
             </placeholder>
         </ListView>
-        <HBox spacing="24.0">
+        <HBox spacing="12.0">
             <children>
+                <MenuButton mnemonicParsing="false" text="Install History">
+                    <items>
+                        <MenuItem mnemonicParsing="false">
+                            <graphic>
+                                <ListView fx:id="listInstallHistory" prefWidth="450" prefHeight="180">
+                                    <placeholder>
+                                        <Text text="No install history"/>
+                                    </placeholder>
+                                </ListView>
+                            </graphic>
+                        </MenuItem>
+                    </items>
+                    <contextMenu>
+                        <ContextMenu>
+                            <items>
+                                <MenuItem fx:id="menuClearHistory" mnemonicParsing="false" text="Clear history"/>
+                            </items>
+                        </ContextMenu>
+                    </contextMenu>
+                </MenuButton>
                 <Button fx:id="btnAddApk" mnemonicParsing="false" text="Add APKS"/>
                 <Button fx:id="btnClearInput" mnemonicParsing="false" text="Clear Apks"/>
                 <Button fx:id="btnStartInstall" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
@@ -64,12 +71,16 @@
         </HBox>
         <StackPane>
             <children>
-                <TitledPane expanded="false" text="Install output">
+                <TitledPane fx:id="titledResult" expanded="false" text="Install output">
                     <content>
                         <TextArea fx:id="textResult" prefRowCount="8"/>
                     </content>
                 </TitledPane>
-                <ProgressBar fx:id="progressInstall" maxWidth="1.7976931348623157E308"/>
+                <ProgressBar fx:id="progressInstall" maxWidth="1.7976931348623157E308">
+                    <tooltip>
+                        <Tooltip text="Installing, please wait..."/>
+                    </tooltip>
+                </ProgressBar>
             </children>
         </StackPane>
     </children>

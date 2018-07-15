@@ -7,7 +7,10 @@ import javafx.application.Platform;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.util.StringConverter;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 
+@Slf4j
 public class ActionBarController extends BaseController<ActionBarModel> {
     public Button btnRestartAdb;
     public ComboBox<IDevice> comboAllDevices;
@@ -34,13 +37,16 @@ public class ActionBarController extends BaseController<ActionBarModel> {
             public String toString(IDevice object) {
                 if (object == null) {
                     return null;
-                } else
-                    return String.format("%s %s (Android %s, API %s)",
-                            object.getProperty(IDevice.PROP_DEVICE_MANUFACTURER),
-                            object.getProperty(IDevice.PROP_DEVICE_MODEL),
-                            object.getProperty(IDevice.PROP_BUILD_VERSION),
-                            object.getProperty(IDevice.PROP_BUILD_API_LEVEL));
+                }
+                String name = String.format("%s %s (Android %s, API %s)",
+                        object.isEmulator() ? object.getSerialNumber() : object.getProperty(IDevice.PROP_DEVICE_MANUFACTURER),
+                        object.isEmulator() ? object.getAvdName() : object.getProperty(IDevice.PROP_DEVICE_MODEL),
+                        object.getProperty(IDevice.PROP_BUILD_VERSION),
+                        object.getProperty(IDevice.PROP_BUILD_API_LEVEL));
+
+                return StringUtils.capitalize(name);
             }
+
 
             @Override
             public IDevice fromString(String string) {
@@ -81,6 +87,7 @@ public class ActionBarController extends BaseController<ActionBarModel> {
         //restart adb daemon
         btnRestartAdb.setOnAction(event -> {
             comboAllDevices.getItems().clear();
+            comboAllDevices.getSelectionModel().clearSelection();
             mAdbStartService.restart();
         });
         mAdbStartService.runningProperty().addListener((observable, oldValue, newValue) -> {

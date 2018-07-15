@@ -1,35 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c41d51c3-bd96-454b-a9a6-904583993f14" name="Default Changelist" comment="complete install function">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_controlsfx_controlsfx_8_40_14.xml" afterDir="false" />
+    <list default="true" id="c41d51c3-bd96-454b-a9a6-904583993f14" name="Default Changelist" comment="complete install apk">
+      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/AdbFX.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/AdbFX.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__junit_junit_4_12.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/cn/j1angvei/adbfx/AdbFxApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/cn/j1angvei/adbfx/AdbFxApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/cn/j1angvei/adbfx/functions/FunctionsController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/cn/j1angvei/adbfx/history/HistoryController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/cn/j1angvei/adbfx/home/HomeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/ActionBar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/ActionBar.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/Container.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/Container.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/Functions.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/Functions.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/History.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/History.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/Home.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/AdbFxApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/AdbFxApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/BaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/FileManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/actionbar/ActionBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/actionbar/ActionBarController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Container.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Container.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Home.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/function/InstallApk.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/function/InstallApk.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -76,31 +62,35 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="fxml" value="17" />
+          <entry key="gitignore" value="1" />
           <entry key="gradle" value="5" />
-          <entry key="java" value="57" />
+          <entry key="java" value="69" />
+          <entry key="png" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Groovy" value="5" />
-          <entry key="JAVA" value="57" />
+          <entry key="Image" value="1" />
+          <entry key="JAVA" value="69" />
+          <entry key="PLAIN_TEXT" value="1" />
           <entry key="XML" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="fxml" value="702" />
+          <entry key="fxml" value="906" />
           <entry key="gradle" value="17" />
-          <entry key="java" value="5518" />
-          <entry key="txt" value="30" />
+          <entry key="java" value="6556" />
+          <entry key="txt" value="55" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="17" />
-          <entry key="JAVA" value="5518" />
-          <entry key="PLAIN_TEXT" value="30" />
-          <entry key="XML" value="702" />
+          <entry key="JAVA" value="6556" />
+          <entry key="PLAIN_TEXT" value="55" />
+          <entry key="XML" value="906" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -108,8 +98,10 @@
           <entry key="project.closed" value="2" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.15" value="1" />
+          <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.19" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.36" value="1" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
     </session>
@@ -119,55 +111,24 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="70" column="40" selection-start-line="70" selection-start-column="40" selection-end-line="70" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="45" column="40" lean-forward="true" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
+            <state relative-caret-position="231">
+              <caret line="25" column="28" lean-forward="true" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#4963#4964#0" expanded="true" />
+                <element signature="e#4982#4983#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/BaseController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
-              <folding>
-                <element signature="e#769#770#0" expanded="true" />
-                <element signature="e#798#799#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/function/InstallApk.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="39" column="85" lean-forward="true" selection-start-line="39" selection-start-column="85" selection-end-line="39" selection-end-column="85" />
+            <state relative-caret-position="66">
+              <caret line="40" column="100" selection-start-line="40" selection-start-column="100" selection-end-line="40" selection-end-column="100" />
             </state>
           </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/Home.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -180,44 +141,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/Functions.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/collections/ListChangeListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="123" column="32" selection-start-line="123" selection-start-column="32" selection-end-line="123" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/FileManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="60" column="32" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="49" column="42" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
+            <state relative-caret-position="443">
+              <caret line="63" column="67" selection-start-line="63" selection-start-column="67" selection-end-line="63" selection-end-column="67" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/actionbar/ActionBarController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="45" selection-start-line="45" selection-end-line="45" />
             </state>
           </provider>
         </entry>
@@ -243,6 +182,8 @@
       <find>textResult.visibleProperty()</find>
       <find>textRe</find>
       <find>textResult</find>
+      <find>toString</find>
+      <find>toSt</find>
     </findStrings>
     <replaceStrings>
       <replace>)</replace>
@@ -675,17 +616,18 @@
         <option value="$PROJECT_DIR$/src/main/resources/ActionBar.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/actionbar/AdbStartService.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/actionbar/ActionBarModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/actionbar/ActionBarController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/Container.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/Home.fxml" />
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/src/main/resources/function/InstallApk.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/AdbFxApp.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/BaseController.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/FileManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkModel.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/actionbar/ActionBarController.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkController.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/function/InstallApk.fxml" />
       </list>
     </option>
   </component>
@@ -709,8 +651,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -760,15 +700,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="adbfx" type="462c0819:PsiDirectoryNode" />
-              <item name="container" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AdbFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProjectSanta" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="adbfx" type="462c0819:PsiDirectoryNode" />
               <item name="functions" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -780,15 +711,6 @@
               <item name="adbfx" type="462c0819:PsiDirectoryNode" />
               <item name="functions" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AdbFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProjectSanta" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="adbfx" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AdbFX" type="b2602c69:ProjectViewProjectNode" />
@@ -807,47 +729,18 @@
             </path>
             <path>
               <item name="AdbFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="AdbFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Gradle: org.controlsfx:controlsfx:8.40.14" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="AdbFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Gradle: org.controlsfx:controlsfx:8.40.14" type="70bed36:NamedLibraryElementNode" />
-              <item name="controlsfx-8.40.14.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AdbFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Gradle: org.controlsfx:controlsfx:8.40.14" type="70bed36:NamedLibraryElementNode" />
-              <item name="controlsfx-8.40.14.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="controlsfx" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AdbFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Gradle: org.controlsfx:controlsfx:8.40.14" type="70bed36:NamedLibraryElementNode" />
-              <item name="controlsfx-8.40.14.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="controlsfx" type="462c0819:PsiDirectoryNode" />
-              <item name="control" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AdbFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Gradle: org.controlsfx:controlsfx:8.40.14" type="70bed36:NamedLibraryElementNode" />
-              <item name="controlsfx-8.40.14.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="controlsfx" type="462c0819:PsiDirectoryNode" />
-              <item name="control" type="462c0819:PsiDirectoryNode" />
-              <item name="textfield" type="462c0819:PsiDirectoryNode" />
+              <item name="ProjectSanta" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -977,7 +870,9 @@
       <workItem from="1531539697037" duration="217000" />
       <workItem from="1531540401954" duration="219000" />
       <workItem from="1531540650613" duration="3224000" />
-      <workItem from="1531545187385" duration="23672000" />
+      <workItem from="1531545187385" duration="24534000" />
+      <workItem from="1531624396420" duration="5177000" />
+      <workItem from="1531631788733" duration="2347000" />
     </task>
     <task id="LOCAL-00001" summary="complete install function">
       <created>1531562867251</created>
@@ -986,16 +881,30 @@
       <option name="project" value="LOCAL" />
       <updated>1531562867251</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="complete install apk">
+      <created>1531578353959</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1531578353959</updated>
+    </task>
+    <task id="LOCAL-00003" summary="complete install apk">
+      <created>1531578476018</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1531578476019</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28225000" />
+    <option name="totallyTimeSpent" value="36611000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2386059" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24530831" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -1008,7 +917,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49932975" weight="0.32885906" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49932975" weight="0.32751676" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50268096" side_tool="true" weight="0.32885906" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Build" order="11" sideWeight="0.49932975" weight="0.32885906" />
@@ -1031,74 +940,13 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="complete install function" />
-    <option name="LAST_COMMIT_MESSAGE" value="complete install function" />
+    <MESSAGE value="complete install apk" />
+    <option name="LAST_COMMIT_MESSAGE" value="complete install apk" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/function/ParseApk.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/control/RadioButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="64" column="14" selection-start-line="64" selection-start-column="14" selection-end-line="64" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/control/ButtonBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="49" column="22" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/control/CheckBox.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="151" column="49" selection-start-line="151" selection-start-column="42" selection-end-line="151" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/FunctionsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="20" />
-          <folding>
-            <element signature="e#185#186#0" expanded="true" />
-            <element signature="e#212#213#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/history/HistoryController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-          <folding>
-            <element signature="e#181#182#0" expanded="true" />
-            <element signature="e#208#209#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/mini/MiniModeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-          <folding>
-            <element signature="e#179#180#0" expanded="true" />
-            <element signature="e#206#207#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.16.20/69ebf81bb97bdb3c9581c171762bb4929cb5289c/lombok-1.16.20-sources.jar!/lombok/Data.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="309">
@@ -1110,10 +958,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-          <folding>
-            <element signature="e#132#133#0" expanded="true" />
-            <element signature="e#159#160#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1121,13 +965,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="447">
           <caret line="766" column="28" selection-start-line="766" selection-start-column="28" selection-end-line="766" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/beans/binding/Bindings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="328" column="39" selection-start-line="328" selection-start-column="39" selection-end-line="328" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -1146,12 +983,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="229" column="22" selection-start-line="229" selection-start-column="22" selection-end-line="229" selection-end-column="22" />
-          <folding>
-            <element signature="e#7866#7867#0" expanded="true" />
-            <element signature="e#7919#7920#0" expanded="true" />
-            <element signature="e#10215#10216#0" expanded="true" />
-            <element signature="e#10254#10255#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1173,10 +1004,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="365">
           <caret line="383" column="19" lean-forward="true" selection-start-line="383" selection-start-column="19" selection-end-line="383" selection-end-column="19" />
-          <folding>
-            <element signature="e#14976#14977#0" expanded="true" />
-            <element signature="e#15027#15028#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1194,12 +1021,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/function/ApkPlaceHolder.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/beans/property/ReadOnlyListProperty.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1219,13 +1046,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="239">
           <caret line="56" column="22" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.ddms/ddmlib/26.3.0-alpha02/8c62bdfd1ed1b018f7ed17ed8a484bebe0b4b171/ddmlib-26.3.0-alpha02-sources.jar!/com/android/ddmlib/IDevice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="498" column="9" selection-start-line="498" selection-start-column="9" selection-end-line="498" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -1254,11 +1074,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
           <caret line="29" column="42" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#329#330#0" expanded="true" />
-            <element signature="e#356#357#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1266,10 +1081,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="305">
           <caret line="303" column="40" selection-start-line="303" selection-start-column="40" selection-end-line="303" selection-end-column="40" />
-          <folding>
-            <element signature="e#11614#11615#0" expanded="true" />
-            <element signature="e#11668#11669#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1277,43 +1088,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#435#436#0" expanded="true" />
-            <element signature="e#466#467#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/actionbar/ActionBarController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="73" column="92" selection-start-line="73" selection-start-column="92" selection-end-line="73" selection-end-column="92" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#471#472#0" expanded="true" />
-            <element signature="e#522#523#0" expanded="true" />
-            <element signature="e#489#490#0" expanded="true" />
-            <element signature="e#534#535#0" expanded="true" />
-            <element signature="e#1519#1520#0" expanded="true" />
-            <element signature="e#1562#1563#0" expanded="true" />
-            <element signature="e#1334#1335#0" expanded="true" />
-            <element signature="e#1368#1369#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/History.fxml">
-      <provider selected="true" editor-type-id="text-editor" />
       <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/ActionBar.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/container/ContainerController.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1330,12 +1118,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/Container.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="10" column="42" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
@@ -1352,35 +1140,100 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/Functions.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
           <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/function/InstallApk.fxml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="39" column="85" lean-forward="true" selection-start-line="39" selection-start-column="85" selection-end-line="39" selection-end-column="85" />
+        <state relative-caret-position="666">
+          <caret line="45" column="40" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/collections/ListChangeListener.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/BaseController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="123" column="32" selection-start-line="123" selection-start-column="32" selection-end-line="123" selection-end-column="32" />
+        <state relative-caret-position="522">
+          <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/Home.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+        <state relative-caret-position="162">
+          <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/collections/ListChangeListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1782">
+          <caret line="123" column="32" selection-start-line="123" selection-start-column="32" selection-end-line="123" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/FileManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="882">
+          <caret line="60" column="32" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/img/test.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="77" column="5" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/control/MenuItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1026">
+          <caret line="113" column="11" selection-start-line="113" selection-start-column="11" selection-end-line="113" selection-end-column="11" />
+          <folding>
+            <element signature="e#3642#3643#0" expanded="true" />
+            <element signature="e#3673#3674#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/beans/binding/Bindings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81198">
+          <caret line="4800" column="28" selection-start-line="4800" selection-start-column="28" selection-end-line="4800" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/com/sun/javafx/binding/BidirectionalContentBinding.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/beans/binding/ListBinding.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="65" column="22" selection-start-line="65" selection-start-column="22" selection-end-line="65" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/beans/binding/StringExpression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="46" column="22" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/AdbFxApp.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1389,51 +1242,85 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/BaseController.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.ddms/ddmlib/26.3.0-alpha02/8c62bdfd1ed1b018f7ed17ed8a484bebe0b4b171/ddmlib-26.3.0-alpha02-sources.jar!/com/android/ddmlib/IDevice.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+        <state relative-caret-position="414">
+          <caret line="47" column="30" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="234" column="18" selection-start-line="234" selection-start-column="18" selection-end-line="234" selection-end-column="18" />
           <folding>
-            <element signature="e#769#770#0" expanded="true" />
-            <element signature="e#798#799#0" expanded="true" />
+            <element signature="e#10065#10066#0" expanded="true" />
+            <element signature="e#10148#10149#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/FileManager.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.ddms/ddmlib/26.3.0-alpha02/8c62bdfd1ed1b018f7ed17ed8a484bebe0b4b171/ddmlib-26.3.0-alpha02-sources.jar!/com/android/ddmlib/IShellEnabledDevice.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="60" column="32" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="32" />
+        <state relative-caret-position="84">
+          <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.ddms/ddmlib/26.3.0-alpha02/8c62bdfd1ed1b018f7ed17ed8a484bebe0b4b171/ddmlib-26.3.0-alpha02-sources.jar!/com/android/ddmlib/Device.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="168" column="35" selection-start-line="168" selection-start-column="35" selection-end-line="168" selection-end-column="35" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#4507#4508#0" expanded="true" />
+            <element signature="e#4538#4539#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkModel.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/actionbar/ActionBarController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="45" column="40" lean-forward="true" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="76">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="70" column="40" selection-start-line="70" selection-start-column="40" selection-end-line="70" selection-end-column="40" />
+        <state relative-caret-position="231">
+          <caret line="25" column="28" lean-forward="true" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+          <folding>
+            <element signature="e#4963#4964#0" expanded="true" />
+            <element signature="e#4982#4983#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.ddms/ddmlib/26.3.0-alpha02/8c62bdfd1ed1b018f7ed17ed8a484bebe0b4b171/ddmlib-26.3.0-alpha02-sources.jar!/com/android/ddmlib/InstallReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="28" column="19" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#2797#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="49" column="42" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
+        <state relative-caret-position="443">
+          <caret line="63" column="67" selection-start-line="63" selection-start-column="67" selection-end-line="63" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/function/InstallApk.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="40" column="100" selection-start-line="40" selection-start-column="100" selection-end-line="40" selection-end-column="100" />
         </state>
       </provider>
     </entry>

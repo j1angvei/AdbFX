@@ -42,28 +42,29 @@ public class InstallApkService extends Service<String> {
             Set<String> args = mInstallApkModel.getInstallArgs();
             String[] argsArray = args.toArray(new String[0]);
 
-            InstallReceiver receiver = new InstallReceiver();
+            InstallReceiver receiver;
             StringBuilder builder = new StringBuilder();
 
-            log.debug("device,{};apks,{};args:{}", device, apks, args);
             for (int i = 0; i < apks.size(); i++) {
-                String path = apks.get(i);
                 updateProgress(i, count);
-                log.debug("Start:{},path,{}", i, path);
+
+                String path = apks.get(i);
+
+                receiver = new InstallReceiver();
                 device.installPackage(path, false, receiver, argsArray);
-                builder.append(i)
-                        .append(". ")
-                        .append(path)
-                        .append(":\n");
+
+                builder.append(i).append(".\t").append(path).append(":\n");
                 if (receiver.isSuccessfullyCompleted()) {
                     builder.append("Success");
                 } else {
                     builder.append(receiver.getErrorMessage());
                 }
-                builder.append("\n");
+                builder.append("\n\n");
+
+                log.error("receiver,{}", receiver.getErrorMessage());
             }
             updateProgress(count, count);
-            Thread.sleep(500);
+            Thread.sleep(1000);
             return builder.toString();
         }
     }
