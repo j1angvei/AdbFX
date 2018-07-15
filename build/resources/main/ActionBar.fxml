@@ -20,7 +20,7 @@
         <ToolBar>
             <items>
                 <ComboBox fx:id="comboAllDevices"/>
-                <Button mnemonicParsing="false" text="WiFi"/>
+                <!--<Button mnemonicParsing="false" text="WiFi"/>-->
                 <Button fx:id="btnRestartAdb" mnemonicParsing="false" text="Restart ADB"/>
             </items>
         </ToolBar>

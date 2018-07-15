@@ -2,21 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c41d51c3-bd96-454b-a9a6-904583993f14" name="Default Changelist" comment="complete install apk">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__junit_junit_4_12.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/Home.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/actionbar/ActionBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/actionbar/ActionBarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/function/InstallApk.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/function/InstallApk.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/cn/j1angvei/adbfx/actionbar/ActionBarController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/cn/j1angvei/adbfx/actionbar/ActionBarController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/ActionBar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/ActionBar.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -61,7 +55,7 @@
     <session id="835767665">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="fxml" value="17" />
+          <entry key="fxml" value="18" />
           <entry key="gitignore" value="1" />
           <entry key="gradle" value="5" />
           <entry key="java" value="69" />
@@ -74,23 +68,23 @@
           <entry key="Image" value="1" />
           <entry key="JAVA" value="69" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="XML" value="17" />
+          <entry key="XML" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="fxml" value="906" />
+          <entry key="fxml" value="919" />
           <entry key="gradle" value="17" />
-          <entry key="java" value="6556" />
-          <entry key="txt" value="55" />
+          <entry key="java" value="6572" />
+          <entry key="txt" value="85" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="17" />
-          <entry key="JAVA" value="6556" />
-          <entry key="PLAIN_TEXT" value="55" />
-          <entry key="XML" value="906" />
+          <entry key="JAVA" value="6572" />
+          <entry key="PLAIN_TEXT" value="85" />
+          <entry key="XML" value="919" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -121,12 +115,12 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/function/InstallApk.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="40" column="100" selection-start-line="40" selection-start-column="100" selection-end-line="40" selection-end-column="100" />
+            <state relative-caret-position="648">
+              <caret line="42" column="83" selection-start-line="42" selection-start-column="83" selection-end-line="42" selection-end-column="83" />
             </state>
           </provider>
         </entry>
@@ -152,11 +146,21 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/actionbar/ActionBarController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="45" selection-start-line="45" selection-end-line="45" />
+            <state relative-caret-position="1350">
+              <caret line="89" column="65" selection-start-line="89" selection-start-column="65" selection-end-line="89" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/ActionBar.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
@@ -613,7 +617,6 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/container/ContainerController.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/Function.java" />
         <option value="$PROJECT_DIR$/src/main/resources/function/ApkPlaceHolder.fxml" />
-        <option value="$PROJECT_DIR$/src/main/resources/ActionBar.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/actionbar/AdbStartService.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/actionbar/ActionBarModel.java" />
         <option value="$PROJECT_DIR$/src/main/resources/Container.fxml" />
@@ -624,10 +627,11 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/FileManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkModel.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/actionbar/ActionBarController.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkController.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/function/InstallApk.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/ActionBar.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/actionbar/ActionBarController.java" />
       </list>
     </option>
   </component>
@@ -872,7 +876,7 @@
       <workItem from="1531540650613" duration="3224000" />
       <workItem from="1531545187385" duration="24534000" />
       <workItem from="1531624396420" duration="5177000" />
-      <workItem from="1531631788733" duration="2347000" />
+      <workItem from="1531631788733" duration="3331000" />
     </task>
     <task id="LOCAL-00001" summary="complete install function">
       <created>1531562867251</created>
@@ -895,23 +899,30 @@
       <option name="project" value="LOCAL" />
       <updated>1531578476019</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="complete install apk history">
+      <created>1531634318617</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1531634318617</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36611000" />
+    <option name="totallyTimeSpent" value="37595000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24530831" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24530831" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32885906" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49731904" visible="true" weight="0.62550336" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49731904" weight="0.62550336" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -941,7 +952,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="complete install function" />
     <MESSAGE value="complete install apk" />
-    <option name="LAST_COMMIT_MESSAGE" value="complete install apk" />
+    <MESSAGE value="complete install apk history" />
+    <option name="LAST_COMMIT_MESSAGE" value="complete install apk history" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1094,14 +1106,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/History.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/ActionBar.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/container/ContainerController.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1278,13 +1282,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/actionbar/ActionBarController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -1319,8 +1316,23 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/function/InstallApk.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="40" column="100" selection-start-line="40" selection-start-column="100" selection-end-line="40" selection-end-column="100" />
+        <state relative-caret-position="648">
+          <caret line="42" column="83" selection-start-line="42" selection-start-column="83" selection-end-line="42" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/ActionBar.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/actionbar/ActionBarController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1350">
+          <caret line="89" column="65" selection-start-line="89" selection-start-column="65" selection-end-line="89" selection-end-column="65" />
         </state>
       </provider>
     </entry>
