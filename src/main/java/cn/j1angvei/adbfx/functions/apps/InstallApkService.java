@@ -62,7 +62,7 @@ public class InstallApkService extends Service<String> {
                 if (receiver.isSuccessfullyCompleted()) {
                     builder.append("Success");
                 } else {
-                    builder.append(String.format("Failed[%s]", receiver.getErrorMessage()));
+                    builder.append(String.format("Failure - [%s]", receiver.getErrorMessage()));
                 }
                 builder.append("\n");
             }

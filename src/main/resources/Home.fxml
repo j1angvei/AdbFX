@@ -38,7 +38,7 @@
                         <ListView VBox.vgrow="ALWAYS"/>
                     </children>
                 </VBox>
-                <fx:include source="function/InstallApk.fxml"/>
+                <fx:include source="function/UninstallApp.fxml"/>
             </items>
         </SplitPane>
     </children>

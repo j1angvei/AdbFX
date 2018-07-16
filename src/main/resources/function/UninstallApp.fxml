@@ -1,22 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<VBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
-      minHeight="-Infinity"
->
+<?import javafx.scene.text.Text?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" spacing="8.0" xmlns="http://javafx.com/javafx/10.0.1"
+      fx:controller="cn.j1angvei.adbfx.functions.apps.UninstallAppController">
     <children>
-        <HBox>
+        <TitledPane text="Param Settings">
+            <content>
+                <VBox>
+                    <children>
+                        <CheckBox fx:id="checkKeepData" mnemonicParsing="false" text="Keep data"/>
+                    </children>
+                </VBox>
+            </content>
+            <VBox.margin>
+                <Insets/>
+            </VBox.margin>
+        </TitledPane>
+        <HBox spacing="8.0">
             <children>
-                <TextField text="input package name to delete" HBox.hgrow="ALWAYS"/>
-                <Button mnemonicParsing="false" text="Uninstall"/>
+                <TextField fx:id="fieldPackageName"
+                           promptText="enter package name or drag apk here to parse package name" HBox.hgrow="ALWAYS"/>
+                <Button fx:id="btnStartUninstall" mnemonicParsing="false" text="Uninstall"/>
             </children>
+            <VBox.margin>
+                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"/>
+            </VBox.margin>
         </HBox>
-        <CheckBox mnemonicParsing="false" text="keep data when uninstall"/>
-        <Region prefHeight="24.0" VBox.vgrow="SOMETIMES"/>
-        <Button mnemonicParsing="false" text="Don't know package name? get or drag apk here to identify"/>
+        <TabPane tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Uninstall History">
+                    <content>
+                        <VBox alignment="TOP_CENTER" spacing="4.0">
+                            <children>
+                                <ListView fx:id="listUninstallHistory">
+                                    <placeholder>
+                                        <Text text="No uninstall history"/>
+                                    </placeholder>
+                                </ListView>
+                                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Clear"
+                                        fx:id="btnClearHistory">
+                                    <VBox.margin>
+                                        <Insets left="8.0" right="8.0"/>
+                                    </VBox.margin>
+                                </Button>
+                            </children>
+                        </VBox>
+                    </content>
+                </Tab>
+                <Tab text="Installed Packages(third party packages)">
+                    <content>
+                        <VBox alignment="CENTER" spacing="4.0">
+                            <children>
+                                <ListView fx:id="listInstalledPackages">
+                                    <placeholder>
+                                        <Text text="No packages installed " fx:id="textNoPackages"/>
+                                    </placeholder>
+                                </ListView>
+                                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Refresh"
+                                        fx:id="btnRefreshPackages">
+                                    <VBox.margin>
+                                        <Insets left="8.0" right="8.0"/>
+                                    </VBox.margin>
+                                </Button>
+                            </children>
+                        </VBox>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+        <TitledPane expanded="false" text="Uninstall Result">
+            <content>
+                <TextArea fx:id="areaResult"/>
+            </content>
+        </TitledPane>
     </children>
 </VBox>
