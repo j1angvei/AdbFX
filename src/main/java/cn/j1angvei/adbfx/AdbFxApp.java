@@ -29,7 +29,9 @@ public class AdbFxApp extends Application {
         Scene scene = new Scene(borderPane);
         primaryStage.setScene(scene);
         primaryStage.setWidth(900);
+        primaryStage.setMinWidth(750);
         primaryStage.setHeight(600);
+        primaryStage.setMinHeight(450);
         primaryStage.setTitle("AdbFX");
         primaryStage.show();
     }

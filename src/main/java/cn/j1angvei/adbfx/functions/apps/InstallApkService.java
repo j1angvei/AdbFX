@@ -1,6 +1,7 @@
 package cn.j1angvei.adbfx.functions.apps;
 
 import com.android.ddmlib.IDevice;
+import com.android.ddmlib.InstallException;
 import com.android.ddmlib.InstallReceiver;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
@@ -51,17 +52,19 @@ public class InstallApkService extends Service<String> {
                 String path = apks.get(i);
 
                 receiver = new InstallReceiver();
-                device.installPackage(path, false, receiver, argsArray);
+                try {
+                    device.installPackage(path, false, receiver, argsArray);
+                } catch (InstallException e) {
+                    log.error("Error when install apk,{}", path, e);
+                }
 
                 builder.append(i).append(".\t").append(path).append(":\n");
                 if (receiver.isSuccessfullyCompleted()) {
                     builder.append("Success");
                 } else {
-                    builder.append(receiver.getErrorMessage());
+                    builder.append(String.format("Failed[%s]", receiver.getErrorMessage()));
                 }
-                builder.append("\n\n");
-
-                log.error("receiver,{}", receiver.getErrorMessage());
+                builder.append("\n");
             }
             updateProgress(count, count);
             Thread.sleep(1000);

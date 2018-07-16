@@ -4,21 +4,19 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
-<VBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171"
+<VBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1"
       fx:controller="cn.j1angvei.adbfx.functions.apps.InstallApkController">
     <children>
         <TitledPane expanded="false" text="Params Settings">
             <content>
-                <VBox spacing="4.0">
+                <FlowPane hgap="8.0" vgap="8.0">
                     <children>
                         <CheckBox fx:id="checkLock" mnemonicParsing="false" text="-l: forward lock application"
                                   userData="-l"/>
-                        <CheckBox selected="true" fx:id="checkReplace" mnemonicParsing="false"
-                                  text="-r: replace existing application"
-                                  userData="-r"/>
-                        <CheckBox selected="true" fx:id="checkTest" mnemonicParsing="false"
-                                  text="-t: allow test packages"
-                                  userData="-t"/>
+                        <CheckBox fx:id="checkReplace" mnemonicParsing="false" selected="true"
+                                  text="-r: replace existing application" userData="-r"/>
+                        <CheckBox fx:id="checkTest" mnemonicParsing="false" selected="true"
+                                  text="-t: allow test packages" userData="-t"/>
                         <CheckBox fx:id="checkSdcard" mnemonicParsing="false" text="-s: install application on sdcard"
                                   userData="-s"/>
                         <CheckBox fx:id="checkDebug" mnemonicParsing="false"
@@ -26,7 +24,7 @@
                         <CheckBox fx:id="checkPermission" mnemonicParsing="false"
                                   text="-g: grant all runtime permissions" userData="-g"/>
                     </children>
-                </VBox>
+                </FlowPane>
             </content>
         </TitledPane>
         <ListView fx:id="listApksToInstall" VBox.vgrow="ALWAYS">
@@ -40,7 +38,7 @@
                     <items>
                         <MenuItem mnemonicParsing="false">
                             <graphic>
-                                <ListView fx:id="listInstallHistory" prefWidth="450" prefHeight="180">
+                                <ListView fx:id="listInstallHistory" prefHeight="180" prefWidth="450">
                                     <placeholder>
                                         <Text text="No install history"/>
                                     </placeholder>
@@ -73,7 +71,7 @@
             <children>
                 <TitledPane fx:id="titledResult" expanded="false" text="Install output">
                     <content>
-                        <TextArea fx:id="textResult" prefRowCount="8"/>
+                        <TextArea fx:id="textResult" editable="false"/>
                     </content>
                 </TitledPane>
                 <ProgressBar fx:id="progressInstall" maxWidth="1.7976931348623157E308">
