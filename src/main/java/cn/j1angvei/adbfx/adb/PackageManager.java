@@ -105,7 +105,7 @@ public class PackageManager {
 
         private PackageInfo packageInfo;
 
-        public void execute(PackageInfo packageInfo) {
+        public void restart(PackageInfo packageInfo) {
             this.packageInfo = packageInfo;
             this.restart();
         }
