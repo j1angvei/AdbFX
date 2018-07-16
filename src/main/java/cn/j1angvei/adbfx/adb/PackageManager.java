@@ -160,8 +160,10 @@ public class PackageManager {
                     } catch (IOException e) {
                         log.error("Error when get package detail for {},", packageInfo.getPackageName(), e);
                     }
+
+                    PackageInfo result = packageInfo;
                     packageInfo = null;
-                    return packageInfo;
+                    return result;
                 }
             };
         }
