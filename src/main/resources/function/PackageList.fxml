@@ -1,33 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
-<VBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1">
+<VBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1"
+      fx:controller="cn.j1angvei.adbfx.functions.apps.PackageListController">
     <children>
-        <TitledPane expanded="false" text="Filter Packages">
+        <TitledPane text="Filter Packages">
             <content>
                 <FlowPane hgap="8.0" vgap="8.0">
                     <children>
                         <HBox alignment="CENTER_LEFT" spacing="4.0">
                             <children>
                                 <Label text="App status:"/>
-                                <RadioButton mnemonicParsing="false" text="All"/>
-                                <RadioButton mnemonicParsing="false" text="Enabled"/>
-                                <RadioButton mnemonicParsing="false" text="Disabled"/>
+                                <RadioButton mnemonicParsing="false" text="All" userData=""/>
+                                <RadioButton mnemonicParsing="false" text="Enabled" userData="-e"/>
+                                <RadioButton mnemonicParsing="false" text="Disabled" userData="-d"/>
                             </children>
                         </HBox>
                         <Separator orientation="VERTICAL"/>
                         <HBox alignment="CENTER_LEFT" spacing="4.0">
                             <children>
                                 <Label text="App types:"/>
-                                <RadioButton mnemonicParsing="false" text="All"/>
-                                <RadioButton mnemonicParsing="false" text="System"/>
-                                <RadioButton mnemonicParsing="false" text="Third party"/>
+                                <RadioButton mnemonicParsing="false" text="All" userData=""/>
+                                <RadioButton mnemonicParsing="false" text="System" userData="-s"/>
+                                <RadioButton mnemonicParsing="false" text="Third party" userData="-3"/>
                             </children>
                         </HBox>
                         <Separator orientation="VERTICAL"/>
-                        <CheckBox mnemonicParsing="false" text="Include uninstalled packages"/>
+                        <CheckBox mnemonicParsing="false" text="Include uninstalled packages" userData="-u"/>
                     </children>
                 </FlowPane>
             </content>
@@ -38,18 +39,39 @@
                 <Button mnemonicParsing="false" text="Clear Input"/>
             </children>
         </HBox>
-        <TableView>
-            <items>
-                <FXCollections fx:factory="observableArrayList"/>
-            </items>
-            <columns>
+        <TableView fx:id="tablePackageList">
 
-                <TableColumn prefWidth="96.0" text="Package name"/>
-                <TableColumn minWidth="0.0" prefWidth="104.0" text="Version  code"/>
-                <TableColumn minWidth="0.0" prefWidth="104.0" text="Version  name"/>
-                <TableColumn minWidth="0.0" prefWidth="104.0" text="Target SDK"/>
-                <TableColumn minWidth="0.0" prefWidth="104.0" text="First install"/>
-                <TableColumn minWidth="0.0" prefWidth="104.0" text="Last update"/>
+            <columns>
+                <TableColumn prefWidth="96.0" text="Package name">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="packageName"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn minWidth="0.0" prefWidth="104.0" text="Version  code">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="versionCode"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn minWidth="0.0" prefWidth="104.0" text="Version  name">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="targetSdk"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn minWidth="0.0" prefWidth="104.0" text="Target SDK">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="versionName"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn minWidth="0.0" prefWidth="104.0" text="First install">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="firstInstall"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn minWidth="0.0" prefWidth="104.0" text="Last update">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="lastUpdate"/>
+                    </cellValueFactory>
+                </TableColumn>
             </columns>
             <contextMenu>
                 <ContextMenu>
@@ -59,7 +81,7 @@
                 </ContextMenu>
             </contextMenu>
         </TableView>
-        <ButtonBar prefHeight="40.0" prefWidth="200.0">
+        <ButtonBar>
             <buttons>
                 <Button mnemonicParsing="false" text="Clear Data"/>
                 <MenuButton mnemonicParsing="false" text="Change Status">
@@ -82,7 +104,7 @@
                         </Menu>
                     </items>
                 </MenuButton>
-                <SplitMenuButton mnemonicParsing="false" text="Get Apk">
+                <SplitMenuButton fx:id="menuGetApk" mnemonicParsing="false" text="Get Apk">
                     <items>
                         <MenuItem mnemonicParsing="false" text="Open Folder"/>
                     </items>

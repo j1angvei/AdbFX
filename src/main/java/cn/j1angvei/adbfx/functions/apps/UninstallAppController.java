@@ -6,8 +6,6 @@ import javafx.collections.FXCollections;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
-import java.util.concurrent.Callable;
-
 public class UninstallAppController extends BaseController<UninstallAppModel> {
     public CheckBox checkKeepData;
     public TextField fieldPackageName;
@@ -75,12 +73,9 @@ public class UninstallAppController extends BaseController<UninstallAppModel> {
         });
         btnRefreshPackages.setOnAction(event -> mGetPackagesService.restart());
         btnRefreshPackages.disableProperty().bind(mGetPackagesService.runningProperty());
-        textNoPackages.textProperty().bind(Bindings.createStringBinding(new Callable<String>() {
-            @Override
-            public String call() {
-                return mGetPackagesService.isRunning() ? "Loading packages from device..." : "No packages available";
-            }
-        }, mGetPackagesService.runningProperty()));
+        textNoPackages.textProperty().bind(Bindings.createStringBinding(() ->
+                        mGetPackagesService.isRunning() ? "Loading packages from device..." : "No packages available",
+                mGetPackagesService.runningProperty()));
         /* **************************************************
             show install result, success or failure and why it failed
          ************************************************** */

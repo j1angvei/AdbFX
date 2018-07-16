@@ -33,7 +33,7 @@ public enum Function {
     PKG_LIST(
             "pkg_list",
             "/img/test.png",
-            "/function/AllApps.fxml",
+            "/function/PackageList.fxml",
             Category.APPS),
 
 

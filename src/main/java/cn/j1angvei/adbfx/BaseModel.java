@@ -6,9 +6,4 @@ package cn.j1angvei.adbfx;
  */
 public abstract class BaseModel {
 
-    protected BaseModel() {
-        initValue();
-    }
-
-    protected abstract void initValue();
 }

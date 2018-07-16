@@ -30,7 +30,7 @@ public class UninstallAppService extends Service<String> {
 
 
             StringBuilder builder = new StringBuilder();
-            builder.append(String.format("Ready to uninstall %s from %s\n", packageName, device.getSerialNumber()));
+            builder.append(String.format("Uninstall %s\n", packageName));
 
             try {
                 String command = String.format("pm uninstall %s %s", keepData ? "-k" : "", packageName);
