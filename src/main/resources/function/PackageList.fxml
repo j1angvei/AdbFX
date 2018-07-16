@@ -3,6 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
 <VBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1"
       fx:controller="cn.j1angvei.adbfx.functions.apps.PackageListController">
     <children>
@@ -40,9 +41,11 @@
             </children>
         </HBox>
         <TableView fx:id="tablePackageList">
-
+            <placeholder>
+                <Text text="No package install, right click to refresh..." fx:id="textRefreshList"/>
+            </placeholder>
             <columns>
-                <TableColumn prefWidth="96.0" text="Package name">
+                <TableColumn fx:id="pkgNameCol" prefWidth="96.0" text="Package name">
                     <cellValueFactory>
                         <PropertyValueFactory property="packageName"/>
                     </cellValueFactory>
@@ -80,8 +83,11 @@
                     </items>
                 </ContextMenu>
             </contextMenu>
+            <sortOrder>
+                <fx:reference source="pkgNameCol"/>
+            </sortOrder>
         </TableView>
-        <ButtonBar>
+        <ButtonBar fx:id="barPackagesActions">
             <buttons>
                 <Button mnemonicParsing="false" text="Clear Data"/>
                 <MenuButton mnemonicParsing="false" text="Change Status">

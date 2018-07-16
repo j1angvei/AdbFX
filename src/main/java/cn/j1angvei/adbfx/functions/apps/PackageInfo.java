@@ -19,8 +19,9 @@ public class PackageInfo {
     private final StringProperty firstInstall; //firstInstallTime
     private final StringProperty lastUpdate; //lastUpdateTime
     private final ListProperty<String> permissions; //grantedPermissions
+    private final StringProperty deviceSn;
 
-    public PackageInfo(String packageName) {
+    public PackageInfo(String packageName, String serialNumber) {
         this.packageName = new SimpleStringProperty(packageName);
         versionCode = new SimpleStringProperty();
         targetSdk = new SimpleStringProperty();
@@ -28,6 +29,7 @@ public class PackageInfo {
         firstInstall = new SimpleStringProperty();
         lastUpdate = new SimpleStringProperty();
         permissions = new SimpleListProperty<>(FXCollections.observableArrayList());
+        deviceSn = new SimpleStringProperty(serialNumber);
     }
 
     public String getPackageName() {
@@ -112,5 +114,17 @@ public class PackageInfo {
 
     public ListProperty<String> permissionsProperty() {
         return permissions;
+    }
+
+    public String getDeviceSn() {
+        return deviceSn.get();
+    }
+
+    public void setDeviceSn(String deviceSn) {
+        this.deviceSn.set(deviceSn);
+    }
+
+    public StringProperty deviceSnProperty() {
+        return deviceSn;
     }
 }

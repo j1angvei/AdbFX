@@ -98,7 +98,7 @@ public class InstallApkController extends BaseController<InstallApkModel> {
                 mInstallApkService.runningProperty(), getModel().getApksToInstall().emptyProperty()));
         btnStartInstall.setOnAction(event -> mInstallApkService.restart());
 
-        //run install service
+        //execute install service
         progressInstall.visibleProperty().bind(mInstallApkService.runningProperty());
         getModel().getApksToInstall().sizeProperty().addListener((observable, oldValue, newValue) -> {
             int size = newValue.intValue();

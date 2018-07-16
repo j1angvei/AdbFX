@@ -124,7 +124,7 @@ public enum Function {
             "/function/InstallApk.fxml",
             Category.ADVANCED),
     /**
-     * run script(activity, intent,service,broadcast)
+     * execute script(activity, intent,service,broadcast)
      */
     RUN_SCRIPT(
             "screen_recording",

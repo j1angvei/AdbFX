@@ -1,23 +1,27 @@
 package cn.j1angvei.adbfx.functions.apps;
 
 import cn.j1angvei.adbfx.BaseController;
-import cn.j1angvei.adbfx.adb.pm.PackageDetailTask;
-import cn.j1angvei.adbfx.adb.pm.PackageListTask;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import cn.j1angvei.adbfx.adb.PackageManager;
+import javafx.beans.binding.Bindings;
+import javafx.scene.control.ButtonBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.TableView;
+import javafx.scene.text.Text;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class PackageListController extends BaseController<PackageListModel> {
+
     public TableView<PackageInfo> tablePackageList;
     public MenuItem menuRefreshList;
+    public Text textRefreshList;
+    public ButtonBar barPackagesActions;
 
     public SplitMenuButton menuGetApk;
+    private PackageManager.GetListService mGetListService;
 
-    private PackageListTask mPackageListTask;
-
-    private PackageDetailTask mPackageDetailTaskTask;
+    private PackageManager.GetDetailService mGetDetailService;
 
     @Override
     protected PackageListModel initModel() {
@@ -26,42 +30,42 @@ public class PackageListController extends BaseController<PackageListModel> {
 
     @Override
     protected void initArguments() {
-        mPackageListTask = new PackageListTask(getModel().getArguments());
-
-        mPackageDetailTaskTask = new PackageDetailTask();
+        mGetListService = PackageManager.getList(getModel().getArguments());
+        mGetDetailService = PackageManager.getDetail();
     }
 
     @Override
     protected void initView() {
-        /* ==========================================================================================================
-            render package list
-         ============================================================================================================ */
-
-        mPackageListTask.valueProperty().addListener((observable, oldValue, newValue) -> {
+        /* ===============================================================
+             package list
+         =================================================================*/
+        //show newly added packages and remove old ones
+        mGetListService.valueProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue == null || newValue.isEmpty()) {
                 return;
             }
-            getModel().getPackageList().clear();
-            newValue.forEach(s -> getModel().getPackageList().add(new PackageInfo(s)));
+            newValue.forEach(packageInfo -> tablePackageList.getItems().add(packageInfo));
+            tablePackageList.sort();
         });
-
-        menuRefreshList.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                new Thread(mPackageListTask).start();
-            }
-        });
-
-        tablePackageList.itemsProperty().bind(getModel().getPackageList());
-
-        menuGetApk.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                mPackageDetailTaskTask.setPackageToGetDetail("cn.j1angvei.aiocrdemo");
-                new Thread(mPackageDetailTaskTask).start();
-
-            }
-        });
+        //refresh package list
+        try {
+            menuRefreshList.setOnAction(event -> {
+                tablePackageList.getItems().clear();
+                mGetListService.restart();
+            });
+        } catch (Exception e) {
+            log.error("Error when click menu refresh", e);
+        }
+        //change placeholder text
+        textRefreshList.textProperty().bind(Bindings.createStringBinding(() ->
+                        mGetListService.isRunning() ? "Loading all packages... " :
+                                "Found no packages, right click to refresh list",
+                mGetListService.runningProperty()));
+        barPackagesActions.disableProperty().bind(
+                Bindings.isNull(tablePackageList.getSelectionModel().selectedItemProperty()));
+        /* ===============================================================
+             package detail
+         =================================================================*/
 
     }
 
