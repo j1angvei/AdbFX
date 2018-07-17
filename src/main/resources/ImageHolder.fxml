@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
+<fx:root xmlns:fx="http://javafx.com/fxml/1" type="ScrollPane" fitToHeight="true" fitToWidth="true"
+         xmlns="http://javafx.com/javafx/8.0.171"
+         style="-fx-background-color: yellow">
+    <content>
+        <StackPane style="-fx-background-color: blue">
+            <children>
+                <Group fx:id="group" style="-fx-background-color: red">
+                    <children>
+                        <ImageView style="-fx-background-color: green" fx:id="imageView" cache="true"
+                                   pickOnBounds="true"
+                                   preserveRatio="true"/>
+                    </children>
+                </Group>
+                <Slider StackPane.alignment="BOTTOM_CENTER" fx:id="slider">
+                    <StackPane.margin>
+                        <Insets bottom="24.0"/>
+                    </StackPane.margin>
+                </Slider>
+            </children>
+        </StackPane>
+    </content>
+</fx:root>

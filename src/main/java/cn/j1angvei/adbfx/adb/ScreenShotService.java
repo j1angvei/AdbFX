@@ -22,7 +22,7 @@ public class ScreenShotService extends Service<File> {
     private String mSaveDir;
     private boolean mLandScape;
 
-    public void restart(@NonNull IDevice device, @NonNull String saveDir, @NonNull Boolean landscape) {
+    public final void restart(@NonNull IDevice device, @NonNull String saveDir, @NonNull Boolean landscape) {
         mDevice = device;
         mSaveDir = saveDir;
         mLandScape = landscape;

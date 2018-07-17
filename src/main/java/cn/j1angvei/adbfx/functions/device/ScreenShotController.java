@@ -13,8 +13,6 @@ import javafx.scene.image.ImageView;
 import javafx.util.Callback;
 import org.apache.commons.lang3.SystemUtils;
 
-import java.io.File;
-
 public class ScreenShotController extends BaseController<ScreenShotModel> {
     public CheckBox checkLandscape;
     public Button btnTakeScreenShot;
@@ -42,9 +40,11 @@ public class ScreenShotController extends BaseController<ScreenShotModel> {
     @Override
     protected void initView() {
         /* **********************************************************
-               Action to take screenShot
+              Take screenShot
          ********************************************************** */
-        btnTakeScreenShot.setOnAction(event -> mScreenShotService.restart(getChosenDevice(), fieldSaveDir.getText(), checkLandscape.isSelected()));
+        btnTakeScreenShot.setOnAction(event -> mScreenShotService.restart(
+                getChosenDevice(), fieldSaveDir.getText(), checkLandscape.isSelected()));
+        //new screenShot arrived
         mScreenShotService.valueProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null && !getModel().getSavedImages().contains(newValue)) {
                 getModel().getSavedImages().add(newValue);
@@ -57,25 +57,19 @@ public class ScreenShotController extends BaseController<ScreenShotModel> {
         paginationImages.setPageFactory(new Callback<Integer, Node>() {
             @Override
             public Node call(Integer param) {
-                Image image;
                 if (getModel().getSavedImages().isEmpty()) {
-                    image = new Image("/img/ph_screen_shot.png");
+                    Image image = new Image("/img/ph_screen_shot.png");
+                    return new ImageView(image);
                 } else {
-                    File file = ScreenShotController.this.getModel().getSavedImages().get(param);
-                    image = new Image(file.toURI().toString());
+                    return new ImageHolder(getModel().getSavedImages().get(param));
                 }
-                ImageView imageView = new ImageView(image);
-                imageView.setFitWidth(400f);
-                imageView.setFitHeight(300f);
-                imageView.setPreserveRatio(true);
-                return imageView;
             }
         });
         paginationImages.pageCountProperty().bind(Bindings.createIntegerBinding(() ->
                         getModel().getSavedImages().size(),
                 getModel().getSavedImages()));
 
-
+        paginationImages.currentPageIndexProperty().bindBidirectional(getModel().getCurrentIndex());
     }
 
     @Override
