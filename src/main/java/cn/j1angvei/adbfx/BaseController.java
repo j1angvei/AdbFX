@@ -1,17 +1,22 @@
 package cn.j1angvei.adbfx;
 
+import cn.j1angvei.adbfx.actionbar.ActionBarModel;
+import com.android.ddmlib.IDevice;
+import javafx.beans.property.ObjectProperty;
 import javafx.fxml.Initializable;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public abstract class BaseController<M> implements Initializable {
+    private ObjectProperty<IDevice> mChosenDevice;
     private M mModel;
     private ResourceBundle resourceBundle;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.resourceBundle = resources;
+        mChosenDevice = ActionBarModel.getInstance().getChosenDevice();
         mModel = initModel();
         initArguments();
         initView();
@@ -34,5 +39,13 @@ public abstract class BaseController<M> implements Initializable {
 
     public final M getModel() {
         return mModel;
+    }
+
+    public IDevice getChosenDevice() {
+        return mChosenDevice.get();
+    }
+
+    public ObjectProperty<IDevice> chosenDeviceProperty() {
+        return mChosenDevice;
     }
 }
