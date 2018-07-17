@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 @Slf4j
@@ -34,13 +35,14 @@ public class PackageDetailService extends Service<Void> {
             protected Void call() {
                 IDevice device = PackageManager.getChosenDevice();
 
-                mPackageInfoList.stream().filter(packageInfo -> {
-                    PackageInfo searchResult = PackageManager.getInstance().searchDetailedPackage(packageInfo);
-                    if (searchResult == null) {
-                        return true;
-                    } else {
-                        packageInfo = searchResult;
-                        return false;
+                mPackageInfoList.stream().filter(new Predicate<PackageInfo>() {
+                    @Override
+                    public boolean test(PackageInfo packageInfo) {
+                        log.debug("Before search:{}", packageInfo);
+                        boolean result = !PackageManager.getInstance().searchDetailedPackage(packageInfo);
+                        log.debug("After search:{}", packageInfo);
+
+                        return result;
                     }
                 }).forEach(packageInfo -> {
                     String cmd = String.format("pm dump %s", packageInfo.getPackageName());
@@ -80,6 +82,7 @@ public class PackageDetailService extends Service<Void> {
                                 return false;
                             }
                         });
+
                         PackageManager.getInstance().addDetailedPackage(packageInfo);
                     } catch (AdbCommandRejectedException | ShellCommandUnresponsiveException | TimeoutException | IOException e) {
                         log.error("Error when get package detail for {},", packageInfo.getPackageName(), e);

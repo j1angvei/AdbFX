@@ -4,13 +4,14 @@
     <list default="true" id="5870bedf-971f-4c88-a57d-5073125147a1" name="Default Changelist" comment="tweak install function">
       <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/adb/PackageDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/adb/PackageDetailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/adb/PackageListService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/adb/PackageListService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/adb/PackageManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/adb/PackageManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/PackageListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/PackageListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/PackageListModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/PackageListModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/function/AllApps.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/function/PackageList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/function/PackageList.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -77,9 +78,9 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="4" />
-          <entry key="fxml" value="21" />
+          <entry key="fxml" value="24" />
           <entry key="gradle" value="1" />
-          <entry key="java" value="60" />
+          <entry key="java" value="87" />
           <entry key="png" value="1" />
         </counts>
       </usages-collector>
@@ -88,53 +89,25 @@
           <entry key="CSS" value="4" />
           <entry key="Groovy" value="1" />
           <entry key="Image" value="1" />
-          <entry key="JAVA" value="60" />
-          <entry key="XML" value="21" />
+          <entry key="JAVA" value="87" />
+          <entry key="XML" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="45" />
-          <entry key="fxml" value="863" />
+          <entry key="fxml" value="1040" />
           <entry key="gradle" value="19" />
-          <entry key="java" value="6704" />
-          <entry key="txt" value="108" />
+          <entry key="java" value="9135" />
+          <entry key="txt" value="165" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="19" />
-          <entry key="JAVA" value="6704" />
-          <entry key="PLAIN_TEXT" value="153" />
-          <entry key="XML" value="863" />
-        </counts>
-      </usages-collector>
-    </session>
-    <session id="835767665">
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="fxml" value="2" />
-          <entry key="java" value="11" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="JAVA" value="11" />
-          <entry key="XML" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="fxml" value="169" />
-          <entry key="java" value="2118" />
-          <entry key="txt" value="64" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="2118" />
-          <entry key="PLAIN_TEXT" value="64" />
-          <entry key="XML" value="169" />
+          <entry key="JAVA" value="9135" />
+          <entry key="PLAIN_TEXT" value="210" />
+          <entry key="XML" value="1040" />
         </counts>
       </usages-collector>
     </session>
@@ -142,38 +115,40 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/actionbar/ActionBarController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="59" column="60" lean-forward="true" selection-start-line="59" selection-start-column="60" selection-end-line="59" selection-end-column="60" />
+            <state relative-caret-position="799">
+              <caret line="57" column="44" selection-start-line="57" selection-start-column="44" selection-end-line="57" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/adb/PackageManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="559">
+              <caret line="43" column="27" selection-start-line="43" selection-start-column="27" selection-end-line="43" selection-end-column="27" />
+              <folding>
+                <element signature="e#863#864#0" expanded="true" />
+                <element signature="e#894#895#0" expanded="true" />
+                <element signature="e#1085#1086#0" expanded="true" />
+                <element signature="e#1160#1161#0" expanded="true" />
+                <element signature="e#1317#1318#0" expanded="true" />
+                <element signature="e#1355#1356#0" expanded="true" />
+                <element signature="e#1694#1695#0" expanded="true" />
+                <element signature="e#1754#1755#0" expanded="true" />
+                <element signature="e#2086#2087#0" expanded="true" />
+                <element signature="e#2149#2150#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/adb/PackageManager.java">
+        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/src.zip!/java/util/Set.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="515">
-              <caret line="162" column="20" selection-start-line="162" selection-start-column="20" selection-end-line="162" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#796#797#0" expanded="true" />
-                <element signature="e#840#841#0" expanded="true" />
-                <element signature="e#915#916#0" expanded="true" />
-                <element signature="e#964#965#0" expanded="true" />
-                <element signature="e#1012#1013#0" expanded="true" />
-                <element signature="e#1087#1088#0" expanded="true" />
-                <element signature="e#1692#1693#0" expanded="true" />
-                <element signature="e#1742#1743#0" expanded="true" />
-                <element signature="e#1664#3361#0" expanded="true" />
-                <element signature="e#2731#2732#0" expanded="true" />
-                <element signature="e#2791#2792#0" expanded="true" />
-                <element signature="e#3360#3361#0" expanded="true" />
-                <element signature="e#4293#7317#0" expanded="true" />
-                <element signature="e#6661#6662#0" expanded="true" />
-                <element signature="e#6721#6722#0" expanded="true" />
-                <element signature="e#7316#7317#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="273">
+              <caret line="224" column="12" selection-start-line="224" selection-start-column="12" selection-end-line="224" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -181,32 +156,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/PackageListController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="731">
-              <caret line="64" column="16" selection-start-line="64" selection-start-column="16" selection-end-line="64" selection-end-column="16" />
+            <state relative-caret-position="769">
+              <caret line="74" column="32" selection-start-line="74" selection-start-column="32" selection-end-line="74" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#883#884#0" expanded="true" />
+                <element signature="e#928#929#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/PackageListModel.java">
+        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/javafx-src.zip!/javafx/concurrent/Service.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/lang/Thread.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="695" column="29" selection-start-line="695" selection-start-column="29" selection-end-line="695" selection-end-column="29" />
+            <state relative-caret-position="426">
+              <caret line="583" column="16" selection-start-line="583" selection-start-column="16" selection-end-line="583" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -214,30 +179,52 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/function/PackageList.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="89" column="37" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
+            <state relative-caret-position="429">
+              <caret line="36" column="68" lean-forward="true" selection-start-line="36" selection-start-column="68" selection-end-line="36" selection-end-column="68" />
             </state>
           </provider>
           <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/function/UninstallApp.fxml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/PackageListModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="58" column="90" lean-forward="true" selection-start-line="58" selection-start-column="90" selection-end-line="58" selection-end-column="90" />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/UninstallAppController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="75" column="8" selection-start-line="75" selection-start-column="8" selection-end-line="75" selection-end-column="8" />
+            <state relative-caret-position="323">
+              <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/adb/PackageListService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="128">
+              <caret line="16" column="21" lean-forward="true" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#788#2269#0" expanded="true" />
+                <element signature="e#2268#2269#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/adb/PackageDetailService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="928">
+              <caret line="84" selection-start-line="84" selection-end-line="84" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#882#883#0" expanded="true" />
+                <element signature="e#932#933#0" expanded="true" />
+                <element signature="e#1293#5167#0" expanded="true" />
+                <element signature="e#4274#4275#0" expanded="true" />
+                <element signature="e#4350#4351#0" expanded="true" />
+                <element signature="e#5166#5167#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -246,28 +233,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/PackageInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+            <state relative-caret-position="391">
+              <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3273#3274#0" expanded="true" />
+                <element signature="e#1689#1690#0" expanded="true" />
+                <element signature="e#1723#1724#0" expanded="true" />
+                <element signature="e#1955#1956#0" expanded="true" />
+                <element signature="e#1989#1990#0" expanded="true" />
+                <element signature="e#2471#2472#0" expanded="true" />
+                <element signature="e#2505#2506#0" expanded="true" />
                 <element signature="e#3307#3308#0" expanded="true" />
-                <element signature="e#3342#3343#0" expanded="true" />
-                <element signature="e#3379#3380#0" expanded="true" />
-                <element signature="e#3506#3507#0" expanded="true" />
-                <element signature="e#3549#3550#0" expanded="true" />
-                <element signature="e#3427#3428#0" expanded="true" />
-                <element signature="e#3458#3459#0" expanded="true" />
+                <element signature="e#3341#3342#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/beans/binding/Bindings.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="5917" column="33" selection-start-line="5917" selection-start-column="33" selection-end-line="5917" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -292,10 +270,9 @@
       <find>shellC</find>
       <find>un</find>
       <find>uninstall</find>
-      <find>InstallAPk.fx</find>
       <find>String</find>
       <find>Butt</find>
-      <find>place</find>
+      <find>InstallAPk.fx</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -738,7 +715,6 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/Function.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/mini/MiniModeController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/MiniMode.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/AdbFxApp.java" />
         <option value="$PROJECT_DIR$/src/main/resources/function/InstallApk.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkService.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/GetPackagesService.java" />
@@ -752,7 +728,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/Home.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/BaseModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/PackageOperation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/UninstallAppController.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/PackageDetail.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/PackageManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/PackageTask.java" />
@@ -760,13 +735,17 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/pm/GetPackageDetailTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/pm/PackageManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/pm/PackageListTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/adb/pm/PackageListTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/adb/pm/PackageDetailTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/adb/pm/PackageListTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/PackageInfo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/PackageListModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/UninstallAppController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/AdbFxApp.java" />
         <option value="$PROJECT_DIR$/src/main/resources/function/PackageList.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/PackageListController.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/adb/PackageManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/PackageListModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/adb/PackageListService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/PackageListController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/adb/PackageDetailService.java" />
       </list>
     </option>
   </component>
@@ -787,7 +766,6 @@
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
-      <hideEmptyPackages ProjectPane="false" />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
@@ -797,112 +775,133 @@
           <expand>
             <path>
               <item name="AdbFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProjectSanta" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="AdbFX" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
               <item name="AdbFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProjectSanta" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="AdbFX" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AdbFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProjectSanta" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AdbFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProjectSanta" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="AdbFX" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AdbFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProjectSanta" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="AdbFX" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cn" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AdbFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProjectSanta" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="AdbFX" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cn" type="462c0819:PsiDirectoryNode" />
-              <item name="j1angvei" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AdbFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProjectSanta" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cn" type="462c0819:PsiDirectoryNode" />
-              <item name="j1angvei" type="462c0819:PsiDirectoryNode" />
               <item name="adbfx" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AdbFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProjectSanta" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="AdbFX" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cn" type="462c0819:PsiDirectoryNode" />
-              <item name="j1angvei" type="462c0819:PsiDirectoryNode" />
               <item name="adbfx" type="462c0819:PsiDirectoryNode" />
               <item name="actionbar" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AdbFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProjectSanta" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="AdbFX" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cn" type="462c0819:PsiDirectoryNode" />
-              <item name="j1angvei" type="462c0819:PsiDirectoryNode" />
               <item name="adbfx" type="462c0819:PsiDirectoryNode" />
               <item name="adb" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AdbFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProjectSanta" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="AdbFX" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cn" type="462c0819:PsiDirectoryNode" />
-              <item name="j1angvei" type="462c0819:PsiDirectoryNode" />
               <item name="adbfx" type="462c0819:PsiDirectoryNode" />
               <item name="functions" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AdbFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProjectSanta" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="AdbFX" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cn" type="462c0819:PsiDirectoryNode" />
-              <item name="j1angvei" type="462c0819:PsiDirectoryNode" />
               <item name="adbfx" type="462c0819:PsiDirectoryNode" />
               <item name="functions" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AdbFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProjectSanta" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="AdbFX" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AdbFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProjectSanta" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="AdbFX" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="function" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AdbFX" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="AdbFX" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="AdbFX" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="jfxrt.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AdbFX" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="jfxrt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="javafx" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AdbFX" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="jfxrt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="javafx" type="462c0819:PsiDirectoryNode" />
+              <item name="concurrent" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AdbFX" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Gradle: com.android.tools.ddms:ddmlib:26.3.0-alpha02" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="AdbFX" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Gradle: com.android.tools.ddms:ddmlib:26.3.0-alpha02" type="70bed36:NamedLibraryElementNode" />
+              <item name="ddmlib-26.3.0-alpha02.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AdbFX" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Gradle: com.android.tools.ddms:ddmlib:26.3.0-alpha02" type="70bed36:NamedLibraryElementNode" />
+              <item name="ddmlib-26.3.0-alpha02.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="ddmlib" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -947,17 +946,16 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/gradle.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/vcs.xml</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gradlew</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/AdbFxApp.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/BaseModel.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/java/main/cn/j1angvei/adbfx/AdbFxApp.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/resources/main/Home.fxml</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/Function.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkService.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/Home.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/function/AllApps.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/function/InstallApk.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/function/UninstallApp.fxml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/PackageInfo.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/PackageListController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/PackageListModel.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/function/PackageList.fxml</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -965,20 +963,7 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/modules.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/DeviceModel.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/adb/pm/PackageDetailTask.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/adb/pm/PackageListTask.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/adb/pm/PackageManager.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/GetPackageDetailService.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/GetPackagesService.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/PackageInfo.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/PackageListController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/PackageListModel.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/UninstallAppController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/UninstallAppModel.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/UninstallAppService.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/function/PackageList.fxml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/adb/PackageManager.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -986,6 +971,9 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="true" />
           <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/adb/pm/PackageDetailTask.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/adb/pm/PackageListTask.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/adb/pm/PackageManager.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Restored" />
@@ -1149,7 +1137,7 @@
       <workItem from="1531704576734" duration="656000" />
       <workItem from="1531705226657" duration="86000" />
       <workItem from="1531705339405" duration="47000" />
-      <workItem from="1531705412195" duration="22345000" />
+      <workItem from="1531705412195" duration="31095000" />
     </task>
     <task id="LOCAL-00001" summary="complete initial layout">
       <created>1531473189945</created>
@@ -1186,31 +1174,31 @@
       <option name="project" value="LOCAL" />
       <updated>1531721708284</updated>
     </task>
-    <task id="LOCAL-00006" summary="complete list all packages">
-      <created>1531753585652</created>
+    <task id="LOCAL-00006" summary="add package list">
+      <created>1531741749476</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1531753585652</updated>
+      <updated>1531741749476</updated>
     </task>
-    <task id="LOCAL-00007" summary="small adjustment">
-      <created>1531753631075</created>
+    <task id="LOCAL-00007" summary="complete get package detail function">
+      <created>1531798468698</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1531753631075</updated>
+      <updated>1531798468698</updated>
     </task>
     <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39121000" />
+    <option name="totallyTimeSpent" value="41419000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
+    <frame x="-3" y="24" width="2048" height="1038" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24865952" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17896311" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1218,18 +1206,18 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32885906" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4992636" weight="0.31275168" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32980973" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4992636" weight="0.31501058" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.3289183" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32885906" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3289183" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50073636" side_tool="true" weight="0.3289183" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32980973" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="12" weight="0.32885906" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.32980973" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1255,96 +1243,18 @@
     <MESSAGE value="add mini mode file" />
     <MESSAGE value="tweak install function" />
     <MESSAGE value="complete uninstall history" />
-    <MESSAGE value="complete list all packages" />
-    <MESSAGE value="small adjustment" />
-    <option name="LAST_COMMIT_MESSAGE" value="small adjustment" />
+    <MESSAGE value="add package list" />
+    <MESSAGE value="complete get package detail function" />
+    <option name="LAST_COMMIT_MESSAGE" value="complete get package detail function" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/Container.fxml">
-      <provider selected="true" editor-type-id="text-editor" />
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/History.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="32" column="19" lean-forward="true" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/ActionBar.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/ActionBar.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/Functions.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="18" lean-forward="true" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/img/test.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/function/ParseApk.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/history/HistoryController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/MiniMode.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="49" selection-start-line="6" selection-start-column="49" selection-end-line="6" selection-end-column="49" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/mini/MiniModeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/AdbFxApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -1364,11 +1274,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1062">
-          <caret line="66" column="35" selection-start-line="66" selection-start-column="35" selection-end-line="66" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="602">
+          <caret line="63" column="24" lean-forward="true" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -1388,8 +1295,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/function/InstallApk.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="40" column="83" selection-start-line="40" selection-start-column="83" selection-end-line="40" selection-end-column="83" />
+        <state relative-caret-position="818">
+          <caret line="73" column="68" selection-start-line="73" selection-start-column="68" selection-end-line="73" selection-end-column="68" />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
@@ -1415,7 +1322,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/javafx-src.zip!/javafx/scene/control/ListView.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/javafx-src.zip!/javafx/scene/control/ListView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="360" selection-start-line="360" selection-end-line="364" selection-end-column="80" />
+          <folding>
+            <element signature="e#17765#17766#0" expanded="true" />
+            <element signature="e#17822#17823#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/function/UninstallApp.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="45" column="72" lean-forward="true" selection-start-line="45" selection-start-column="72" selection-end-line="45" selection-end-column="72" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/UninstallAppModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -1444,12 +1369,160 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/javafx-src.zip!/javafx/beans/binding/Bindings.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/javafx-src.zip!/javafx/scene/control/TableView.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/javafx-src.zip!/javafx/beans/binding/Bindings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="685">
+          <caret line="3391" column="16" lean-forward="true" selection-start-line="3390" selection-start-column="4" selection-end-line="3391" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/javafx-src.zip!/javafx/scene/control/TableView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="354" column="13" selection-start-line="354" selection-start-column="13" selection-end-line="354" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/BaseModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/UninstallAppService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.16.20/69ebf81bb97bdb3c9581c171762bb4929cb5289c/lombok-1.16.20-sources.jar!/lombok/EqualsAndHashCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="35" column="37" lean-forward="true" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/javafx-src.zip!/javafx/beans/property/StringProperty.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="56" column="22" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/adb/pm/PackageManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/adb/pm/PackageDetailTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="25" column="53" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#841#842#0" expanded="true" />
+            <element signature="e#909#910#0" expanded="true" />
+            <element signature="e#3072#3073#0" expanded="true" />
+            <element signature="e#3124#3125#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/javafx-src.zip!/javafx/beans/binding/ListExpression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="245" column="19" selection-start-line="245" selection-start-column="19" selection-end-line="245" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/adb/pm/PackageListTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="37" column="42" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1237#1238#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.25/962153db4a9ea71b79d047dfd1b2a0d80d8f4739/slf4j-api-1.7.25-sources.jar!/org/slf4j/Logger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="855">
+          <caret line="631" column="16" selection-start-line="631" selection-start-column="16" selection-end-line="631" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/javafx-src.zip!/javafx/concurrent/EventHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="40" column="6" selection-start-line="40" selection-start-column="6" selection-end-line="40" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/javafx-src.zip!/javafx/concurrent/WorkerStateEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-359">
+          <caret line="37" column="13" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/javafx-src.zip!/javafx/concurrent/Worker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="98" column="17" selection-start-line="98" selection-start-column="17" selection-end-line="98" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/javafx-src.zip!/javafx/concurrent/Task.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="618" column="22" selection-start-line="618" selection-start-column="22" selection-end-line="618" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/javafx-src.zip!/javafx/concurrent/ScheduledService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="155" column="6" lean-forward="true" selection-start-line="155" selection-start-column="6" selection-end-line="155" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.ddms/ddmlib/26.3.0-alpha02/8c62bdfd1ed1b018f7ed17ed8a484bebe0b4b171/ddmlib-26.3.0-alpha02-sources.jar!/com/android/ddmlib/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="635">
+          <caret line="73" column="28" selection-start-line="73" selection-start-column="28" selection-end-line="73" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.ddms/ddmlib/26.3.0-alpha02/8c62bdfd1ed1b018f7ed17ed8a484bebe0b4b171/ddmlib-26.3.0-alpha02-sources.jar!/com/android/ddmlib/AndroidDebugBridge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-459">
+          <caret line="362" column="37" selection-start-line="362" selection-start-column="37" selection-end-line="362" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/actionbar/AdbStartService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/src.zip!/java/util/function/Predicate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35">
+          <caret line="39" column="17" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -1460,188 +1533,165 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/UninstallAppService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/GetPackagesService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        <state relative-caret-position="255">
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/GetPackagesService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/UninstallAppController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="34" column="52" lean-forward="true" selection-start-line="34" selection-start-column="52" selection-end-line="34" selection-end-column="52" />
+        <state relative-caret-position="559">
+          <caret line="75" column="77" selection-start-line="75" selection-start-column="77" selection-end-line="75" selection-end-column="77" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#821#822#0" expanded="true" />
+            <element signature="e#867#868#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/GetPackageDetailService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="66" lean-forward="true" selection-start-line="12" selection-start-column="66" selection-end-line="12" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/javafx-src.zip!/javafx/concurrent/Task.java" />
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.16.20/69ebf81bb97bdb3c9581c171762bb4929cb5289c/lombok-1.16.20-sources.jar!/lombok/EqualsAndHashCode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="35" column="37" lean-forward="true" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/javafx-src.zip!/javafx/beans/property/StringProperty.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/javafx-src.zip!/javafx/beans/binding/ListExpression.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/adb/pm/PackageDetailTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="34" column="7" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#998#999#0" expanded="true" />
-            <element signature="e#1058#1059#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/adb/pm/PackageListTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="25" column="57" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="57" />
+        <state relative-caret-position="170">
+          <caret line="12" column="66" selection-start-line="12" selection-start-column="66" selection-end-line="12" selection-end-column="66" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/lang/Thread.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/AdbFxApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="695" column="29" selection-start-line="695" selection-start-column="29" selection-end-line="695" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/control/TableColumnBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
-          <caret line="382" column="33" selection-start-line="382" selection-start-column="33" selection-end-line="382" selection-end-column="33" />
+        <state relative-caret-position="697">
+          <caret line="43" column="58" selection-start-line="43" selection-start-column="58" selection-end-line="43" selection-end-column="58" />
           <folding>
-            <element signature="e#15859#15865#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/control/TableView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
-          <caret line="1306" column="50" selection-start-line="1306" selection-start-column="50" selection-end-line="1306" selection-end-column="50" />
-          <folding>
-            <element signature="e#59293#59294#0" expanded="true" />
-            <element signature="e#59325#59326#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/function/AllApps.fxml">
+      <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/function/UninstallApp.fxml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/function/PackageList.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="58" column="90" lean-forward="true" selection-start-line="58" selection-start-column="90" selection-end-line="58" selection-end-column="90" />
+        <state relative-caret-position="429">
+          <caret line="36" column="68" lean-forward="true" selection-start-line="36" selection-start-column="68" selection-end-line="36" selection-end-column="68" />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/UninstallAppController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/InstallApkController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="75" column="8" selection-start-line="75" selection-start-column="8" selection-end-line="75" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/actionbar/ActionBarController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="59" column="60" lean-forward="true" selection-start-line="59" selection-start-column="60" selection-end-line="59" selection-end-column="60" />
+        <state relative-caret-position="799">
+          <caret line="57" column="44" selection-start-line="57" selection-start-column="44" selection-end-line="57" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/PackageInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        <state relative-caret-position="391">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3273#3274#0" expanded="true" />
+            <element signature="e#1689#1690#0" expanded="true" />
+            <element signature="e#1723#1724#0" expanded="true" />
+            <element signature="e#1955#1956#0" expanded="true" />
+            <element signature="e#1989#1990#0" expanded="true" />
+            <element signature="e#2471#2472#0" expanded="true" />
+            <element signature="e#2505#2506#0" expanded="true" />
             <element signature="e#3307#3308#0" expanded="true" />
-            <element signature="e#3342#3343#0" expanded="true" />
-            <element signature="e#3379#3380#0" expanded="true" />
-            <element signature="e#3506#3507#0" expanded="true" />
-            <element signature="e#3549#3550#0" expanded="true" />
-            <element signature="e#3427#3428#0" expanded="true" />
-            <element signature="e#3458#3459#0" expanded="true" />
+            <element signature="e#3341#3342#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/PackageListModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="323">
+          <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/function/PackageList.fxml">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/javafx-src.zip!/javafx/concurrent/Service.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="89" column="37" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
+        <state relative-caret-position="426">
+          <caret line="583" column="16" selection-start-line="583" selection-start-column="16" selection-end-line="583" selection-end-column="16" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/beans/binding/Bindings.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/adb/PackageListService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="5917" column="33" selection-start-line="5917" selection-start-column="33" selection-end-line="5917" selection-end-column="33" />
+        <state relative-caret-position="128">
+          <caret line="16" column="21" lean-forward="true" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#788#2269#0" expanded="true" />
+            <element signature="e#2268#2269#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/functions/apps/PackageListController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="64" column="16" selection-start-line="64" selection-start-column="16" selection-end-line="64" selection-end-column="16" />
+        <state relative-caret-position="769">
+          <caret line="74" column="32" selection-start-line="74" selection-start-column="32" selection-end-line="74" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#883#884#0" expanded="true" />
+            <element signature="e#928#929#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/adb/PackageDetailService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="928">
+          <caret line="84" selection-start-line="84" selection-end-line="84" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#882#883#0" expanded="true" />
+            <element signature="e#932#933#0" expanded="true" />
+            <element signature="e#1293#5167#0" expanded="true" />
+            <element signature="e#4274#4275#0" expanded="true" />
+            <element signature="e#4350#4351#0" expanded="true" />
+            <element signature="e#5166#5167#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/j1angvei/adbfx/adb/PackageManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="162" column="20" selection-start-line="162" selection-start-column="20" selection-end-line="162" selection-end-column="20" />
+        <state relative-caret-position="559">
+          <caret line="43" column="27" selection-start-line="43" selection-start-column="27" selection-end-line="43" selection-end-column="27" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#796#797#0" expanded="true" />
-            <element signature="e#840#841#0" expanded="true" />
-            <element signature="e#915#916#0" expanded="true" />
-            <element signature="e#964#965#0" expanded="true" />
-            <element signature="e#1012#1013#0" expanded="true" />
-            <element signature="e#1087#1088#0" expanded="true" />
-            <element signature="e#1692#1693#0" expanded="true" />
-            <element signature="e#1742#1743#0" expanded="true" />
-            <element signature="e#1664#3361#0" expanded="true" />
-            <element signature="e#2731#2732#0" expanded="true" />
-            <element signature="e#2791#2792#0" expanded="true" />
-            <element signature="e#3360#3361#0" expanded="true" />
-            <element signature="e#4293#7317#0" expanded="true" />
-            <element signature="e#6661#6662#0" expanded="true" />
-            <element signature="e#6721#6722#0" expanded="true" />
-            <element signature="e#7316#7317#0" expanded="true" />
+            <element signature="e#863#864#0" expanded="true" />
+            <element signature="e#894#895#0" expanded="true" />
+            <element signature="e#1085#1086#0" expanded="true" />
+            <element signature="e#1160#1161#0" expanded="true" />
+            <element signature="e#1317#1318#0" expanded="true" />
+            <element signature="e#1355#1356#0" expanded="true" />
+            <element signature="e#1694#1695#0" expanded="true" />
+            <element signature="e#1754#1755#0" expanded="true" />
+            <element signature="e#2086#2087#0" expanded="true" />
+            <element signature="e#2149#2150#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/src.zip!/java/util/Set.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="224" column="12" selection-start-line="224" selection-start-column="12" selection-end-line="224" selection-end-column="12" />
         </state>
       </provider>
     </entry>

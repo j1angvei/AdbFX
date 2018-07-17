@@ -4,7 +4,6 @@ package cn.j1angvei.adbfx.adb;
 import cn.j1angvei.adbfx.functions.apps.PackageInfo;
 import com.android.ddmlib.IDevice;
 import com.android.ddmlib.MultiLineReceiver;
-import javafx.beans.property.SetProperty;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import lombok.extern.slf4j.Slf4j;
@@ -18,10 +17,13 @@ import java.util.stream.Stream;
 public class PackageListService extends Service<List<PackageInfo>> {
     private static final String PREFIX = "package:";
 
-    private final SetProperty<String> arguments;
+    private String status;
+    private String type;
 
-    public PackageListService(SetProperty<String> arguments) {
-        this.arguments = arguments;
+    public void restart(String status, String type) {
+        this.status = status;
+        this.type = type;
+        restart();
     }
 
     @Override
@@ -29,16 +31,19 @@ public class PackageListService extends Service<List<PackageInfo>> {
         return new Task<List<PackageInfo>>() {
             @Override
             protected List<PackageInfo> call() throws Exception {
+                if (status == null || type == null) {
+                    log.error("Error when list packages, should set status(enable, disable, all) and type(system app, third party app or all)");
+                    throw new NullPointerException("list package arguments is NULL, set status and type first");
+                }
                 IDevice device = PackageManager.getChosenDevice();
 
                 List<PackageInfo> packageList = new ArrayList<>();
 
-                StringBuilder cmdBuilder = new StringBuilder("pm list packages");
-                arguments.forEach(s -> cmdBuilder.append(" ").append(s));
-                log.debug("get list packages cmd:{}", cmdBuilder.toString());
+                String cmd = String.format("pm list packages %s %s", status, type);
+                log.debug("get list packages cmd:{}", cmd);
 
                 try {
-                    device.executeShellCommand(cmdBuilder.toString(), new MultiLineReceiver() {
+                    device.executeShellCommand(cmd, new MultiLineReceiver() {
                         @Override
                         public void processNewLines(String[] lines) {
                             Stream.of(lines)

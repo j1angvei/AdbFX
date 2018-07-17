@@ -5,10 +5,7 @@ import cn.j1angvei.adbfx.adb.PackageDetailService;
 import cn.j1angvei.adbfx.adb.PackageListService;
 import javafx.beans.binding.Bindings;
 import javafx.collections.ListChangeListener;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SplitMenuButton;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import lombok.extern.slf4j.Slf4j;
 
@@ -22,6 +19,9 @@ public class PackageListController extends BaseController<PackageListModel> {
 
     public SplitMenuButton menuGetApk;
 
+    public ToggleGroup toggleAppStatus;
+    public ToggleGroup toggleAppType;
+
     private PackageListService mPackageListService;
     private PackageDetailService mPackageDetailService;
 
@@ -33,12 +33,24 @@ public class PackageListController extends BaseController<PackageListModel> {
 
     @Override
     protected void initArguments() {
-        mPackageListService = new PackageListService(getModel().getArguments());
+        mPackageListService = new PackageListService();
         mPackageDetailService = new PackageDetailService(getModel().getPackageList());
     }
 
     @Override
     protected void initView() {
+        /* ===============================================================
+             package list arguments
+         =================================================================*/
+        // list status, enabled, disabled or all
+        getModel().getStatusArg().bind(Bindings.createStringBinding(() ->
+                        (String) toggleAppStatus.getSelectedToggle().getUserData(),
+                toggleAppStatus.selectedToggleProperty()));
+        //list type, system app, third party app or all
+        getModel().getTypeArg().bind(Bindings.createStringBinding(() ->
+                        (String) toggleAppType.getSelectedToggle().getUserData(),
+                toggleAppType.selectedToggleProperty()));
+
         /* ===============================================================
              package list
          =================================================================*/
@@ -54,7 +66,7 @@ public class PackageListController extends BaseController<PackageListModel> {
         //refresh package list
         menuRefreshList.setOnAction(event -> {
             getModel().getPackageList().clear();
-            mPackageListService.restart();
+            mPackageListService.restart(getModel().getStatusArg().get(), getModel().getTypeArg().get());
         });
 
         //change placeholder text
@@ -67,12 +79,9 @@ public class PackageListController extends BaseController<PackageListModel> {
              package detail
          =================================================================*/
         //when get package list is done, load package detail.
-        getModel().getPackageList().addListener(new ListChangeListener<PackageInfo>() {
-            @Override
-            public void onChanged(Change<? extends PackageInfo> c) {
-                if (c.next() && c.wasAdded()) {
-                    mPackageDetailService.restart();
-                }
+        getModel().getPackageList().addListener((ListChangeListener<PackageInfo>) c -> {
+            if (c.next() && c.wasAdded()) {
+                mPackageDetailService.restart();
             }
         });
 

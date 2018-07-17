@@ -14,18 +14,33 @@
                         <HBox alignment="CENTER_LEFT" spacing="4.0">
                             <children>
                                 <Label text="App status:"/>
-                                <RadioButton mnemonicParsing="false" text="All" userData=""/>
-                                <RadioButton mnemonicParsing="false" text="Enabled" userData="-e"/>
-                                <RadioButton mnemonicParsing="false" text="Disabled" userData="-d"/>
+                                <RadioButton mnemonicParsing="false" text="All" userData=""
+                                             toggleGroup="$toggleAppStatus">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="toggleAppStatus"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton mnemonicParsing="false" text="Enabled" userData="-e" selected="true"
+                                             toggleGroup="$toggleAppStatus"/>
+                                <RadioButton mnemonicParsing="false" text="Disabled" userData="-d"
+                                             toggleGroup="$toggleAppStatus"/>
                             </children>
                         </HBox>
                         <Separator orientation="VERTICAL"/>
                         <HBox alignment="CENTER_LEFT" spacing="4.0">
                             <children>
                                 <Label text="App types:"/>
-                                <RadioButton mnemonicParsing="false" text="All" userData=""/>
-                                <RadioButton mnemonicParsing="false" text="System" userData="-s"/>
-                                <RadioButton mnemonicParsing="false" text="Third party" userData="-3"/>
+
+                                <RadioButton mnemonicParsing="false" text="All" userData=""
+                                             toggleGroup="$toggleAppType">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="toggleAppType"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton mnemonicParsing="false" text="System" userData="-s"
+                                             toggleGroup="$toggleAppType"/>
+                                <RadioButton mnemonicParsing="false" text="Third party" userData="-3" selected="true"
+                                             toggleGroup="$toggleAppType"/>
                             </children>
                         </HBox>
                         <Separator orientation="VERTICAL"/>

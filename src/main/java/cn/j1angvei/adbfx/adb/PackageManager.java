@@ -30,16 +30,18 @@ public class PackageManager {
         return ActionBarModel.getInstance().getChosenDevice().get();
     }
 
-    public PackageInfo searchDetailedPackage(PackageInfo info) {
+    public boolean searchDetailedPackage(PackageInfo info) {
         for (PackageInfo packageInfo : mDetailedPackages) {
             if (packageInfo.equals(info)) {
-                return packageInfo;
+                info = packageInfo;
+                return true;
             }
         }
-        return null;
+        return false;
     }
 
     public void addDetailedPackage(PackageInfo info) {
+        mDetailedPackages.remove(info);
         mDetailedPackages.add(info);
     }
 
