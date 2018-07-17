@@ -18,8 +18,9 @@ repositories {
 
 dependencies {
 
-    def toolVersion = "26.3.0-alpha02"
+    def toolVersion = "26.3.0-alpha03"
     compile group: 'com.android.tools.ddms', name: 'ddmlib', version: "${toolVersion}"
+
     compile group: 'commons-io', name: 'commons-io', version: '2.6'
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
     //log

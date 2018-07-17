@@ -1,11 +1,9 @@
 package cn.j1angvei.adbfx.functions.apps;
 
 import cn.j1angvei.adbfx.BaseController;
-import cn.j1angvei.adbfx.actionbar.ActionBarModel;
 import cn.j1angvei.adbfx.adb.PackageDetailService;
 import cn.j1angvei.adbfx.adb.PackageListService;
 import cn.j1angvei.adbfx.adb.PackageOperationService;
-import com.android.ddmlib.IDevice;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.scene.control.*;
@@ -140,10 +138,6 @@ public class PackageListController extends BaseController<PackageListModel> {
         });
         areaResult.textProperty().bind(mPackageOperationService.valueProperty());
 
-    }
-
-    private IDevice getChosenDevice() {
-        return ActionBarModel.getInstance().getChosenDevice().get();
     }
 
     @Override
