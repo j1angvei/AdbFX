@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
@@ -14,16 +15,16 @@
                         <HBox alignment="CENTER_LEFT" spacing="4.0">
                             <children>
                                 <Label text="App status:"/>
-                                <RadioButton mnemonicParsing="false" text="All" userData=""
-                                             toggleGroup="$toggleAppStatus">
+                                <RadioButton mnemonicParsing="false" text="All" toggleGroup="$toggleAppStatus"
+                                             userData="">
                                     <toggleGroup>
                                         <ToggleGroup fx:id="toggleAppStatus"/>
                                     </toggleGroup>
                                 </RadioButton>
-                                <RadioButton mnemonicParsing="false" text="Enabled" userData="-e" selected="true"
-                                             toggleGroup="$toggleAppStatus"/>
-                                <RadioButton mnemonicParsing="false" text="Disabled" userData="-d"
-                                             toggleGroup="$toggleAppStatus"/>
+                                <RadioButton mnemonicParsing="false" selected="true" text="Enabled"
+                                             toggleGroup="$toggleAppStatus" userData="-e"/>
+                                <RadioButton mnemonicParsing="false" text="Disabled" toggleGroup="$toggleAppStatus"
+                                             userData="-d"/>
                             </children>
                         </HBox>
                         <Separator orientation="VERTICAL"/>
@@ -31,104 +32,94 @@
                             <children>
                                 <Label text="App types:"/>
 
-                                <RadioButton mnemonicParsing="false" text="All" userData=""
-                                             toggleGroup="$toggleAppType">
+                                <RadioButton mnemonicParsing="false" text="All" toggleGroup="$toggleAppType"
+                                             userData="">
                                     <toggleGroup>
                                         <ToggleGroup fx:id="toggleAppType"/>
                                     </toggleGroup>
                                 </RadioButton>
-                                <RadioButton mnemonicParsing="false" text="System" userData="-s"
-                                             toggleGroup="$toggleAppType"/>
-                                <RadioButton mnemonicParsing="false" text="Third party" userData="-3" selected="true"
-                                             toggleGroup="$toggleAppType"/>
+                                <RadioButton mnemonicParsing="false" text="System" toggleGroup="$toggleAppType"
+                                             userData="-s"/>
+                                <RadioButton mnemonicParsing="false" selected="true" text="Third party"
+                                             toggleGroup="$toggleAppType" userData="-3"/>
                             </children>
                         </HBox>
-                        <Separator orientation="VERTICAL"/>
-                        <CheckBox mnemonicParsing="false" text="Include uninstalled packages" userData="-u"/>
                     </children>
                 </FlowPane>
             </content>
         </TitledPane>
-        <TableView fx:id="tablePackageList" tableMenuButtonVisible="true">
+        <TableView fx:id="tablePackageList" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
             <placeholder>
-                <Text fx:id="textRefreshList" text="No package install, right click to refresh..."/>
+                <Text fx:id="textListHint" text="No package install, right click to refresh..."/>
             </placeholder>
             <columns>
-                <TableColumn fx:id="pkgNameCol" minWidth="60.0" prefWidth="200.0" text="packageName">
+                <TableColumn fx:id="sortColumn" minWidth="100.0" prefWidth="200.0" text="packageName">
                     <cellValueFactory>
                         <PropertyValueFactory property="packageName"/>
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn prefWidth="100.0" sortable="false" text="versionCode">
+                <TableColumn prefWidth="90" sortable="false" text="versionCode">
                     <cellValueFactory>
                         <PropertyValueFactory property="versionCode"/>
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn prefWidth="100.0" sortable="false" text="versionName">
+                <TableColumn prefWidth="90" sortable="false" text="versionName">
                     <cellValueFactory>
                         <PropertyValueFactory property="versionName"/>
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn prefWidth="100.0" sortable="false" text="targetSdk">
+                <TableColumn prefWidth="90" sortable="false" text="targetSdk">
                     <cellValueFactory>
                         <PropertyValueFactory property="targetSdk"/>
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn minWidth="20.0" prefWidth="160.0" sortable="false" text="firstInstall">
+                <TableColumn prefWidth="140.0" sortable="false" text="firstInstall">
                     <cellValueFactory>
                         <PropertyValueFactory property="firstInstall"/>
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn minWidth="20.0" prefWidth="160.0" sortable="false" text="lastUpdate">
+                <TableColumn prefWidth="140.0" sortable="false" text="lastUpdate">
                     <cellValueFactory>
                         <PropertyValueFactory property="lastUpdate"/>
                     </cellValueFactory>
                 </TableColumn>
             </columns>
-            <contextMenu>
-                <ContextMenu>
-                    <items>
-                        <MenuItem fx:id="menuRefreshList" mnemonicParsing="false" text="Refresh List"/>
-                    </items>
-                </ContextMenu>
-            </contextMenu>
             <sortOrder>
-                <fx:reference source="pkgNameCol"/>
+                <fx:reference source="sortColumn"/>
             </sortOrder>
         </TableView>
-        <ButtonBar fx:id="barPackagesActions">
-            <buttons>
-                <Button mnemonicParsing="false" text="Clear Data"/>
-                <MenuButton mnemonicParsing="false" text="Change Status">
+        <HBox spacing="8.0">
+            <children>
+                <Button fx:id="btnRefreshList" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                        text="Refresh List" HBox.hgrow="SOMETIMES"/>
+                <Region HBox.hgrow="SOMETIMES"/>
+                <MenuButton fx:id="menuBtnPermissions" mnemonicParsing="false" text="Permissions">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Enable"/>
-                        <MenuItem mnemonicParsing="false" text="Disable"/>
+                        <MenuItem mnemonicParsing="false">
+                            <graphic>
+                                <ListView fx:id="listPermissions" prefHeight="200" prefWidth="350"/>
+                            </graphic>
+                        </MenuItem>
                     </items>
                 </MenuButton>
-                <MenuButton mnemonicParsing="false" text="Permissions">
+                <MenuButton fx:id="menuBtnHide" mnemonicParsing="false" text="Hide it">
                     <items>
-                        <Menu mnemonicParsing="false" text="Grant">
-                            <items>
-                                <MenuItem mnemonicParsing="false" text="Action 1"/>
-                            </items>
-                        </Menu>
-                        <Menu mnemonicParsing="false" text="Revoke">
-                            <items>
-                                <MenuItem mnemonicParsing="false" text="Action 1"/>
-                            </items>
-                        </Menu>
+                        <MenuItem fx:id="menuHide" mnemonicParsing="false" text="Hide"/>
+                        <MenuItem fx:id="menuUnhide" mnemonicParsing="false" text="Unhide"/>
                     </items>
                 </MenuButton>
-                <SplitMenuButton fx:id="menuGetApk" mnemonicParsing="false" text="Get Apk">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Open Folder"/>
-                    </items>
-                </SplitMenuButton>
-            </buttons>
-        </ButtonBar>
-        <TitledPane expanded="false" text="Operation Results">
+
+                <Button fx:id="btnApkPath" mnemonicParsing="false" text="Apk Path"/>
+
+                <Button fx:id="btnClearData" mnemonicParsing="false" text="Clear Data"/>
+            </children>
+            <VBox.margin>
+                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"/>
+            </VBox.margin>
+        </HBox>
+        <TitledPane fx:id="titledResult" expanded="false" text="Operation Results">
             <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
+                <TextArea fx:id="areaResult"/>
             </content>
         </TitledPane>
     </children>

@@ -7,10 +7,10 @@
     <children>
         <fx:include source="ActionBar.fxml" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
                     AnchorPane.topAnchor="0.0"/>
-        <SplitPane dividerPositions="0.382" AnchorPane.bottomAnchor="0.0"
+        <SplitPane dividerPositions="0.18" AnchorPane.bottomAnchor="0.0"
                    AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="56.0">
             <items>
-                <VBox xmlns:fx="http://javafx.com/fxml/1" prefWidth="200">
+                <VBox xmlns:fx="http://javafx.com/fxml/1" minWidth="80" prefWidth="120" maxWidth="200">
                     <children>
                         <GridPane>
                             <columnConstraints>

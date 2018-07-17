@@ -1,28 +1,52 @@
 package cn.j1angvei.adbfx.functions.apps;
 
 import cn.j1angvei.adbfx.BaseController;
+import cn.j1angvei.adbfx.actionbar.ActionBarModel;
 import cn.j1angvei.adbfx.adb.PackageDetailService;
 import cn.j1angvei.adbfx.adb.PackageListService;
+import cn.j1angvei.adbfx.adb.PackageOperationService;
+import com.android.ddmlib.IDevice;
 import javafx.beans.binding.Bindings;
+import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import lombok.extern.slf4j.Slf4j;
+
+import java.util.stream.Stream;
 
 @Slf4j
 public class PackageListController extends BaseController<PackageListModel> {
 
     public TableView<PackageInfo> tablePackageList;
-    public MenuItem menuRefreshList;
-    public Text textRefreshList;
-    public ButtonBar barPackagesActions;
+    public Text textListHint;
+    public Button btnRefreshList;
 
-    public SplitMenuButton menuGetApk;
-
+    //package list arguments
     public ToggleGroup toggleAppStatus;
     public ToggleGroup toggleAppType;
 
+    //package operation
+
+    public MenuButton menuBtnPermissions;
+    public ListView<String> listPermissions;
+
+
+    public MenuButton menuBtnHide;
+    public MenuItem menuHide;
+    public MenuItem menuUnhide;
+
+    public Button btnApkPath;
+
+    public Button btnClearData;
+
+    //operation result
+    public TitledPane titledResult;
+    public TextArea areaResult;
+
+
     private PackageListService mPackageListService;
     private PackageDetailService mPackageDetailService;
+    private PackageOperationService mPackageOperationService;
 
 
     @Override
@@ -34,6 +58,7 @@ public class PackageListController extends BaseController<PackageListModel> {
     protected void initArguments() {
         mPackageListService = new PackageListService();
         mPackageDetailService = new PackageDetailService(getModel().getPackageInfoList());
+        mPackageOperationService = new PackageOperationService();
     }
 
     @Override
@@ -59,13 +84,13 @@ public class PackageListController extends BaseController<PackageListModel> {
 
 
         //refresh package list
-        menuRefreshList.setOnAction(event -> {
+        btnRefreshList.setOnAction(event -> {
             getModel().getPackageInfoList().clear();
             mPackageListService.restart(getModel().getStatusArg().get(), getModel().getTypeArg().get());
         });
 
         //change placeholder text
-        textRefreshList.textProperty().bind(Bindings.createStringBinding(() ->
+        textListHint.textProperty().bind(Bindings.createStringBinding(() ->
                         mPackageDetailService.isRunning() ? "Loading all packages... " :
                                 "Found no packages, right click to refresh list",
                 mPackageDetailService.runningProperty()));
@@ -83,8 +108,42 @@ public class PackageListController extends BaseController<PackageListModel> {
          /* ===============================================================
              package item operation
          =================================================================*/
-        barPackagesActions.disableProperty().bind(
-                Bindings.isNull(tablePackageList.getSelectionModel().selectedItemProperty()));
+        Stream.of(menuBtnPermissions, btnApkPath, menuBtnHide, btnClearData)
+                .forEach(buttonBase -> buttonBase.disableProperty().bind(
+                        Bindings.isNull(tablePackageList.getSelectionModel().selectedItemProperty())));
+
+        ReadOnlyObjectProperty<PackageInfo> selectedItem = tablePackageList.getSelectionModel().selectedItemProperty();
+        selectedItem.addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                listPermissions.getItems().setAll(newValue.getPermissions());
+            }
+        });
+        btnApkPath.setOnAction(event -> {
+            titledResult.setExpanded(true);
+            mPackageOperationService.restart(PackageListController.this.getChosenDevice(),
+                    selectedItem.get().getPackageName(), PackageOperationService.Operation.APK_PATH);
+        });
+        menuHide.setOnAction(event -> {
+            titledResult.setExpanded(true);
+            mPackageOperationService.restart(getChosenDevice(),
+                    selectedItem.get().getPackageName(), PackageOperationService.Operation.HIDE);
+        });
+        menuUnhide.setOnAction(event -> {
+            titledResult.setExpanded(true);
+            mPackageOperationService.restart(getChosenDevice(),
+                    selectedItem.get().getPackageName(), PackageOperationService.Operation.UNHIDE);
+        });
+        btnClearData.setOnAction(event -> {
+            titledResult.setExpanded(true);
+            mPackageOperationService.restart(getChosenDevice(),
+                    selectedItem.get().getPackageName(), PackageOperationService.Operation.CLEAR_DATA);
+        });
+        areaResult.textProperty().bind(mPackageOperationService.valueProperty());
+
+    }
+
+    private IDevice getChosenDevice() {
+        return ActionBarModel.getInstance().getChosenDevice().get();
     }
 
     @Override
