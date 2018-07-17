@@ -34,43 +34,37 @@
                 </FlowPane>
             </content>
         </TitledPane>
-        <HBox spacing="8.0">
-            <children>
-                <TextField promptText="Search package" HBox.hgrow="ALWAYS"/>
-                <Button mnemonicParsing="false" text="Clear Input"/>
-            </children>
-        </HBox>
-        <TableView fx:id="tablePackageList">
+        <TableView fx:id="tablePackageList" tableMenuButtonVisible="true">
             <placeholder>
-                <Text text="No package install, right click to refresh..." fx:id="textRefreshList"/>
+                <Text fx:id="textRefreshList" text="No package install, right click to refresh..."/>
             </placeholder>
             <columns>
-                <TableColumn fx:id="pkgNameCol" prefWidth="96.0" text="Package name">
+                <TableColumn fx:id="pkgNameCol" minWidth="60.0" prefWidth="200.0" text="packageName">
                     <cellValueFactory>
                         <PropertyValueFactory property="packageName"/>
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn minWidth="0.0" prefWidth="104.0" text="Version  code">
+                <TableColumn prefWidth="100.0" sortable="false" text="versionCode">
                     <cellValueFactory>
                         <PropertyValueFactory property="versionCode"/>
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn minWidth="0.0" prefWidth="104.0" text="Version  name">
-                    <cellValueFactory>
-                        <PropertyValueFactory property="targetSdk"/>
-                    </cellValueFactory>
-                </TableColumn>
-                <TableColumn minWidth="0.0" prefWidth="104.0" text="Target SDK">
+                <TableColumn prefWidth="100.0" sortable="false" text="versionName">
                     <cellValueFactory>
                         <PropertyValueFactory property="versionName"/>
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn minWidth="0.0" prefWidth="104.0" text="First install">
+                <TableColumn prefWidth="100.0" sortable="false" text="targetSdk">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="targetSdk"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn minWidth="20.0" prefWidth="160.0" sortable="false" text="firstInstall">
                     <cellValueFactory>
                         <PropertyValueFactory property="firstInstall"/>
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn minWidth="0.0" prefWidth="104.0" text="Last update">
+                <TableColumn minWidth="20.0" prefWidth="160.0" sortable="false" text="lastUpdate">
                     <cellValueFactory>
                         <PropertyValueFactory property="lastUpdate"/>
                     </cellValueFactory>

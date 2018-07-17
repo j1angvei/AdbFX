@@ -13,12 +13,10 @@ public class PackageListModel extends DeviceModel {
     private final ListProperty<PackageInfo> packageList;
     private final SetProperty<String> arguments;
 
-    private final SetProperty<PackageInfo> detailedPackageInfo;
 
     public PackageListModel() {
         packageList = new SimpleListProperty<>(FXCollections.observableArrayList());
         arguments = new SimpleSetProperty<>(FXCollections.observableSet());
 
-        detailedPackageInfo = new SimpleSetProperty<>(FXCollections.observableSet());
     }
 }

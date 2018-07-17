@@ -10,7 +10,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 @ToString
-@EqualsAndHashCode
+@EqualsAndHashCode(of = {"packageName", "deviceSn"})
 public class PackageInfo {
     private final StringProperty packageName;
     private final StringProperty versionCode; //versionCode

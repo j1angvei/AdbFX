@@ -1,5 +1,6 @@
 package cn.j1angvei.adbfx;
 
+import cn.j1angvei.adbfx.adb.PackageManager;
 import com.android.ddmlib.AndroidDebugBridge;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +19,8 @@ public class AdbFxApp extends Application {
     public void init() throws Exception {
         super.init();
         //init adb service as needed
-        AndroidDebugBridge.initIfNeeded(false);
+        AndroidDebugBridge.initIfNeeded(true);
+        PackageManager.getInstance().registerListener();
     }
 
     @Override
@@ -39,6 +41,7 @@ public class AdbFxApp extends Application {
     @Override
     public void stop() throws Exception {
         AndroidDebugBridge.terminate();
+        PackageManager.getInstance().unregisterListener();
         super.stop();
     }
 }
