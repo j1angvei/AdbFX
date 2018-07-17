@@ -6,19 +6,19 @@ import com.android.ddmlib.AndroidDebugBridge;
 import com.android.ddmlib.IDevice;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 @Slf4j
-public class PackageManager {
+public final class PackageManager {
     private static final PackageManager INSTANCE = new PackageManager();
 
-    private final Set<PackageInfo> mDetailedPackages;
+    private final Map<String, PackageInfo> mDetailedPackages;
 
     private AndroidDebugBridge.IClientChangeListener mClientChangeListener;
 
     private PackageManager() {
-        mDetailedPackages = new HashSet<>();
+        mDetailedPackages = new HashMap<>();
         mClientChangeListener = (client, changeMask) -> log.debug("Client:{};device:{}", client.getClientData().getPackageName(), client.getDevice().getSerialNumber());
     }
 
@@ -30,19 +30,12 @@ public class PackageManager {
         return ActionBarModel.getInstance().getChosenDevice().get();
     }
 
-    public boolean searchDetailedPackage(PackageInfo info) {
-        for (PackageInfo packageInfo : mDetailedPackages) {
-            if (packageInfo.equals(info)) {
-                info = packageInfo;
-                return true;
-            }
-        }
-        return false;
+    public PackageInfo loadFromCache(String packageName, String deviceSn) {
+        return mDetailedPackages.get(packageName + deviceSn);
     }
 
-    public void addDetailedPackage(PackageInfo info) {
-        mDetailedPackages.remove(info);
-        mDetailedPackages.add(info);
+    public void storeToCache(PackageInfo info) {
+        mDetailedPackages.put(info.getPackageName() + info.getDeviceSn(), info);
     }
 
 
@@ -53,6 +46,5 @@ public class PackageManager {
     public void unregisterListener() {
         AndroidDebugBridge.removeClientChangeListener(mClientChangeListener);
     }
-
 
 }

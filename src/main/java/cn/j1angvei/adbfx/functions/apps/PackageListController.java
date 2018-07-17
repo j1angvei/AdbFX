@@ -4,7 +4,6 @@ import cn.j1angvei.adbfx.BaseController;
 import cn.j1angvei.adbfx.adb.PackageDetailService;
 import cn.j1angvei.adbfx.adb.PackageListService;
 import javafx.beans.binding.Bindings;
-import javafx.collections.ListChangeListener;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import lombok.extern.slf4j.Slf4j;
@@ -34,7 +33,7 @@ public class PackageListController extends BaseController<PackageListModel> {
     @Override
     protected void initArguments() {
         mPackageListService = new PackageListService();
-        mPackageDetailService = new PackageDetailService(getModel().getPackageList());
+        mPackageDetailService = new PackageDetailService(getModel().getPackageInfoList());
     }
 
     @Override
@@ -55,33 +54,29 @@ public class PackageListController extends BaseController<PackageListModel> {
              package list
          =================================================================*/
         //show newly added packages and remove old ones
-        tablePackageList.itemsProperty().bind(getModel().getPackageList());
+        tablePackageList.itemsProperty().bind(getModel().getPackageInfoList());
         tablePackageList.itemsProperty().addListener((observable, oldValue, newValue) -> tablePackageList.sort());
-        mPackageListService.valueProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue == null || newValue.isEmpty()) {
-                return;
-            }
-            getModel().getPackageList().setAll(newValue);
-        });
+
+
         //refresh package list
         menuRefreshList.setOnAction(event -> {
-            getModel().getPackageList().clear();
+            getModel().getPackageInfoList().clear();
             mPackageListService.restart(getModel().getStatusArg().get(), getModel().getTypeArg().get());
         });
 
         //change placeholder text
         textRefreshList.textProperty().bind(Bindings.createStringBinding(() ->
-                        mPackageListService.isRunning() ? "Loading all packages... " :
+                        mPackageDetailService.isRunning() ? "Loading all packages... " :
                                 "Found no packages, right click to refresh list",
-                mPackageListService.runningProperty()));
+                mPackageDetailService.runningProperty()));
 
         /* ===============================================================
              package detail
          =================================================================*/
         //when get package list is done, load package detail.
-        getModel().getPackageList().addListener((ListChangeListener<PackageInfo>) c -> {
-            if (c.next() && c.wasAdded()) {
-                mPackageDetailService.restart();
+        mPackageListService.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null && !newValue.isEmpty()) {
+                mPackageDetailService.restart(newValue);
             }
         });
 

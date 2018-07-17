@@ -7,14 +7,14 @@ import lombok.Getter;
 
 @Getter
 public class PackageListModel extends DeviceModel {
-    private final ListProperty<PackageInfo> packageList;
+    private final ListProperty<PackageInfo> packageInfoList;
     private final SetProperty<String> listArguments;
     private final StringProperty statusArg;
     private final StringProperty typeArg;
 
 
     public PackageListModel() {
-        packageList = new SimpleListProperty<>(FXCollections.observableArrayList());
+        packageInfoList = new SimpleListProperty<>(FXCollections.observableArrayList());
         listArguments = new SimpleSetProperty<>(FXCollections.observableSet());
         statusArg = new SimpleStringProperty();
         typeArg = new SimpleStringProperty();

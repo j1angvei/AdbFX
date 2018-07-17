@@ -11,7 +11,7 @@ import lombok.ToString;
 
 @ToString
 @EqualsAndHashCode(of = {"packageName", "deviceSn"})
-public class PackageInfo {
+public final class PackageInfo {
     private final StringProperty packageName;
     private final StringProperty versionCode; //versionCode
     private final StringProperty targetSdk; //targetSdk
@@ -19,7 +19,7 @@ public class PackageInfo {
     private final StringProperty firstInstall; //firstInstallTime
     private final StringProperty lastUpdate; //lastUpdateTime
     private final ListProperty<String> permissions; //grantedPermissions
-    private final StringProperty deviceSn;
+    private final String deviceSn;
 
     public PackageInfo(String packageName, String serialNumber) {
         this.packageName = new SimpleStringProperty(packageName);
@@ -29,7 +29,7 @@ public class PackageInfo {
         firstInstall = new SimpleStringProperty();
         lastUpdate = new SimpleStringProperty();
         permissions = new SimpleListProperty<>(FXCollections.observableArrayList());
-        deviceSn = new SimpleStringProperty(serialNumber);
+        deviceSn = serialNumber;
     }
 
     public String getPackageName() {
@@ -117,14 +117,7 @@ public class PackageInfo {
     }
 
     public String getDeviceSn() {
-        return deviceSn.get();
-    }
-
-    public void setDeviceSn(String deviceSn) {
-        this.deviceSn.set(deviceSn);
-    }
-
-    public StringProperty deviceSnProperty() {
         return deviceSn;
     }
+
 }
