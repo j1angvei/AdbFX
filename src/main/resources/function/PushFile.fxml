@@ -42,7 +42,7 @@
                     <children>
                         <TextField fx:id="fieldDestination" editable="false" promptText="choose local dir"
                                    text="/sdcard/adbfx/" HBox.hgrow="SOMETIMES"/>
-                        <MenuButton mnemonicParsing="false" text="Select Sub Dir">
+                        <MenuButton mnemonicParsing="false" text="Select Sub Dir" visible="false" disable="true">
                             <items>
                                 <MenuItem mnemonicParsing="false">
                                     <graphic>
@@ -50,6 +50,9 @@
                                     </graphic>
                                 </MenuItem>
                             </items>
+                            <tooltip>
+                                <Tooltip text="Under construction"/>
+                            </tooltip>
                         </MenuButton>
                     </children>
                 </HBox>

@@ -47,15 +47,15 @@ public class PushFileService extends Service<String> {
                     String localPath = file.getAbsolutePath();
                     String remotePath = String.format("%s/%s", mRemoteDir, file.getName());
 
-                    result.append(String.format("Push %s to %s\n", localPath, remotePath));
+                    result.append(String.format("%d. Push %s to %s\n", i + 1, localPath, remotePath));
 
                     try {
                         mDevice.pushFile(localPath, remotePath);
-                        result.append("Success\n\n");
+                        result.append("Success\n");
                     } catch (AdbCommandRejectedException | SyncException | IOException | TimeoutException e) {
                         log.error("Error when push files to remote device", e);
                         result.append("Error:\t");
-                        result.append(e.getMessage()).append("\n\n");
+                        result.append(e.getMessage()).append("\n");
                     }
                 }
                 updateProgress(fileSize, fileSize);

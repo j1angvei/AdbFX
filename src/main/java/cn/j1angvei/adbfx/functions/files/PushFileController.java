@@ -3,6 +3,7 @@ package cn.j1angvei.adbfx.functions.files;
 import cn.j1angvei.adbfx.BaseController;
 import cn.j1angvei.adbfx.FileManager;
 import cn.j1angvei.adbfx.adb.PushFileService;
+import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
@@ -47,46 +48,25 @@ public class PushFileController extends BaseController<PushFileModel> {
         /* *******************************************
             Manage file list
          ******************************************* */
-        //add contextMenu to list
-//        listFiles.setCellFactory(new Callback<ListView<File>, ListCell<File>>() {
-//            @Override
-//            public ListCell<File> call(ListView<File> param) {
-//                ListCell<File> listCell = new ListCell<>();
-//                listCell.textProperty().bind(Bindings.createStringBinding(new Callable<String>() {
-//                    @Override
-//                    public String call() throws Exception {
-//                        if (listCell.getItem() == null) {
-//                            return null;
-//                        } else {
-//                            return listCell.getItem().getAbsolutePath();
-//                        }
-//                    }
-//                }, listCell.itemProperty()));
-//
-//                ContextMenu contextMenu = new ContextMenu();
-//                MenuItem menuItem = new MenuItem("Remove");
-//                menuItem.setOnAction(event -> param.getItems().remove(listCell.getItem()));
-//                contextMenu.getItems().add(menuItem);
-//
-//                listCell.setContextMenu(contextMenu);
-//
-//                return listCell;
-//            }
-//        });
+        listFiles.itemsProperty().bind(getModel().getFilesToPush());
         //add from explorer
         btnAdd.setOnAction(event -> {
             List<File> addedFiles = FileManager.getInstance().loadFilesByExplorer("Choose  files to push",
                     FileManager.Extension.ALL);
             if (addedFiles != null && !addedFiles.isEmpty()) {
-                listFiles.getItems().addAll(addedFiles);
+                getModel().getFilesToPush().addAll(addedFiles);
             }
         });
         //drag to add files
-        FileManager.loadFilesByDragDrop(listFiles, listFiles.getItems(), FileManager.Extension.ALL);
+        FileManager.loadFilesByDragDrop(listFiles, getModel().getFilesToPush(), FileManager.Extension.ALL);
         //clear list
-        btnClear.setOnAction(event -> listFiles.getItems().clear());
+        btnClear.setOnAction(event -> getModel().getFilesToPush().clear());
+        btnClear.disableProperty().bind(getModel().getFilesToPush().emptyProperty());
         //start push
-        btnPush.setOnAction(event -> mPushFileService.restart(getChosenDevice(), listFiles.getItems(), fieldDestination.getText()));
+        btnPush.setOnAction(event -> mPushFileService.restart(getChosenDevice(), getModel().getFilesToPush(), fieldDestination.getText()));
+        btnPush.disableProperty().bind(Bindings.createBooleanBinding(() ->
+                        mPushFileService.isRunning() || getModel().getFilesToPush().isEmpty(),
+                mPushFileService.runningProperty(), getModel().getFilesToPush().emptyProperty()));
         /* *******************************************
            set push destination
          ******************************************* */
@@ -96,7 +76,6 @@ public class PushFileController extends BaseController<PushFileModel> {
            Push file result
          ******************************************* */
         areaOutput.textProperty().bind(mPushFileService.valueProperty());
-        btnPush.disableProperty().bind(mPushFileService.runningProperty());
         progressIndicator.visibleProperty().bind(mPushFileService.runningProperty());
         progressIndicator.progressProperty().bind(mPushFileService.progressProperty());
 
