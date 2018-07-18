@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" spacing="8.0" xmlns="http://javafx.com/javafx/10.0.1"
+      fx:controller="cn.j1angvei.adbfx.functions.files.PushFileController">
+    <children>
+        <TitledPane animated="false" collapsible="false" maxHeight="1.7976931348623157E308" text="Desktop Device Files"
+                    VBox.vgrow="SOMETIMES">
+            <content>
+                <HBox>
+                    <children>
+                        <ListView fx:id="listFiles" HBox.hgrow="SOMETIMES">
+                            <placeholder>
+                                <Text text="Empty list, drag files here to add"/>
+                            </placeholder>
+                        </ListView>
+                        <VBox alignment="CENTER" maxWidth="120.0" prefWidth="120.0" spacing="12.0" HBox.hgrow="NEVER">
+                            <children>
+                                <Button fx:id="btnAdd" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                                        text="Add"/>
+                                <Button fx:id="btnClear" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                                        text="Clear"/>
+                                <Button fx:id="btnPush" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                                        text="Push"/>
+                                <ProgressIndicator fx:id="progressIndicator" maxHeight="-Infinity" maxWidth="-Infinity"
+                                                   prefHeight="100.0" prefWidth="100.0" progress="0.0"/>
+                            </children>
+                            <HBox.margin>
+                                <Insets left="12.0"/>
+                            </HBox.margin>
+                        </VBox>
+                    </children>
+                </HBox>
+            </content>
+        </TitledPane>
+        <TitledPane collapsible="false" text="Android Device Location" VBox.vgrow="SOMETIMES">
+            <content>
+                <HBox alignment="CENTER" spacing="8.0">
+                    <children>
+                        <TextField fx:id="fieldDestination" editable="false" promptText="choose local dir"
+                                   text="/sdcard/adbfx/" HBox.hgrow="SOMETIMES"/>
+                        <MenuButton mnemonicParsing="false" text="Select Sub Dir">
+                            <items>
+                                <MenuItem mnemonicParsing="false">
+                                    <graphic>
+                                        <ListView fx:id="listSubDir"/>
+                                    </graphic>
+                                </MenuItem>
+                            </items>
+                        </MenuButton>
+                    </children>
+                </HBox>
+            </content>
+        </TitledPane>
+        <TitledPane expanded="false" text="Output" VBox.vgrow="NEVER">
+            <content>
+                <TextArea fx:id="areaOutput" editable="false" prefHeight="360.0"/>
+            </content>
+        </TitledPane>
+    </children>
+</VBox>

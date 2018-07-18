@@ -25,15 +25,8 @@ public class FileManager {
         return ourInstance;
     }
 
-    public static void loadByDragDrop(Node node, List<String> observableList, Extension extension) {
-        node.setOnDragOver(event -> {
-            Dragboard dragboard = event.getDragboard();
-            if (dragboard.hasFiles()) {
-                event.acceptTransferModes(TransferMode.LINK);
-            } else {
-                event.consume();
-            }
-        });
+    public static void loadPathsByDragDrop(Node node, List<String> observableList, Extension extension) {
+        startDrag(node);
 
         node.setOnDragDropped(event -> {
             Dragboard dragboard = event.getDragboard();
@@ -50,6 +43,35 @@ public class FileManager {
 
         });
 
+    }
+
+    public static void loadFilesByDragDrop(Node node, List<File> list, Extension extension) {
+        startDrag(node);
+
+        node.setOnDragDropped(event -> {
+            Dragboard dragboard = event.getDragboard();
+
+            dragboard.getFiles().forEach(file -> {
+                if (FilenameUtils.wildcardMatch(file.getName(), extension.wildcard) && !list.contains(file)) {
+                    list.add(file);
+                }
+            });
+
+            event.setDropCompleted(dragboard.hasFiles());
+            event.consume();
+
+        });
+    }
+
+    private static void startDrag(Node node) {
+        node.setOnDragOver(event -> {
+            Dragboard dragboard = event.getDragboard();
+            if (dragboard.hasFiles()) {
+                event.acceptTransferModes(TransferMode.LINK);
+            } else {
+                event.consume();
+            }
+        });
     }
 
     void init(Stage stage) {

@@ -3,7 +3,7 @@ package cn.j1angvei.adbfx.functions.apps;
 import cn.j1angvei.adbfx.BaseController;
 import cn.j1angvei.adbfx.adb.PackageDetailService;
 import cn.j1angvei.adbfx.adb.PackageListService;
-import cn.j1angvei.adbfx.adb.PackageOperationService;
+import cn.j1angvei.adbfx.adb.PackageOperateService;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.scene.control.*;
@@ -44,7 +44,7 @@ public class PackageListController extends BaseController<PackageListModel> {
 
     private PackageListService mPackageListService;
     private PackageDetailService mPackageDetailService;
-    private PackageOperationService mPackageOperationService;
+    private PackageOperateService mPackageOperateService;
 
 
     @Override
@@ -56,7 +56,7 @@ public class PackageListController extends BaseController<PackageListModel> {
     protected void initArguments() {
         mPackageListService = new PackageListService();
         mPackageDetailService = new PackageDetailService(getModel().getPackageInfoList());
-        mPackageOperationService = new PackageOperationService();
+        mPackageOperateService = new PackageOperateService();
     }
 
     @Override
@@ -118,25 +118,25 @@ public class PackageListController extends BaseController<PackageListModel> {
         });
         btnApkPath.setOnAction(event -> {
             titledResult.setExpanded(true);
-            mPackageOperationService.restart(PackageListController.this.getChosenDevice(),
-                    selectedItem.get().getPackageName(), PackageOperationService.Operation.APK_PATH);
+            mPackageOperateService.restart(PackageListController.this.getChosenDevice(),
+                    selectedItem.get().getPackageName(), PackageOperateService.Operation.APK_PATH);
         });
         menuHide.setOnAction(event -> {
             titledResult.setExpanded(true);
-            mPackageOperationService.restart(getChosenDevice(),
-                    selectedItem.get().getPackageName(), PackageOperationService.Operation.HIDE);
+            mPackageOperateService.restart(getChosenDevice(),
+                    selectedItem.get().getPackageName(), PackageOperateService.Operation.HIDE);
         });
         menuUnhide.setOnAction(event -> {
             titledResult.setExpanded(true);
-            mPackageOperationService.restart(getChosenDevice(),
-                    selectedItem.get().getPackageName(), PackageOperationService.Operation.UNHIDE);
+            mPackageOperateService.restart(getChosenDevice(),
+                    selectedItem.get().getPackageName(), PackageOperateService.Operation.UNHIDE);
         });
         btnClearData.setOnAction(event -> {
             titledResult.setExpanded(true);
-            mPackageOperationService.restart(getChosenDevice(),
-                    selectedItem.get().getPackageName(), PackageOperationService.Operation.CLEAR_DATA);
+            mPackageOperateService.restart(getChosenDevice(),
+                    selectedItem.get().getPackageName(), PackageOperateService.Operation.CLEAR_DATA);
         });
-        areaResult.textProperty().bind(mPackageOperationService.valueProperty());
+        areaResult.textProperty().bind(mPackageOperateService.valueProperty());
 
     }
 

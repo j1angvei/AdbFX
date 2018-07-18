@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.stream.Stream;
 
 @Slf4j
-public class PackageOperationService extends Service<String> {
+public class PackageOperateService extends Service<String> {
 
 
     private IDevice mDevice;

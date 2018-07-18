@@ -3,6 +3,7 @@ package cn.j1angvei.adbfx.adb;
 import cn.j1angvei.adbfx.actionbar.ActionBarModel;
 import cn.j1angvei.adbfx.functions.apps.PackageInfo;
 import com.android.ddmlib.AndroidDebugBridge;
+import com.android.ddmlib.Client;
 import com.android.ddmlib.IDevice;
 import lombok.extern.slf4j.Slf4j;
 
@@ -19,7 +20,14 @@ public final class PackageManager {
 
     private PackageManager() {
         mDetailedPackages = new HashMap<>();
-        mClientChangeListener = (client, changeMask) -> log.debug("Client:{};device:{}", client.getClientData().getPackageName(), client.getDevice().getSerialNumber());
+        mClientChangeListener = new AndroidDebugBridge.IClientChangeListener() {
+            @Override
+            public void clientChanged(Client client, int changeMask) {
+                if (Client.CHANGE_INFO == changeMask) {
+                    log.debug("Client:{};device:{}", client.getClientData().getPackageName(), client.getDevice().getSerialNumber());
+                }
+            }
+        };
     }
 
     public static PackageManager getInstance() {
