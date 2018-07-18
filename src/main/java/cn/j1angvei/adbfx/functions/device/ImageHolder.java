@@ -1,18 +1,17 @@
 package cn.j1angvei.adbfx.functions.device;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.ListProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Bounds;
-import javafx.scene.Group;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.StackPane;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.io.FileUtils;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
@@ -23,15 +22,17 @@ import java.io.IOException;
 @Slf4j
 public class ImageHolder extends ScrollPane {
     @FXML
-    private ScrollPane scrollPane;
-    @FXML
-    private StackPane stackPane;
-    @FXML
-    private Group group;
-    @FXML
     private ImageView imageView;
     @FXML
-    private Slider slider;
+    private MenuItem menuOpenFile;
+    @FXML
+    private MenuItem menuOpenDir;
+    //    @FXML
+//    private MenuItem menuRename;
+//    @FXML
+//    private TextField fieldName;
+    @FXML
+    private MenuItem menuDelete;
 
     public ImageHolder() {
         FXMLLoader fxmlLoader = new FXMLLoader(
@@ -45,44 +46,63 @@ public class ImageHolder extends ScrollPane {
         }
     }
 
-    public ImageHolder(File file) {
+    public ImageHolder(File file, DoubleProperty scaleRatio, ListProperty<File> allImages) {
         this();
-        setImage(file);
-    }
 
-    private boolean mSliderInit;
-    private double mRealWidth;
-    private double mRealHeight;
-
-    public void setImage(File file) {
         Image image = new Image(file.toURI().toString());
-        mRealWidth = image.getWidth();
-        mRealHeight = image.getHeight();
+        double realWidth = image.getWidth();
 
         imageView.setImage(image);
+        imageView.fitWidthProperty().bind(scaleRatio.multiply(realWidth));
 
-        imageView.fitWidthProperty().bind(slider.valueProperty().multiply(mRealWidth));
-
-        scrollPane.viewportBoundsProperty().addListener(new ChangeListener<Bounds>() {
-            @Override
-            public void changed(ObservableValue<? extends Bounds> observable, Bounds oldValue, Bounds bounds) {
-                if (!mSliderInit) {
-                    mSliderInit = true;
-
-                    double viewPortWidth = bounds.getWidth();
-                    double viewPortHeight = bounds.getHeight();
-
-                    double widthRatio = viewPortWidth / mRealWidth;
-                    double heightRatio = viewPortHeight / mRealHeight;
-                    double initRatio = Math.min(widthRatio, heightRatio);
-
-                    log.debug("real:{},{};viewPort:{},{};initRatio:{}",
-                            mRealWidth, mRealHeight, viewPortWidth, viewPortHeight, initRatio);
-                    slider.setValue(initRatio);
-
-
-                }
+        menuOpenFile.setOnAction(event -> {
+            try {
+                Desktop.getDesktop().browse(file.toURI());
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         });
+        menuOpenDir.setOnAction(event -> {
+            try {
+                Desktop.getDesktop().browse(file.getParentFile().toURI());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        menuDelete.setOnAction(event -> {
+            allImages.remove(file);
+            try {
+                FileUtils.forceDelete(file);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+    }
+
+    public void setImage(File file) {
+
+
+//        scrollPane.viewportBoundsProperty().addListener(new ChangeListener<Bounds>() {
+//            @Override
+//            public void changed(ObservableValue<? extends Bounds> observable, Bounds oldValue, Bounds bounds) {
+//                if (!mSliderInit) {
+//                    mSliderInit = true;
+//
+//                    double viewPortWidth = bounds.getWidth();
+//                    double viewPortHeight = bounds.getHeight();
+//
+//                    double widthRatio = viewPortWidth / mRealWidth;
+//                    double heightRatio = viewPortHeight / mRealHeight;
+//                    double initRatio = Math.min(widthRatio, heightRatio);
+//
+//                    log.debug("real:{},{};viewPort:{},{};initRatio:{}",
+//                            mRealWidth, mRealHeight, viewPortWidth, viewPortHeight, initRatio);
+//                    slider.setValue(initRatio);
+//
+//
+//                }
+//            }
+//        });
     }
 }

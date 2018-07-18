@@ -1,25 +1,27 @@
 package cn.j1angvei.adbfx.functions.device;
 
 import cn.j1angvei.adbfx.BaseController;
+import cn.j1angvei.adbfx.FileManager;
 import cn.j1angvei.adbfx.adb.ScreenShotService;
 import javafx.beans.binding.Bindings;
-import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Pagination;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.util.Callback;
+import javafx.scene.layout.VBox;
 import org.apache.commons.lang3.SystemUtils;
+
+import java.io.File;
 
 public class ScreenShotController extends BaseController<ScreenShotModel> {
     public CheckBox checkLandscape;
-    public Button btnTakeScreenShot;
-    public Pagination paginationImages;
     public TextField fieldSaveDir;
     public Button btnChooseDir;
-    public Button btnOpenImageDir;
+
+    public Pagination paginationImages;
+    public Button btnTakeScreenShot;
+
+    public Slider sliderScale;
+    public VBox boxScale;
 
     private ScreenShotService mScreenShotService;
 
@@ -40,6 +42,18 @@ public class ScreenShotController extends BaseController<ScreenShotModel> {
     @Override
     protected void initView() {
         /* **********************************************************
+              screenShot params
+         ********************************************************** */
+        fieldSaveDir.textProperty().bind(Bindings.createStringBinding(() -> getModel().getSaveDir().get().getAbsolutePath(), getModel().getSaveDir()));
+        btnChooseDir.setOnAction(event -> {
+            File chosenDir = FileManager.getInstance().chooseDirectory("Choose directory to save screenShot", getModel().getSaveDir().get());
+            if (chosenDir != null) {
+                getModel().getSaveDir().set(chosenDir);
+            }
+        });
+
+
+        /* **********************************************************
               Take screenShot
          ********************************************************** */
         btnTakeScreenShot.setOnAction(event -> mScreenShotService.restart(
@@ -48,28 +62,26 @@ public class ScreenShotController extends BaseController<ScreenShotModel> {
         mScreenShotService.valueProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null && !getModel().getSavedImages().contains(newValue)) {
                 getModel().getSavedImages().add(newValue);
+                paginationImages.setCurrentPageIndex(getModel().getSavedImages().size() - 1);
             }
         });
 
         /* **********************************************************
                Show taken screenShot
          ********************************************************** */
-        paginationImages.setPageFactory(new Callback<Integer, Node>() {
-            @Override
-            public Node call(Integer param) {
-                if (getModel().getSavedImages().isEmpty()) {
-                    Image image = new Image("/img/ph_screen_shot.png");
-                    return new ImageView(image);
-                } else {
-                    return new ImageHolder(getModel().getSavedImages().get(param));
-                }
+        paginationImages.setPageFactory(param -> {
+            if (getModel().getSavedImages().isEmpty()) {
+                Image image = new Image("/img/ph_screen_shot.png");
+                return new ImageView(image);
+            } else {
+                return new ImageHolder(getModel().getSavedImages().get(param), sliderScale.valueProperty(), getModel().getSavedImages());
             }
         });
         paginationImages.pageCountProperty().bind(Bindings.createIntegerBinding(() ->
                         getModel().getSavedImages().size(),
                 getModel().getSavedImages()));
 
-        paginationImages.currentPageIndexProperty().bindBidirectional(getModel().getCurrentIndex());
+        boxScale.visibleProperty().bind(Bindings.not(getModel().getSavedImages().emptyProperty()));
     }
 
     @Override

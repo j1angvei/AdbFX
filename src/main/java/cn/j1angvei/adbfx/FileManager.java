@@ -3,6 +3,7 @@ package cn.j1angvei.adbfx;
 import javafx.scene.Node;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.apache.commons.io.FilenameUtils;
@@ -70,6 +71,14 @@ public class FileManager {
             return addedFiles;
         }
         return Collections.emptyList();
+    }
+
+    public File chooseDirectory(String title, File initDir) {
+        DirectoryChooser chooser = new DirectoryChooser();
+        chooser.setTitle(title);
+        chooser.setInitialDirectory(initDir);
+        return chooser.showDialog(mStage);
+
     }
 
     public enum Extension {
