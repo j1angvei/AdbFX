@@ -7,7 +7,7 @@
 <VBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" spacing="4.0" xmlns="http://javafx.com/javafx/10.0.1"
       fx:controller="cn.j1angvei.adbfx.functions.files.PullFileController">
     <children>
-        <TitledPane text="Desktop Location">
+        <TitledPane text="Desktop Location" expanded="false">
             <content>
                 <HBox alignment="CENTER" spacing="8.0">
                     <children>
@@ -42,6 +42,8 @@
                                         mnemonicParsing="false" text="Clear Selection"/>
                                 <Button fx:id="btnPullFiles" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
                                         text="Pull Files"/>
+                                <Button fx:id="btnOpenLocal" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                                        text="Open Folder"/>
                                 <ProgressIndicator fx:id="progressIndicator" maxHeight="-Infinity" maxWidth="-Infinity"
                                                    prefHeight="100.0" prefWidth="100.0" progress="0.0"/>
                             </children>
@@ -79,7 +81,7 @@
         </TitledPane>
         <TitledPane expanded="false" text="Output">
             <content>
-                <TextArea fx:id="areaOutput" prefHeight="200.0" prefWidth="200.0"/>
+                <TextArea fx:id="areaOutput" editable="false"/>
             </content>
         </TitledPane>
     </children>

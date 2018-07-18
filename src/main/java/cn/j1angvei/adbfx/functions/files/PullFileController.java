@@ -8,10 +8,15 @@ import cn.j1angvei.adbfx.adb.PullFileService;
 import javafx.beans.binding.Bindings;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.scene.control.Button;
 import javafx.scene.control.*;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import lombok.extern.slf4j.Slf4j;
 
+import java.awt.*;
 import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.Callable;
 
 @Slf4j
@@ -30,6 +35,7 @@ public class PullFileController extends BaseController<PullFileModel> {
     public Button btnSelectAll;
     public Button btnClearSelection;
     public Button btnPullFiles;
+    public Button btnOpenLocal;
 
     public ProgressIndicator progressIndicator;
 
@@ -102,6 +108,13 @@ public class PullFileController extends BaseController<PullFileModel> {
         });
         btnUpperPath.disableProperty().bind(Bindings.equal(FileInfo.SDCARD, getModel().chosenFileInfoProperty()));
         btnRefresh.setOnAction(event -> mFileInfoService.restart(getChosenDevice(), getModel().getChosenFileInfo()));
+        btnOpenLocal.setOnAction(event -> {
+            try {
+                Desktop.getDesktop().browse(getModel().getLocalPath().toURI());
+            } catch (IOException e) {
+                log.error("Error when open local path", e);
+            }
+        });
         //chosen dir changes
         setFileInfoCellFactory(listSubPaths, true);
         setFileInfoCellFactory(listSubFiles, false);
@@ -135,12 +148,21 @@ public class PullFileController extends BaseController<PullFileModel> {
         /* ************************************************************************
             sub files under chosen path
          ************************************************************************ */
-        btnPullFiles.setOnAction(event -> mPullFileService.restart(getChosenDevice(), null));
+        btnPullFiles.setOnAction(event -> mPullFileService.restart(
+                getChosenDevice(),
+                listSubFiles.getSelectionModel().getSelectedItems(),
+                fieldLocalPath.getText()
+        ));
 
         /* ************************************************************************
            pull file result
          ************************************************************************ */
-
+        progressIndicator.visibleProperty().bind(mPullFileService.runningProperty());
+        progressIndicator.progressProperty().bind(mPullFileService.progressProperty());
+        btnPullFiles.disableProperty().bind(Bindings.createBooleanBinding(() ->
+                        mPullFileService.isRunning() || listSubFiles.getSelectionModel().getSelectedItems().isEmpty(),
+                mPullFileService.runningProperty(), listSubFiles.getSelectionModel().selectedItemProperty()));
+        areaOutput.textProperty().bind(mPullFileService.valueProperty());
     }
 
     @Override
