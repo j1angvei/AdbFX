@@ -8,12 +8,11 @@ import cn.j1angvei.adbfx.adb.PullFileService;
 import javafx.beans.binding.Bindings;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.*;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
+import java.util.concurrent.Callable;
 
 @Slf4j
 public class PullFileController extends BaseController<PullFileModel> {
@@ -52,6 +51,22 @@ public class PullFileController extends BaseController<PullFileModel> {
         mPullFileService = new PullFileService();
     }
 
+    private static void setFileInfoCellFactory(ListView<FileInfo> list, boolean isDir) {
+        list.setCellFactory(param -> {
+            ListCell<FileInfo> cell = new ListCell<>();
+            cell.textProperty().bind(Bindings.createStringBinding(() -> {
+                FileInfo fileInfo = cell.getItem();
+                if (fileInfo != null) {
+                    return isDir ? fileInfo.getName() :
+                            String.format("%s\t[%s]", fileInfo.getName(), fileInfo.getTime());
+                } else {
+                    return null;
+                }
+            }, cell.itemProperty()));
+            return cell;
+        });
+    }
+
     @Override
     protected void initView() {
         /* ************************************************************************
@@ -62,7 +77,9 @@ public class PullFileController extends BaseController<PullFileModel> {
                 getModel().getLocalPath().getAbsolutePath(), getModel().localPathProperty()));
         //choose new local path
         btnChooseLocalPath.setOnAction(event -> {
-            File chosenDir = FileManager.getInstance().chooseDirectory("Choose directory to save pulled files", getModel().getLocalPath());
+            File chosenDir = FileManager.getInstance().chooseDirectory(
+                    "Choose directory to save pulled files",
+                    getModel().getLocalPath());
             if (chosenDir != null) {
                 getModel().setLocalPath(chosenDir);
             }
@@ -71,14 +88,12 @@ public class PullFileController extends BaseController<PullFileModel> {
         /* ************************************************************************
            Select android device folder path
          ************************************************************************ */
-        //show current chosen file path
-        log.debug("init :{}", getModel().getChosenFileInfo());
-        menuCurrentRemotePath.textProperty().bind(Bindings.createStringBinding(() -> {
-            FileInfo fileInfo = getModel().getChosenFileInfo();
-            log.debug("Chosen file:{}", fileInfo);
-            return fileInfo == null ? "Choose Directory" : fileInfo.getFullPath();
+        menuCurrentRemotePath.textProperty().bind(Bindings.createStringBinding(new Callable<String>() {
+            @Override
+            public String call() {
+                return getModel().getChosenFileInfo().getFullPath();
+            }
         }, getModel().chosenFileInfoProperty()));
-
         btnUpperPath.setOnAction(event -> {
             FileInfo parent = getModel().getChosenFileInfo().getParent();
             if (parent != null) {
@@ -86,47 +101,45 @@ public class PullFileController extends BaseController<PullFileModel> {
             }
         });
         btnUpperPath.disableProperty().bind(Bindings.equal(FileInfo.SDCARD, getModel().chosenFileInfoProperty()));
-        btnRefresh.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                mFileInfoService.restart(getChosenDevice(), getModel().getChosenFileInfo());
+        btnRefresh.setOnAction(event -> mFileInfoService.restart(getChosenDevice(), getModel().getChosenFileInfo()));
+        //chosen dir changes
+        setFileInfoCellFactory(listSubPaths, true);
+        setFileInfoCellFactory(listSubFiles, false);
+        mFileInfoService.runningProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue) {
+                listSubPaths.getItems().setAll(getModel().getChosenFileInfo().getSubDir());
+                listSubFiles.getItems().setAll(getModel().getChosenFileInfo().getSubFiles());
             }
         });
-        //when no path is chosen, add sdcard path to sub dir list
-        getModel().chosenFileInfoProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue == null) {
-                listSubPaths.getItems().add(FileInfo.SDCARD);
+        // change chosen device path
+        listSubPaths.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                getModel().setChosenFileInfo(newValue);
             }
         });
-        //sub dirs
-        listSubPaths.itemsProperty().bind(getModel().getChosenFileInfo().subDirProperty());
-        listSubPaths.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<FileInfo>() {
+
+        getModel().chosenFileInfoProperty().addListener(new ChangeListener<FileInfo>() {
             @Override
             public void changed(ObservableValue<? extends FileInfo> observable, FileInfo oldValue, FileInfo newValue) {
-                if (newValue != null) {
-                    getModel().setChosenFileInfo(newValue);
-                }
+                mFileInfoService.restart(getChosenDevice(), newValue);
             }
         });
+        /* ************************************************************************
+            sub files under chosen path
+         ************************************************************************ */
+        //sub files
+        listSubFiles.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        btnSelectAll.setOnAction(event -> listSubFiles.getSelectionModel().selectAll());
+        btnClearSelection.setOnAction(event -> listSubFiles.getSelectionModel().clearSelection());
 
+        /* ************************************************************************
+            sub files under chosen path
+         ************************************************************************ */
+        btnPullFiles.setOnAction(event -> mPullFileService.restart(getChosenDevice(), null));
 
-//        /* ************************************************************************
-//            sub files under chosen path
-//         ************************************************************************ */
-//        //sub files
-//        listSubFiles.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-//        listSubFiles.itemsProperty().bind(getModel().getChosenFileInfo().subFilesProperty());
-//        btnSelectAll.setOnAction(event -> listSubFiles.getSelectionModel().selectAll());
-//        btnClearSelection.setOnAction(event -> listSubFiles.getSelectionModel().clearSelection());
-//
-//        /* ************************************************************************
-//            sub files under chosen path
-//         ************************************************************************ */
-//        btnPullFiles.setOnAction(event -> mPullFileService.restart(getChosenDevice(), null));
-//
-//        /* ************************************************************************
-//           pull file result
-//         ************************************************************************ */
+        /* ************************************************************************
+           pull file result
+         ************************************************************************ */
 
     }
 

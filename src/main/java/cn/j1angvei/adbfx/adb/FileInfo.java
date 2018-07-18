@@ -4,10 +4,8 @@ import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import lombok.EqualsAndHashCode;
-import lombok.ToString;
 
 @EqualsAndHashCode(of = "fullPath")
-@ToString(of = "fullPath")
 public class FileInfo {
     public static final FileInfo SDCARD = new FileInfo(null, "sdcard", true);
 
@@ -17,11 +15,7 @@ public class FileInfo {
     private final ListProperty<FileInfo> subDir;
     private final ListProperty<FileInfo> subFiles;
     private final StringProperty fullPath;
-
-    private String mod;
-    private String size;
-    private String day;
-    private String time;
+    private final StringProperty time;
 
     public FileInfo(FileInfo parent, String name, boolean isDirectory) {
         this.parent = new SimpleObjectProperty<>(parent);
@@ -34,6 +28,24 @@ public class FileInfo {
 
         this.subDir = new SimpleListProperty<>(FXCollections.observableArrayList());
         this.subFiles = new SimpleListProperty<>(FXCollections.observableArrayList());
+
+        this.time = new SimpleStringProperty();
+    }
+
+    public final void updateSubDirs(FileInfo fileInfo) {
+        if (!fileInfo.isIsDirectory()) {
+            throw new IllegalArgumentException("Try to insert file to subDir list");
+        }
+        subDir.remove(fileInfo);
+        subDir.add(fileInfo);
+    }
+
+    public final void updateSubFiles(FileInfo fileInfo) {
+        if (fileInfo.isIsDirectory()) {
+            throw new IllegalArgumentException("Try to insert directory to subFiles list");
+        }
+        subFiles.remove(fileInfo);
+        subFiles.add(fileInfo);
     }
 
 
@@ -109,35 +121,20 @@ public class FileInfo {
         return fullPath;
     }
 
-    public String getMod() {
-        return mod;
-    }
-
-    public void setMod(String mod) {
-        this.mod = mod;
-    }
-
-    public String getSize() {
-        return size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
-    }
-
-    public String getDay() {
-        return day;
-    }
-
-    public void setDay(String day) {
-        this.day = day;
-    }
-
     public String getTime() {
-        return time;
+        return time.get();
     }
 
     public void setTime(String time) {
-        this.time = time;
+        this.time.set(time);
+    }
+
+    public StringProperty timeProperty() {
+        return time;
+    }
+
+    @Override
+    public String toString() {
+        return getFullPath();
     }
 }

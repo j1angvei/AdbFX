@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
 <VBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" spacing="4.0" xmlns="http://javafx.com/javafx/10.0.1"
       fx:controller="cn.j1angvei.adbfx.functions.files.PullFileController">
     <children>
@@ -27,6 +28,9 @@
                             <BorderPane.margin>
                                 <Insets right="12.0"/>
                             </BorderPane.margin>
+                            <placeholder>
+                                <Text text="No files under this directory (Directory excluded)"/>
+                            </placeholder>
                         </ListView>
                     </center>
                     <right>
@@ -52,7 +56,12 @@
                                     <items>
                                         <MenuItem mnemonicParsing="false">
                                             <graphic>
-                                                <ListView fx:id="listSubPaths"/>
+                                                <ListView fx:id="listSubPaths"
+                                                          prefWidth="${menuCurrentRemotePath.width}">
+                                                    <placeholder>
+                                                        <Text text="No sub directory, try to click refresh button"/>
+                                                    </placeholder>
+                                                </ListView>
                                             </graphic>
                                         </MenuItem>
                                     </items>

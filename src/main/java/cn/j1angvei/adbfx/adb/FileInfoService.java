@@ -7,14 +7,14 @@ import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
-import java.util.function.Consumer;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 @Slf4j
 public class FileInfoService extends Service<Void> {
-    private static final Pattern BLANK = Pattern.compile("\\b+");
-    private static final int LIMIT = 5;
+    private static final String SOFT_LINK = "\\s+->$";
+    private static final Pattern DATE = Pattern.compile("\\s+\\d{4}-\\d{2}-\\d{2}\\s+\\d{2}:\\d{2}\\s+");
 
     private IDevice mDevice;
     private FileInfo mFileInfo;
@@ -37,25 +37,29 @@ public class FileInfoService extends Service<Void> {
                     mDevice.executeShellCommand(cmd, new MultiLineReceiver() {
                         @Override
                         public void processNewLines(String[] lines) {
-                            Stream.of(lines).forEach(new Consumer<String>() {
-                                @Override
-                                public void accept(String s) {
-                                    log.debug("line:{}", s);
-                                    //remove soft link
-//                                    if (s.contains("->")) {
-//                                        s = s.replaceAll("\\s+->.+$", "");
-//                                    }
-//                                    String[] segments;
-//                                    if (s.startsWith("d")) {
-//                                        segments = s.split("\\s+", 5);
-//                                        log.debug("dir name:{}", segments[5]);
-//                                    } else {
-//                                        segments = s.split("\\s+", 6);
-//                                        log.debug("file name:{}", segments[6]);
-//                                    }
-//                                    log.debug("Arrays:{}", Arrays.toString(segments));
-                                }
-                            });
+
+                            Stream.of(lines).filter(s -> s != null && !s.isEmpty())
+                                    .map(s -> s.replaceAll(SOFT_LINK, ""))
+                                    .forEach(s -> {
+                                        Matcher matcher = DATE.matcher(s);
+                                        if (matcher.find()) {
+                                            String prefix = s.substring(0, matcher.start());
+                                            String time = matcher.group().trim();
+                                            String suffix = s.substring(matcher.end());
+
+                                            boolean isDir = prefix.startsWith("d");
+
+                                            FileInfo fileInfo = new FileInfo(mFileInfo, suffix, isDir);
+                                            fileInfo.setTime(time);
+                                            log.debug("newly found sub file/dir,{}", fileInfo);
+                                            if (isDir) {
+                                                mFileInfo.updateSubDirs(fileInfo);
+                                            } else {
+                                                mFileInfo.updateSubFiles(fileInfo);
+                                            }
+                                        }
+
+                                    });
                         }
 
                         @Override

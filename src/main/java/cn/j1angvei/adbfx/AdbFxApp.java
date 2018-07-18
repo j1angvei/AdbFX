@@ -19,7 +19,7 @@ public class AdbFxApp extends Application {
     public void init() throws Exception {
         super.init();
         //init adb service as needed
-        AndroidDebugBridge.initIfNeeded(true);
+        AndroidDebugBridge.initIfNeeded(false);
         PackageManager.getInstance().registerListener();
     }
 

@@ -20,12 +20,9 @@ public final class PackageManager {
 
     private PackageManager() {
         mDetailedPackages = new HashMap<>();
-        mClientChangeListener = new AndroidDebugBridge.IClientChangeListener() {
-            @Override
-            public void clientChanged(Client client, int changeMask) {
-                if (Client.CHANGE_INFO == changeMask) {
-                    log.debug("Client:{};device:{}", client.getClientData().getPackageName(), client.getDevice().getSerialNumber());
-                }
+        mClientChangeListener = (client, changeMask) -> {
+            if (Client.CHANGE_INFO == changeMask) {
+                log.debug("Client:{};device:{}", client.getClientData().getPackageName(), client.getDevice().getSerialNumber());
             }
         };
     }
@@ -48,11 +45,11 @@ public final class PackageManager {
 
 
     public void registerListener() {
-        AndroidDebugBridge.addClientChangeListener(mClientChangeListener);
+//        AndroidDebugBridge.addClientChangeListener(mClientChangeListener);
     }
 
     public void unregisterListener() {
-        AndroidDebugBridge.removeClientChangeListener(mClientChangeListener);
+//        AndroidDebugBridge.removeClientChangeListener(mClientChangeListener);
     }
 
 }
