@@ -1,9 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml"
-            xmlns="http://javafx.com/javafx"
-            fx:controller="cn.j1angvei.adbfx.functions.files.PullFileController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" spacing="4.0" xmlns="http://javafx.com/javafx/10.0.1"
+      fx:controller="cn.j1angvei.adbfx.functions.files.PullFileController">
+    <children>
+        <TitledPane text="Desktop Location">
+            <content>
+                <HBox alignment="CENTER" spacing="8.0">
+                    <children>
+                        <Label text="Save Location:"/>
+                        <TextField fx:id="fieldLocalPath" promptText="choose location to save files"
+                                   HBox.hgrow="SOMETIMES"/>
+                        <Button fx:id="btnChooseLocalPath" mnemonicParsing="false" text="Choose"/>
+                    </children>
+                </HBox>
+            </content>
+        </TitledPane>
+        <TitledPane collapsible="false" maxHeight="1.7976931348623157E308" text="Android Device Files"
+                    VBox.vgrow="SOMETIMES">
+            <content>
+                <BorderPane>
+                    <center>
+                        <ListView fx:id="listSubFiles">
+                            <BorderPane.margin>
+                                <Insets right="12.0"/>
+                            </BorderPane.margin>
+                        </ListView>
+                    </center>
+                    <right>
+                        <VBox alignment="CENTER" prefWidth="120.0" spacing="12.0" BorderPane.alignment="CENTER">
+                            <children>
+                                <Button fx:id="btnSelectAll" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                                        text="Select All"/>
+                                <Button fx:id="btnClearSelection" maxWidth="1.7976931348623157E308"
+                                        mnemonicParsing="false" text="Clear Selection"/>
+                                <Button fx:id="btnPullFiles" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                                        text="Pull Files"/>
+                                <ProgressIndicator fx:id="progressIndicator" maxHeight="-Infinity" maxWidth="-Infinity"
+                                                   prefHeight="100.0" prefWidth="100.0" progress="0.0"/>
+                            </children>
+                        </VBox>
+                    </right>
+                    <top>
+                        <HBox alignment="CENTER" spacing="8.0" BorderPane.alignment="CENTER">
+                            <children>
+                                <Label text="Device Directory:"/>
+                                <MenuButton fx:id="menuCurrentRemotePath" maxWidth="1.7976931348623157E308"
+                                            mnemonicParsing="false" text="Choose Directory" HBox.hgrow="SOMETIMES">
+                                    <items>
+                                        <MenuItem mnemonicParsing="false">
+                                            <graphic>
+                                                <ListView fx:id="listSubPaths"/>
+                                            </graphic>
+                                        </MenuItem>
+                                    </items>
+                                </MenuButton>
+                                <Button fx:id="btnUpperPath" mnemonicParsing="false" text="Upper"/>
+                                <Button fx:id="btnRefresh" mnemonicParsing="false" text="Refresh"/>
+                            </children>
+                            <padding>
+                                <Insets bottom="4.0" top="4.0"/>
+                            </padding>
+                        </HBox>
+                    </top>
+                </BorderPane>
+            </content>
+        </TitledPane>
+        <TitledPane expanded="false" text="Output">
+            <content>
+                <TextArea fx:id="areaOutput" prefHeight="200.0" prefWidth="200.0"/>
+            </content>
+        </TitledPane>
+    </children>
+</VBox>
