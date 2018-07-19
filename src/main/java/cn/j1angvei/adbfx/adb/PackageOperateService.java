@@ -77,7 +77,7 @@ public class PackageOperateService extends Service<String> {
 
         //        GRANT_PERMISSION("grant"),
 //        REVOKE_PERMISSION("revoke"),
-        APK_PATH("fullPath"),
+        APK_PATH("path"),
         CLEAR_DATA("clear");
 
         public final String word;

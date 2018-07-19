@@ -18,14 +18,14 @@ public enum Function {
             "/img/test.png",
             "/function/UninstallApp.fxml",
             Category.APPS),
-    /**
-     * parse apk
-     */
-    PARSE_APK(
-            "parse_apk",
-            "/img/test.png",
-            "/function/ParseApk.fxml",
-            Category.APPS),
+//    /**
+//     * parse apk
+//     */
+//    PARSE_APK(
+//            "parse_apk",
+//            "/img/test.png",
+//            "/function/ParseApk.fxml",
+//            Category.APPS),
 
     /**
      * package list
@@ -41,28 +41,28 @@ public enum Function {
      * pull file
      */
     PULL_FILES(
-            "pkg_list",
+            "pull_files",
             "/img/test.png",
-            "/function/InstallApk.fxml",
+            "/function/PullFile.fxml",
             Category.FILES),
 
     /**
      * push file
      */
     PUSH_FILES(
-            "pkg_list",
+            "push_files",
             "/img/test.png",
-            "/function/InstallApk.fxml",
+            "/function/PushFile.fxml",
             Category.FILES),
 
-    /**
-     * file manager
-     */
-    FILE_MGR(
-            "pkg_list",
-            "/img/test.png",
-            "/function/InstallApk.fxml",
-            Category.FILES),
+//    /**
+//     * file manager
+//     */
+//    FILE_MGR(
+//            "pkg_list",
+//            "/img/test.png",
+//            "/function/InstallApk.fxml",
+//            Category.FILES),
 
     /**
      * screen shot
@@ -70,67 +70,69 @@ public enum Function {
     SCREEN_SHOT(
             "screen_shot",
             "/img/test.png",
-            "/function/InstallApk.fxml",
+            "/function/ScreenShot.fxml",
             Category.DEVICE),
     /**
      * screen recording
      */
     SCREEN_RECORDING(
-            "screen_recording",
+            "screen_record",
             "/img/test.png",
-            "/function/InstallApk.fxml",
+            "/function/ScreenRecord.fxml",
             Category.DEVICE),
 
-    /**
-     * device info
-     */
-    DEVICE_INFO(
-            "screen_recording",
-            "/img/test.png",
-            "/function/InstallApk.fxml",
-            Category.DEVICE),
+//    /**
+//     * device info
+//     */
+//    DEVICE_INFO(
+//            "screen_recording",
+//            "/img/test.png",
+//            "/function/InstallApk.fxml",
+//            Category.DEVICE),
+//
+//    /**
+//     * log cat
+//     */
+//    LOGCAT(
+//            "screen_recording",
+//            "/img/test.png",
+//            "/function/InstallApk.fxml",
+//            Category.DEBUG),
+//
+//    /**
+//     * device information
+//     */
+//    EMULATE_TOUCH(
+//            "screen_recording",
+//            "/img/test.png",
+//            "/function/InstallApk.fxml",
+//            Category.DEBUG),
+//    /**
+//     * start component(activity,intent,service,broadcast)
+//     */
+//    START_COMPONENT(
+//            "screen_recording",
+//            "/img/test.png",
+//            "/function/InstallApk.fxml",
+//            Category.DEBUG),
+//    /**
+//     * flash device(activity, intent, service, broadcast)
+//     */
+//    FLASH_DEVICE(
+//            "screen_recording",
+//            "/img/test.png",
+//            "/function/InstallApk.fxml",
+//            Category.ADVANCED),
+//    /**
+//     * execute script(activity, intent,service,broadcast)
+//     */
+//    RUN_SCRIPT(
+//            "screen_recording",
+//            "/img/test.png",
+//            "/function/InstallApk.fxml",
+//            Category.ADVANCED)
 
-    /**
-     * log cat
-     */
-    LOGCAT(
-            "screen_recording",
-            "/img/test.png",
-            "/function/InstallApk.fxml",
-            Category.DEBUG),
-
-    /**
-     * device information
-     */
-    EMULATE_TOUCH(
-            "screen_recording",
-            "/img/test.png",
-            "/function/InstallApk.fxml",
-            Category.DEBUG),
-    /**
-     * start component(activity,intent,service,broadcast)
-     */
-    START_COMPONENT(
-            "screen_recording",
-            "/img/test.png",
-            "/function/InstallApk.fxml",
-            Category.DEBUG),
-    /**
-     * flash device(activity, intent, service, broadcast)
-     */
-    FLASH_DEVICE(
-            "screen_recording",
-            "/img/test.png",
-            "/function/InstallApk.fxml",
-            Category.ADVANCED),
-    /**
-     * execute script(activity, intent,service,broadcast)
-     */
-    RUN_SCRIPT(
-            "screen_recording",
-            "/img/test.png",
-            "/function/InstallApk.fxml",
-            Category.ADVANCED);
+    ;
 
 
     public final String title;

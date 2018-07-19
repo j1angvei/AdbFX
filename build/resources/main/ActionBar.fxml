@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
-<HBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER"
+<HBox alignment="CENTER" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171"
       fx:controller="cn.j1angvei.adbfx.actionbar.ActionBarController">
     <children>
-        <ImageView fitHeight="32.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true"/>
-        <ToolBar>
+        <ImageView fitHeight="32.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@img/logo_on.png"/>
+            </image>
+        </ImageView>
+        <ToolBar visible="false">
             <items>
                 <Button mnemonicParsing="false" text="Mini"/>
                 <Button mnemonicParsing="false" text="Front"/>
