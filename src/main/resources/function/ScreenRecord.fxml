@@ -1,9 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml"
-            xmlns="http://javafx.com/javafx"
-            fx:controller="cn.j1angvei.adbfx.functions.device.ScreenRecordController"
-            prefHeight="400.0" prefWidth="600.0">
 
-</AnchorPane>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" xmlns="http://javafx.com/javafx/10.0.1"
+      fx:controller="cn.j1angvei.adbfx.functions.device.ScreenRecordController">
+    <children>
+        <TitledPane text="Param Settings">
+            <content>
+                <GridPane hgap="4.0" vgap="4.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="NEVER" minWidth="10.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <Label text="Size:"/>
+                        <Label text="Bit rate:" GridPane.rowIndex="1"/>
+                        <Label text="Time limit(s)" GridPane.rowIndex="2"/>
+                        <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1">
+                            <children>
+                                <CheckBox fx:id="checkDefaultSize" mnemonicParsing="false" selected="true"
+                                          text="use device resolution"/>
+                                <TextField fx:id="fieldWidth" promptText="Width" text="1280"/>
+                                <TextField fx:id="fieldHeight" promptText="Height" text="720"/>
+                            </children>
+                        </HBox>
+                        <Label text="Extra:" GridPane.rowIndex="3"/>
+                        <CheckBox fx:id="checkTouch" mnemonicParsing="false" text="show touch" GridPane.columnIndex="1"
+                                  GridPane.rowIndex="3"/>
+                        <Slider fx:id="sliderTime" majorTickUnit="30.0" max="180.0"
+                                showTickLabels="true"
+                                showTickMarks="true" value="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                        <Label text="Save location" GridPane.rowIndex="4"/>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                            <children>
+                                <TextField fx:id="fieldLocalPath" HBox.hgrow="SOMETIMES"/>
+                                <Button fx:id="btnChooseLocal" mnemonicParsing="false" text="Button"/>
+                            </children>
+                        </HBox>
+                        <ToolBar GridPane.columnIndex="1" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1"
+                                 GridPane.vgrow="SOMETIMES">
+                            <items>
+                                <RadioButton mnemonicParsing="false" text="1Mbps" userData="1">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="groupBitRate"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton mnemonicParsing="false" text="2Mbps" toggleGroup="$groupBitRate"
+                                             userData="2"/>
+                                <RadioButton mnemonicParsing="false" text="3Mbps" toggleGroup="$groupBitRate"
+                                             userData="3"/>
+                                <RadioButton mnemonicParsing="false" selected="true" text="4Mbps" userData="3"
+                                             toggleGroup="$groupBitRate"/>
+                            </items>
+                        </ToolBar>
+                    </children>
+                </GridPane>
+            </content>
+        </TitledPane>
+        <HBox alignment="CENTER" VBox.vgrow="SOMETIMES">
+            <children>
+                <ListView fx:id="listVideos" HBox.hgrow="SOMETIMES"/>
+                <VBox alignment="CENTER" spacing="12.0">
+                    <children>
+                        <Button fx:id="btnStartRecording" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0"
+                                style="-fx-background-radius: 120; -fx-border-radius: 120;" text="Start"/>
+                        <Button fx:id="btnOpenFolder" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                                text="Open Folder"/>
+                        <Button fx:id="btnPlayVideo" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                                text="Play Video"/>
+                    </children>
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                    <padding>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"/>
+                    </padding>
+                </VBox>
+            </children>
+        </HBox>
+        <ProgressBar fx:id="progressBar" maxWidth="1.7976931348623157E308" progress="0.0"/>
+        <TitledPane expanded="false" text="Output">
+            <content>
+                <TextArea fx:id="areaOutput" prefHeight="200.0" prefWidth="200.0"/>
+            </content>
+        </TitledPane>
+    </children>
+</VBox>

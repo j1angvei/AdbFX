@@ -38,7 +38,7 @@
                         <ListView VBox.vgrow="ALWAYS"/>
                     </children>
                 </VBox>
-                <fx:include source="function/PullFile.fxml"/>
+                <fx:include source="function/ScreenRecord.fxml"/>
             </items>
         </SplitPane>
     </children>
