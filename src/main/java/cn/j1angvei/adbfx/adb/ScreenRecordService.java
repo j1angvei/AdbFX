@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.stream.Stream;
 
 @Slf4j
-public class ScreenRecordService extends Service<Void> {
+public class ScreenRecordService extends Service<File> {
 
     private IDevice mDevice;
     private ScreenRecorderOptions mRecorderOptions;
@@ -37,26 +37,27 @@ public class ScreenRecordService extends Service<Void> {
     }
 
     @Override
-    protected Task<Void> createTask() {
-        return new Task<Void>() {
+    protected Task<File> createTask() {
+        return new Task<File>() {
             @Override
-            protected Void call() {
+            protected File call() {
                 String videoName = String.format("ScreenRecord_AdbFX_%d.mp4", System.currentTimeMillis());
                 String remotePath = mRemoteDir + videoName;
                 String localPath = mLocalDir + File.separator + videoName;
 
-                appendOutput(String.format("File saved at remote path:%s;local path:{}", remotePath));
+                appendOutput(String.format("File saved at:\n remote path,%s;local path,%s", remotePath, localPath));
                 log.debug("Start recording...");
                 try {
                     mDevice.startScreenRecorder(remotePath, mRecorderOptions, new OutputReceiver());
                     appendOutput("Recording complete, Pull from device to local ");
                     mDevice.pullFile(remotePath, localPath);
                     appendOutput("Success\n\n");
+                    mDevice.executeShellCommand("rm -f " + mRemoteDir, new OutputReceiver());
                 } catch (TimeoutException | AdbCommandRejectedException | ShellCommandUnresponsiveException | IOException | SyncException e) {
                     log.error("Error when take screen recording", e);
                     appendOutput(e.getMessage() + "\n\n");
                 }
-                return null;
+                return new File(localPath);
             }
         };
     }

@@ -1,6 +1,7 @@
 package cn.j1angvei.adbfx.functions.device;
 
 import cn.j1angvei.adbfx.BaseController;
+import cn.j1angvei.adbfx.FileManager;
 import cn.j1angvei.adbfx.adb.ScreenRecordService;
 import com.android.ddmlib.ScreenRecorderOptions;
 import javafx.beans.binding.Bindings;
@@ -8,41 +9,58 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.util.StringConverter;
 
 import java.io.File;
-import java.util.concurrent.Callable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Stream;
 
 public class ScreenRecordController extends BaseController<ScreenRecordModel> {
     private static final String REMOTE_DIR = "/sdcard/adbfx";
+    private static final Integer[] BIT_RATE_VALUES = {1, 2, 3, 4};
+    private static final int TIME_LIMIT_MAX = 180;
+    private static final List<Integer> TIME_LIMIT_VALUES = new ArrayList<>();
+
+    static {
+        int start = 5;
+        while (start <= TIME_LIMIT_MAX) {
+            TIME_LIMIT_VALUES.add(start);
+            start += 5;
+        }
+    }
+
+    //config
     @FXML
     private CheckBox checkDefaultSize;
     @FXML
-    private TextField fieldWidth;
+    private TextField fieldWidth, fieldHeight;
     @FXML
-    private TextField fieldHeight;
+    private ComboBox<Integer> comboTimeLimit;
+    @FXML
+    private ChoiceBox<Integer> choiceBitRate;
     @FXML
     private CheckBox checkTouch;
-    @FXML
-    private Slider sliderTime;
     @FXML
     private TextField fieldLocalPath;
     @FXML
     private Button btnChooseLocal;
-    @FXML
-    private ToggleGroup groupBitRate;
+
+    //content
     @FXML
     private ListView<File> listVideos;
+
+    //action
     @FXML
-    private Button btnStartRecording;
+    private Button btnStartRecording, btnOpenFolder, btnOpenFile;
+    //result
     @FXML
-    private Button btnOpenFolder;
-    @FXML
-    private Button btnPlayVideo;
-    @FXML
-    private ProgressBar progressBar;
+    private Label labelCountDown;
     @FXML
     private TextArea areaOutput;
+
+
     private ScreenRecordService mScreenRecordService;
 
     @Override
@@ -60,40 +78,94 @@ public class ScreenRecordController extends BaseController<ScreenRecordModel> {
         /* **************************************************
         Screen recording config
          ************************************************** */
-        fieldLocalPath.textProperty().bind(Bindings.createStringBinding(new Callable<String>() {
+        // set video width and height
+        Stream.of(fieldWidth, fieldHeight).forEach(textField ->
+                textField.disableProperty().bind(checkDefaultSize.selectedProperty()));
+        // set time limit
+        comboTimeLimit.getItems().addAll(TIME_LIMIT_VALUES);
+        comboTimeLimit.setConverter(new StringConverter<Integer>() {
             @Override
-            public String call() {
-                return getModel().getLocalPath().get().getAbsolutePath();
+            public String toString(Integer object) {
+                return object + " sec";
             }
-        }, getModel().getLocalPath()));
 
+            @Override
+            public Integer fromString(String string) {
+                return Integer.parseInt(string.split(" ")[0]);
+            }
+        });
+        comboTimeLimit.getSelectionModel().selectLast();
+        // set bit rate
+        choiceBitRate.getItems().addAll(BIT_RATE_VALUES);
+        choiceBitRate.setConverter(new StringConverter<Integer>() {
+            @Override
+            public String toString(Integer object) {
+                return object + " Mbps";
+            }
+
+            @Override
+            public Integer fromString(String string) {
+                return Integer.valueOf(string.split(" ")[0]);
+            }
+        });
+        choiceBitRate.getSelectionModel().selectLast();
+        // set local dir to save video
+        fieldLocalPath.textProperty().bind(Bindings.createStringBinding(() ->
+                        getModel().getLocalPath().getAbsolutePath(),
+                getModel().localPathProperty()));
+        // choose new local dir
+        btnChooseLocal.setOnAction(event -> {
+            File chosenDir = FileManager.getInstance().chooseDirectory(
+                    "Choose directory to save video files",
+                    getModel().getLocalPath());
+            if (chosenDir != null) {
+                getModel().setLocalPath(chosenDir);
+            }
+        });
         /* **************************************************
         Start screen recording
          ************************************************** */
         btnStartRecording.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                mScreenRecordService.restart(getChosenDevice(), buildRecorderOptions(), REMOTE_DIR, fieldLocalPath.getText(), areaOutput.textProperty());
+                mScreenRecordService.restart(getChosenDevice(),
+                        buildRecorderOptions(), REMOTE_DIR,
+                        fieldLocalPath.getText(), areaOutput.textProperty());
             }
         });
-        progressBar.visibleProperty().bind(mScreenRecordService.runningProperty());
 
+        /* **************************************************
+           Action dealing with video files
+         ************************************************** */
+        btnOpenFolder.setOnAction(event ->
+                FileManager.browseFileDir(getModel().getLocalPath().toURI()));
+        btnOpenFile.setOnAction(event ->
+                FileManager.openFile(listVideos.getSelectionModel().getSelectedItem()));
+        btnOpenFile.disableProperty().bind(Bindings.isNull(listVideos.getSelectionModel().selectedItemProperty()));
         /* **************************************************
         Complete screen recording
          ************************************************** */
-
-
+        mScreenRecordService.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null && !listVideos.getItems().contains(newValue)) {
+                listVideos.getItems().add(newValue);
+            }
+        });
+        labelCountDown.visibleProperty().bind(mScreenRecordService.runningProperty());
+        btnStartRecording.disableProperty().bind(mScreenRecordService.runningProperty());
+        btnStartRecording.textProperty().bind(Bindings.createStringBinding(() ->
+                        mScreenRecordService.isRunning() ? "Recording" : "Start",
+                mScreenRecordService.runningProperty()));
     }
 
     private ScreenRecorderOptions buildRecorderOptions() {
 
-        String userData = (String) groupBitRate.getSelectedToggle().getUserData();
-
         ScreenRecorderOptions.Builder builder = new ScreenRecorderOptions.Builder()
-                .setBitRate(Integer.parseInt(userData))
+                .setBitRate(choiceBitRate.getValue())
                 .setShowTouches(checkTouch.isSelected())
-                .setTimeLimit((int) sliderTime.getValue(), TimeUnit.SECONDS);
-        if (!checkDefaultSize.isSelected() && fieldHeight.getText().matches("\\d+") && fieldWidth.getText().matches("\\d+")) {
+                .setTimeLimit(comboTimeLimit.getValue(), TimeUnit.SECONDS);
+        if (!checkDefaultSize.isSelected() &&
+                fieldHeight.getText().matches("\\d+") &&
+                fieldWidth.getText().matches("\\d+")) {
             int width = Integer.parseInt(fieldWidth.getText());
             int height = Integer.parseInt(fieldHeight.getText());
             builder.setSize(width, height);

@@ -1,96 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<VBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" xmlns="http://javafx.com/javafx/10.0.1"
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.171"
       fx:controller="cn.j1angvei.adbfx.functions.device.ScreenRecordController">
     <children>
-        <TitledPane text="Param Settings">
+        <TitledPane expanded="false" text="Param Settings">
             <content>
-                <GridPane hgap="4.0" vgap="4.0">
-                    <columnConstraints>
-                        <ColumnConstraints hgrow="NEVER" minWidth="10.0"/>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES"/>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                    </rowConstraints>
+                <FlowPane hgap="8.0" vgap="8.0">
                     <children>
-                        <Label text="Size:"/>
-                        <Label text="Bit rate:" GridPane.rowIndex="1"/>
-                        <Label text="Time limit(s)" GridPane.rowIndex="2"/>
-                        <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1">
+                        <HBox alignment="CENTER_LEFT" spacing="8.0">
                             <children>
+                                <Label text="Size:"/>
                                 <CheckBox fx:id="checkDefaultSize" mnemonicParsing="false" selected="true"
-                                          text="use device resolution"/>
-                                <TextField fx:id="fieldWidth" promptText="Width" text="1280"/>
-                                <TextField fx:id="fieldHeight" promptText="Height" text="720"/>
+                                          text="Use Device Resolution"/>
+                                <TextField fx:id="fieldWidth" prefWidth="72.0" promptText="Width"/>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="x">
+                                    <HBox.margin>
+                                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0"/>
+                                    </HBox.margin>
+                                </Text>
+                                <TextField fx:id="fieldHeight" prefWidth="72.0" promptText="Height"/>
+                                <Separator orientation="VERTICAL"/>
                             </children>
                         </HBox>
-                        <Label text="Extra:" GridPane.rowIndex="3"/>
-                        <CheckBox fx:id="checkTouch" mnemonicParsing="false" text="show touch" GridPane.columnIndex="1"
-                                  GridPane.rowIndex="3"/>
-                        <Slider fx:id="sliderTime" majorTickUnit="30.0" max="180.0"
-                                showTickLabels="true"
-                                showTickMarks="true" value="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-                        <Label text="Save location" GridPane.rowIndex="4"/>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                        <HBox alignment="CENTER_LEFT" spacing="4.0">
                             <children>
-                                <TextField fx:id="fieldLocalPath" HBox.hgrow="SOMETIMES"/>
-                                <Button fx:id="btnChooseLocal" mnemonicParsing="false" text="Button"/>
+                                <Label text="Time Limit(s):"/>
+                                <ComboBox fx:id="comboTimeLimit"/>
+                                <Separator orientation="VERTICAL"/>
+                                <Label text="Bit rate(Mbps):"/>
+                                <ChoiceBox fx:id="choiceBitRate"/>
+                                <Separator orientation="VERTICAL"/>
+                                <CheckBox fx:id="checkTouch" mnemonicParsing="false" text="Show Touch"/>
+                                <Separator orientation="VERTICAL"/>
                             </children>
                         </HBox>
-                        <ToolBar GridPane.columnIndex="1" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1"
-                                 GridPane.vgrow="SOMETIMES">
-                            <items>
-                                <RadioButton mnemonicParsing="false" text="1Mbps" userData="1">
-                                    <toggleGroup>
-                                        <ToggleGroup fx:id="groupBitRate"/>
-                                    </toggleGroup>
-                                </RadioButton>
-                                <RadioButton mnemonicParsing="false" text="2Mbps" toggleGroup="$groupBitRate"
-                                             userData="2"/>
-                                <RadioButton mnemonicParsing="false" text="3Mbps" toggleGroup="$groupBitRate"
-                                             userData="3"/>
-                                <RadioButton mnemonicParsing="false" selected="true" text="4Mbps" userData="3"
-                                             toggleGroup="$groupBitRate"/>
-                            </items>
-                        </ToolBar>
+                        <HBox alignment="CENTER_LEFT" spacing="4.0">
+                            <children>
+                                <Label text="Local Path:"/>
+                                <TextField fx:id="fieldLocalPath" HBox.hgrow="SOMETIMES"/>
+                                <Button fx:id="btnChooseLocal" mnemonicParsing="false" text="Choose"/>
+                            </children>
+                        </HBox>
                     </children>
-                </GridPane>
+                </FlowPane>
             </content>
         </TitledPane>
-        <HBox alignment="CENTER" VBox.vgrow="SOMETIMES">
+        <AnchorPane VBox.vgrow="SOMETIMES">
             <children>
-                <ListView fx:id="listVideos" HBox.hgrow="SOMETIMES"/>
-                <VBox alignment="CENTER" spacing="12.0">
+                <ListView fx:id="listVideos" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                          AnchorPane.rightAnchor="136.0" AnchorPane.topAnchor="0.0">
+                    <placeholder>
+                        <Text text="No ScreenRecording is taken!"/>
+                    </placeholder>
+                </ListView>
+                <VBox alignment="CENTER" prefWidth="136.0" spacing="16.0"
+                      AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
-                        <Button fx:id="btnStartRecording" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0"
-                                style="-fx-background-radius: 120; -fx-border-radius: 120;" text="Start"/>
+                        <Button fx:id="btnStartRecording" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                                text="Start"/>
                         <Button fx:id="btnOpenFolder" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
                                 text="Open Folder"/>
-                        <Button fx:id="btnPlayVideo" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
-                                text="Play Video"/>
+                        <Button fx:id="btnOpenFile" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                                text="Open File"/>
+                        <Label fx:id="labelCountDown" text="00:00" visible="false">
+                            <font>
+                                <Font size="36.0"/>
+                            </font>
+                        </Label>
                     </children>
-                    <HBox.margin>
-                        <Insets/>
-                    </HBox.margin>
                     <padding>
                         <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"/>
                     </padding>
                 </VBox>
             </children>
-        </HBox>
-        <ProgressBar fx:id="progressBar" maxWidth="1.7976931348623157E308" progress="0.0"/>
-        <TitledPane expanded="false" text="Output">
+        </AnchorPane>
+        <TitledPane expanded="false" text="Output" VBox.vgrow="SOMETIMES">
             <content>
-                <TextArea fx:id="areaOutput" prefHeight="200.0" prefWidth="200.0"/>
+                <TextArea fx:id="areaOutput" prefHeight="400"/>
             </content>
         </TitledPane>
     </children>

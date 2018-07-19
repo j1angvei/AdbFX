@@ -6,12 +6,18 @@ import javafx.scene.input.TransferMode;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import lombok.NonNull;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FilenameUtils;
 
+import java.awt.*;
 import java.io.File;
+import java.io.IOException;
+import java.net.URI;
 import java.util.Collections;
 import java.util.List;
 
+@Slf4j
 public class FileManager {
     private static FileManager ourInstance = new FileManager();
     private Stage mStage;
@@ -93,6 +99,22 @@ public class FileManager {
             return addedFiles;
         }
         return Collections.emptyList();
+    }
+
+    public static void browseFileDir(@NonNull URI uri) {
+        try {
+            Desktop.getDesktop().browse(uri);
+        } catch (IOException e) {
+            log.error("Error when try to open file {} in desktop, {}", uri, e);
+        }
+    }
+
+    public static void openFile(@NonNull File file) {
+        try {
+            Desktop.getDesktop().open(file);
+        } catch (IOException e) {
+            log.error("Error when open file {},{}", file, e);
+        }
     }
 
     public File chooseDirectory(String title, File initDir) {
