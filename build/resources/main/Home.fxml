@@ -3,13 +3,13 @@
 
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.BorderPane?>
-<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171"
             fx:id="borderMain"
             fx:controller="cn.j1angvei.adbfx.home.HomeController">
     <top>
         <fx:include source="ActionBar.fxml"/>
     </top>
     <left>
-        <ListView fx:id="listFunctions" BorderPane.alignment="CENTER"/>
+        <ListView fx:id="listFunctions" BorderPane.alignment="CENTER" prefWidth="180"/>
     </left>
 </BorderPane>

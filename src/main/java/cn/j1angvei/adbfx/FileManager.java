@@ -140,6 +140,48 @@ public class FileManager {
 
     }
 
+//    public static void simpleUnzip(String zipFilePath, String destDir) {
+//        try {
+//            ZipFile zipFile = new ZipFile(zipFilePath);
+//            zipFile.extractAll(destDir);
+//        } catch (ZipException e) {
+//            log.error("Error when unzip file {} to {}", zipFilePath, destDir, e);
+//        }
+//    }
+//
+//    public static void unzip(String zipFilePath, String destDir) {
+//        File targetDir = new File(destDir);
+//
+//        try (ZipArchiveInputStream i = new ZipArchiveInputStream(new FileInputStream(zipFilePath))) {
+//            ZipArchiveEntry entry = null;
+//            while ((entry = i.getNextZipEntry()) != null) {
+//                if (!i.canReadEntryData(entry)) {
+//                    // log something?
+//                    continue;
+//                }
+//                String name = targetDir.getAbsolutePath() + File.separator + entry.getName();
+//                File f = new File(name);
+//                if (entry.isDirectory()) {
+//                    if (!f.isDirectory() && !f.mkdirs()) {
+//                        throw new IOException("failed to create directory " + f);
+//                    }
+//                } else {
+//                    File parent = f.getParentFile();
+//                    entry.setUnixMode();
+//                    if (!parent.isDirectory() && !parent.mkdirs()) {
+//                        throw new IOException("failed to create directory " + parent);
+//                    }
+//                    try (OutputStream o = Files.newOutputStream(f.toPath())) {
+//                        IOUtils.copy(i, o);
+//                    }
+//                }
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
+
     public enum Extension {
         APK("*.apk"),
         ALL("*.*");

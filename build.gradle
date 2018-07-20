@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'cn.j1angvei'
-version '1.0-SNAPSHOT'
+version '0.3.1-alpha'
 
 sourceCompatibility = 1.8
 
@@ -16,14 +16,30 @@ repositories {
     google()
 }
 
+jar {
+    manifest {
+        attributes 'Main-Class': 'cn.j1angvei.adbfx.AdbFxApp'
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
 dependencies {
 
     def toolVersion = "26.3.0-alpha03"
     compile group: 'com.android.tools.ddms', name: 'ddmlib', version: "${toolVersion}"
+//    compile group: 'com.android.tools', name: 'sdklib', version:"${toolVersion}"
+
 
     compile group: 'commons-io', name: 'commons-io', version: '2.6'
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
     compile group: 'org.apache.commons', name: 'commons-exec', version: '1.3'
+//    compile group: 'org.apache.commons', name: 'commons-compress', version: '1.17'
+
+
+//    compile group: 'net.lingala.zip4j', name: 'zip4j', version: '1.3.2'
+
 
     //log
     compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'

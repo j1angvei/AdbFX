@@ -14,7 +14,7 @@ import java.io.File;
  */
 @Slf4j
 public class AdbStartService extends Service<AndroidDebugBridge> {
-    private static final String ADB_PATH = SystemUtils.getUserHome().getAbsolutePath() + File.separator +
+    public static final String ADB_PATH = SystemUtils.getUserHome().getAbsolutePath() + File.separator +
             ".adbfx" + File.separator +
             "platform-tools" + File.separator +
             "adb";
@@ -26,7 +26,7 @@ public class AdbStartService extends Service<AndroidDebugBridge> {
 
     private class AdbStartTask extends Task<AndroidDebugBridge> {
         @Override
-        protected AndroidDebugBridge call() throws Exception {
+        protected AndroidDebugBridge call() {
             log.debug("Restart adb service");
             AndroidDebugBridge.disconnectBridge();
             return AndroidDebugBridge.createBridge(ADB_PATH, true);
