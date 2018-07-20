@@ -38,11 +38,16 @@ public class ActionBarController extends BaseController<ActionBarModel> {
                 if (object == null) {
                     return null;
                 }
-                String name = String.format("%s %s (Android %s, API %s)",
+
+                String name = String.format("%s %s (Android %s, API %s) [%s]",
                         object.isEmulator() ? object.getSerialNumber() : object.getProperty(IDevice.PROP_DEVICE_MANUFACTURER),
                         object.isEmulator() ? object.getAvdName() : object.getProperty(IDevice.PROP_DEVICE_MODEL),
                         object.getProperty(IDevice.PROP_BUILD_VERSION),
-                        object.getProperty(IDevice.PROP_BUILD_API_LEVEL));
+                        object.getProperty(IDevice.PROP_BUILD_API_LEVEL),
+                        (object.getState() != null ? object.getState().name().toUpperCase() : "ERROR")
+
+                );
+
 
                 return StringUtils.capitalize(name);
             }
