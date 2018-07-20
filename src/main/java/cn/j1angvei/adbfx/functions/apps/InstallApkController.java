@@ -87,7 +87,8 @@ public class InstallApkController extends BaseController<InstallApkModel> {
         FileManager.loadPathsByDragDrop(listApksToInstall, getModel().getApksToInstall(), FileManager.Extension.APK);
 
         btnAddApk.setOnAction(event -> {
-            List<File> addedFiles = FileManager.getInstance().loadFilesByExplorer("Choose *.apk files to install",
+            String description = getResourceBundle().getString("android_apk");
+            List<File> addedFiles = FileManager.getInstance().loadFilesByExplorer(description,
                     FileManager.Extension.APK);
             addedFiles.forEach(file -> getModel().addInputApk(file.getAbsolutePath()));
         });

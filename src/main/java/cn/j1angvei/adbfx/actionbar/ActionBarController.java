@@ -97,7 +97,8 @@ public class ActionBarController extends BaseController<ActionBarModel> {
         });
         mAdbStartService.runningProperty().addListener((observable, oldValue, newValue) -> {
             btnRestartAdb.setDisable(newValue);
-            btnRestartAdb.setText(newValue ? "Starting..." : "Restart ADB");
+            String text = getResourceBundle().getString(newValue ? "starting" : "restart_adb");
+            btnRestartAdb.setText(text);
         });
     }
 

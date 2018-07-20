@@ -130,7 +130,8 @@ public class ScreenRecordController extends BaseController<ScreenRecordModel> {
         labelCountDown.visibleProperty().bind(mScreenRecordService.runningProperty());
         btnStartRecording.disableProperty().bind(mScreenRecordService.runningProperty());
         btnStartRecording.textProperty().bind(Bindings.createStringBinding(() ->
-                        mScreenRecordService.isRunning() ? "Recording" : "Start",
+                        getResourceBundle().getString(mScreenRecordService.isRunning() ? "recording" : "start_record")
+                ,
                 mScreenRecordService.runningProperty()));
     }
 

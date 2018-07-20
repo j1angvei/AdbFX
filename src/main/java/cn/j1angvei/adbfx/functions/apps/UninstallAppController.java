@@ -6,6 +6,8 @@ import javafx.collections.FXCollections;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
+import java.util.Collections;
+
 public class UninstallAppController extends BaseController<UninstallAppModel> {
     public CheckBox checkKeepData;
     public TextField fieldPackageName;
@@ -46,8 +48,9 @@ public class UninstallAppController extends BaseController<UninstallAppModel> {
         });
 
         // when uninstalling app, disable button and change its text
-        btnStartUninstall.textProperty().bind(Bindings.createStringBinding(() ->
-                        mUninstallAppService.isRunning() ? "Uninstalling..." : "Uninstall",
+        btnStartUninstall.textProperty().bind(
+                Bindings.createStringBinding(() ->
+                                getResourceBundle().getString(mUninstallAppService.isRunning() ? "uninstalling" : "uninstall"),
                 mUninstallAppService.runningProperty()));
         btnStartUninstall.disableProperty().bind(mUninstallAppService.runningProperty());
 
@@ -67,6 +70,7 @@ public class UninstallAppController extends BaseController<UninstallAppModel> {
         mGetPackagesService.valueProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
                 listInstalledPackages.getItems().setAll(newValue);
+                Collections.sort(listInstalledPackages.getItems());
             } else {
                 listInstalledPackages.getItems().clear();
             }
@@ -74,7 +78,7 @@ public class UninstallAppController extends BaseController<UninstallAppModel> {
         btnRefreshPackages.setOnAction(event -> mGetPackagesService.restart());
         btnRefreshPackages.disableProperty().bind(mGetPackagesService.runningProperty());
         textNoPackages.textProperty().bind(Bindings.createStringBinding(() ->
-                        mGetPackagesService.isRunning() ? "Loading packages from device..." : "No packages available",
+                        getResourceBundle().getString(mGetPackagesService.isRunning() ? "package_loading" : "no_packages_refresh_first"),
                 mGetPackagesService.runningProperty()));
         /* **************************************************
             show install result, success or failure and why it failed

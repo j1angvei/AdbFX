@@ -89,8 +89,7 @@ public class PackageListController extends BaseController<PackageListModel> {
 
         //change placeholder text
         textListHint.textProperty().bind(Bindings.createStringBinding(() ->
-                        mPackageDetailService.isRunning() ? "Loading all packages... " :
-                                "Found no packages, right click to refresh list",
+                        getResourceBundle().getString(mPackageDetailService.isRunning() ? "package_loading" : "no_packages_refresh_first"),
                 mPackageDetailService.runningProperty()));
 
         /* ===============================================================
