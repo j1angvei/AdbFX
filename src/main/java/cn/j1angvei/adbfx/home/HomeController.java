@@ -1,7 +1,7 @@
 package cn.j1angvei.adbfx.home;
 
 import cn.j1angvei.adbfx.BaseController;
-import cn.j1angvei.adbfx.FileManager;
+import cn.j1angvei.adbfx.NodeManager;
 import cn.j1angvei.adbfx.functions.Function;
 import cn.j1angvei.adbfx.functions.FunctionCell;
 import javafx.beans.value.ChangeListener;
@@ -43,7 +43,7 @@ public class HomeController extends BaseController<HomeModel> {
         listFunctions.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                Node node = FileManager.loadFxml(Function.values()[newValue.intValue()].ui);
+                Node node = NodeManager.getInstance().loadFxml(Function.values()[newValue.intValue()].ui);
                 borderMain.setCenter(node);
 
             }

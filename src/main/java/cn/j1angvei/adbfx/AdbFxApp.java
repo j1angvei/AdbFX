@@ -27,7 +27,7 @@ public class AdbFxApp extends Application {
     public void start(Stage primaryStage) {
         FileManager.getInstance().init(primaryStage);
 
-        BorderPane borderPane = (BorderPane) FileManager.loadFxml(HOME_FXML);
+        BorderPane borderPane = (BorderPane) NodeManager.getInstance().loadFxml(HOME_FXML);
         if (borderPane != null) {
             Scene scene = new Scene(borderPane);
             primaryStage.setScene(scene);
