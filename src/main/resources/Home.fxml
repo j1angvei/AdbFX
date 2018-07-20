@@ -10,6 +10,6 @@
         <fx:include source="ActionBar.fxml"/>
     </top>
     <left>
-        <ListView fx:id="listFunctions" BorderPane.alignment="CENTER"/>
+        <ListView fx:id="listFunctions" BorderPane.alignment="CENTER" prefWidth="180"/>
     </left>
 </BorderPane>

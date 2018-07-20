@@ -5,8 +5,8 @@ public enum Function {
      * install apk
      */
     INSTALL_APK(
-            "install_apk",
-            "/img/test.png",
+            "function_install_apk",
+            "/img/install_apk.png",
             "/function/InstallApk.fxml",
             Category.APPS),
 
@@ -14,8 +14,8 @@ public enum Function {
      * uninstall apk
      */
     UNINSTALL_PKG(
-            "uninstall_app",
-            "/img/test.png",
+            "function_uninstall_app",
+            "/img/uninstall_app.png",
             "/function/UninstallApp.fxml",
             Category.APPS),
 //    /**
@@ -31,8 +31,8 @@ public enum Function {
      * package list
      */
     PKG_LIST(
-            "pkg_list",
-            "/img/test.png",
+            "function_pkg_list",
+            "/img/package_list.png",
             "/function/PackageList.fxml",
             Category.APPS),
 
@@ -41,8 +41,8 @@ public enum Function {
      * pull file
      */
     PULL_FILES(
-            "pull_files",
-            "/img/test.png",
+            "function_pull_file",
+            "/img/pull_from_device.png",
             "/function/PullFile.fxml",
             Category.FILES),
 
@@ -50,8 +50,8 @@ public enum Function {
      * push file
      */
     PUSH_FILES(
-            "push_files",
-            "/img/test.png",
+            "function_push_file",
+            "/img/push_to_device.png",
             "/function/PushFile.fxml",
             Category.FILES),
 
@@ -68,16 +68,16 @@ public enum Function {
      * screen shot
      */
     SCREEN_SHOT(
-            "screen_shot",
-            "/img/test.png",
+            "function_screen_shot",
+            "/img/screen_shot.png",
             "/function/ScreenShot.fxml",
             Category.DEVICE),
     /**
      * screen recording
      */
     SCREEN_RECORDING(
-            "screen_record",
-            "/img/test.png",
+            "function_screen_record",
+            "/img/screen_record.png",
             "/function/ScreenRecord.fxml",
             Category.DEVICE),
 

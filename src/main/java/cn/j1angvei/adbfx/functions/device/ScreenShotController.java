@@ -72,7 +72,11 @@ public class ScreenShotController extends BaseController<ScreenShotModel> {
         paginationImages.setPageFactory(param -> {
             if (getModel().getSavedImages().isEmpty()) {
                 Image image = new Image("/img/ph_screen_shot.png");
-                return new ImageView(image);
+                ImageView imageView = new ImageView(image);
+                imageView.setFitHeight(128);
+                imageView.setFitWidth(128);
+                imageView.setPreserveRatio(true);
+                return imageView;
             } else {
                 return new ImageHolder(getModel().getSavedImages().get(param),
                         sliderScale.valueProperty(),

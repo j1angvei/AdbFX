@@ -3,6 +3,7 @@ package cn.j1angvei.adbfx.functions;
 import javafx.scene.control.ListCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Font;
 
 import java.util.ResourceBundle;
 
@@ -26,12 +27,13 @@ public class FunctionCell extends ListCell<Function> {
             setText("");
         } else {
             ImageView imageView = new ImageView();
-            imageView.setFitWidth(48);
-            imageView.setFitHeight(48);
+            imageView.setFitWidth(30);
+            imageView.setFitHeight(30);
             Image image = new Image(item.icon);
             imageView.setImage(image);
             setGraphic(imageView);
-            setText(item.title);
+            setText(mResourceBundle.getString(item.title));
+            setFont(new Font(16));
         }
     }
 }
