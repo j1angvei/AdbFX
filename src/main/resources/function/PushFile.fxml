@@ -7,42 +7,15 @@
 <VBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" spacing="8.0" xmlns="http://javafx.com/javafx/10.0.1"
       fx:controller="cn.j1angvei.adbfx.functions.files.PushFileController">
     <children>
-        <TitledPane animated="false" collapsible="false" maxHeight="1.7976931348623157E308" text="Desktop Device Files"
-                    VBox.vgrow="SOMETIMES">
-            <content>
-                <HBox>
-                    <children>
-                        <ListView fx:id="listFiles" HBox.hgrow="SOMETIMES">
-                            <placeholder>
-                                <Text text="Empty list, drag files here to add"/>
-                            </placeholder>
-                        </ListView>
-                        <VBox alignment="CENTER" maxWidth="120.0" prefWidth="120.0" spacing="12.0" HBox.hgrow="NEVER">
-                            <children>
-                                <Button fx:id="btnAdd" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
-                                        text="Add"/>
-                                <Button fx:id="btnClear" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
-                                        text="Clear"/>
-                                <Button fx:id="btnPush" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
-                                        text="Push"/>
-                                <ProgressIndicator fx:id="progressIndicator" maxHeight="-Infinity" maxWidth="-Infinity"
-                                                   prefHeight="100.0" prefWidth="100.0" progress="0.0"/>
-                            </children>
-                            <HBox.margin>
-                                <Insets left="12.0"/>
-                            </HBox.margin>
-                        </VBox>
-                    </children>
-                </HBox>
-            </content>
-        </TitledPane>
-        <TitledPane collapsible="false" text="Android Device Location" VBox.vgrow="SOMETIMES">
+        <TitledPane text="%param_settings" VBox.vgrow="SOMETIMES" expanded="false">
             <content>
                 <HBox alignment="CENTER" spacing="8.0">
                     <children>
-                        <TextField fx:id="fieldDestination" editable="false" promptText="choose local dir"
-                                   text="/sdcard/adbfx/" HBox.hgrow="SOMETIMES"/>
-                        <MenuButton mnemonicParsing="false" text="Select Sub Dir" visible="false" disable="true">
+                        <Label text="%save_location_remote"/>
+                        <TextField fx:id="fieldDestination" editable="false" text="/sdcard/adbfx/" disable="true"
+                                   HBox.hgrow="SOMETIMES"/>
+                        <Label text="%hint_no_change_dir"/>
+                        <MenuButton disable="true" mnemonicParsing="false" text="Select Sub Dir" visible="false">
                             <items>
                                 <MenuItem mnemonicParsing="false">
                                     <graphic>
@@ -58,7 +31,31 @@
                 </HBox>
             </content>
         </TitledPane>
-        <TitledPane expanded="false" text="Output" VBox.vgrow="NEVER">
+        <HBox VBox.vgrow="SOMETIMES">
+            <children>
+                <ListView fx:id="listFiles" HBox.hgrow="SOMETIMES">
+                    <placeholder>
+                        <Text text="%empty_list_drag_to_push_files"/>
+                    </placeholder>
+                </ListView>
+                <VBox alignment="CENTER" maxWidth="120.0" prefWidth="120.0" spacing="12.0" HBox.hgrow="NEVER">
+                    <children>
+                        <Button fx:id="btnAdd" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                                text="%add_files"/>
+                        <Button fx:id="btnClear" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                                text="%clear_list"/>
+                        <Button fx:id="btnPush" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                                text="%push_files"/>
+                        <ProgressIndicator fx:id="progressIndicator" maxHeight="-Infinity" maxWidth="-Infinity"
+                                           prefHeight="100.0" prefWidth="100.0" progress="0.0"/>
+                    </children>
+                    <HBox.margin>
+                        <Insets left="12.0"/>
+                    </HBox.margin>
+                </VBox>
+            </children>
+        </HBox>
+        <TitledPane expanded="false" text="%log_record" VBox.vgrow="NEVER">
             <content>
                 <TextArea fx:id="areaOutput" editable="false" prefHeight="360.0"/>
             </content>

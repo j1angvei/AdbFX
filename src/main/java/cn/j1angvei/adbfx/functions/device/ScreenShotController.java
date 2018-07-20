@@ -15,7 +15,7 @@ import java.io.File;
 public class ScreenShotController extends BaseController<ScreenShotModel> {
     public CheckBox checkLandscape;
     public TextField fieldSaveDir;
-    public Button btnChooseDir;
+    public Button btnAlterDir;
 
     public Pagination paginationImages;
     public Button btnTakeScreenShot;
@@ -45,7 +45,7 @@ public class ScreenShotController extends BaseController<ScreenShotModel> {
               screenShot params
          ********************************************************** */
         fieldSaveDir.textProperty().bind(Bindings.createStringBinding(() -> getModel().getSaveDir().get().getAbsolutePath(), getModel().getSaveDir()));
-        btnChooseDir.setOnAction(event -> {
+        btnAlterDir.setOnAction(event -> {
             File chosenDir = FileManager.getInstance().chooseDirectory("Choose directory to save screenShot", getModel().getSaveDir().get());
             if (chosenDir != null) {
                 getModel().getSaveDir().set(chosenDir);
@@ -74,7 +74,10 @@ public class ScreenShotController extends BaseController<ScreenShotModel> {
                 Image image = new Image("/img/ph_screen_shot.png");
                 return new ImageView(image);
             } else {
-                return new ImageHolder(getModel().getSavedImages().get(param), sliderScale.valueProperty(), getModel().getSavedImages());
+                return new ImageHolder(getModel().getSavedImages().get(param),
+                        sliderScale.valueProperty(),
+                        getModel().getSavedImages(),
+                        getResourceBundle());
             }
         });
         paginationImages.pageCountProperty().bind(Bindings.createIntegerBinding(() ->

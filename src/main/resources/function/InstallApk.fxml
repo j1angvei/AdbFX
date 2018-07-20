@@ -7,40 +7,40 @@
 <VBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1"
       fx:controller="cn.j1angvei.adbfx.functions.apps.InstallApkController">
     <children>
-        <TitledPane expanded="false" text="Params Settings">
+        <TitledPane text="%param_settings">
             <content>
                 <FlowPane hgap="8.0" vgap="8.0">
                     <children>
-                        <CheckBox fx:id="checkLock" mnemonicParsing="false" text="-l: forward lock application"
+                        <CheckBox fx:id="checkLock" mnemonicParsing="false" text="%install_forward_lock"
                                   userData="-l"/>
                         <CheckBox fx:id="checkReplace" mnemonicParsing="false" selected="true"
-                                  text="-r: replace existing application" userData="-r"/>
+                                  text="%install_replace_existing" userData="-r"/>
                         <CheckBox fx:id="checkTest" mnemonicParsing="false" selected="true"
-                                  text="-t: allow test packages" userData="-t"/>
-                        <CheckBox fx:id="checkSdcard" mnemonicParsing="false" text="-s: install application on sdcard"
+                                  text="%install_debug" userData="-t"/>
+                        <CheckBox fx:id="checkSdcard" mnemonicParsing="false" text="%install_sdcard"
                                   userData="-s"/>
                         <CheckBox fx:id="checkDebug" mnemonicParsing="false"
-                                  text="-d: allow version code downgrade (debuggable packages only)" userData="-d"/>
+                                  text="%install_downgrade" userData="-d"/>
                         <CheckBox fx:id="checkPermission" mnemonicParsing="false"
-                                  text="-g: grant all runtime permissions" userData="-g"/>
+                                  text="%install_grant_permissions" userData="-g"/>
                     </children>
                 </FlowPane>
             </content>
         </TitledPane>
         <ListView fx:id="listApksToInstall" VBox.vgrow="ALWAYS">
             <placeholder>
-                <Text text="Choose apk from local or drag them here to install"/>
+                <Text text="%hint_choose_apk"/>
             </placeholder>
         </ListView>
         <HBox spacing="12.0">
             <children>
-                <MenuButton mnemonicParsing="false" text="Install History">
+                <MenuButton mnemonicParsing="false" text="%install_history">
                     <items>
                         <MenuItem mnemonicParsing="false">
                             <graphic>
                                 <ListView fx:id="listInstallHistory" prefHeight="180" prefWidth="450">
                                     <placeholder>
-                                        <Text text="No install history"/>
+                                        <Text text="%history_empty"/>
                                     </placeholder>
                                 </ListView>
                             </graphic>
@@ -49,15 +49,15 @@
                     <contextMenu>
                         <ContextMenu>
                             <items>
-                                <MenuItem fx:id="menuClearHistory" mnemonicParsing="false" text="Clear history"/>
+                                <MenuItem fx:id="menuClearHistory" mnemonicParsing="false" text="%clear_history"/>
                             </items>
                         </ContextMenu>
                     </contextMenu>
                 </MenuButton>
-                <Button fx:id="btnAddApk" mnemonicParsing="false" text="Add APKS"/>
-                <Button fx:id="btnClearInput" mnemonicParsing="false" text="Clear Apks"/>
+                <Button fx:id="btnAddApk" mnemonicParsing="false" text="%add_files"/>
+                <Button fx:id="btnClearInput" mnemonicParsing="false" text="%clear_list"/>
                 <Button fx:id="btnStartInstall" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
-                        text="Start Install" HBox.hgrow="ALWAYS">
+                        text="%start_install" HBox.hgrow="ALWAYS">
                     <HBox.margin>
                         <Insets/>
                     </HBox.margin>
@@ -69,14 +69,14 @@
         </HBox>
         <StackPane>
             <children>
-                <TitledPane fx:id="titledResult" expanded="false" text="Install output">
+                <TitledPane fx:id="titledResult" expanded="false" text="%log_record">
                     <content>
                         <TextArea fx:id="textResult" editable="false"/>
                     </content>
                 </TitledPane>
                 <ProgressBar fx:id="progressInstall" maxWidth="1.7976931348623157E308">
                     <tooltip>
-                        <Tooltip text="Installing, please wait..."/>
+                        <Tooltip text="%hint_installing_apk"/>
                     </tooltip>
                 </ProgressBar>
             </children>

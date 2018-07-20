@@ -9,7 +9,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.util.StringConverter;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -45,7 +44,7 @@ public class ScreenRecordController extends BaseController<ScreenRecordModel> {
     @FXML
     private TextField fieldLocalPath;
     @FXML
-    private Button btnChooseLocal;
+    private Button btnAlterLocal;
 
     //content
     @FXML
@@ -83,38 +82,16 @@ public class ScreenRecordController extends BaseController<ScreenRecordModel> {
                 textField.disableProperty().bind(checkDefaultSize.selectedProperty()));
         // set time limit
         comboTimeLimit.getItems().addAll(TIME_LIMIT_VALUES);
-        comboTimeLimit.setConverter(new StringConverter<Integer>() {
-            @Override
-            public String toString(Integer object) {
-                return object + " sec";
-            }
-
-            @Override
-            public Integer fromString(String string) {
-                return Integer.parseInt(string.split(" ")[0]);
-            }
-        });
         comboTimeLimit.getSelectionModel().selectLast();
         // set bit rate
         choiceBitRate.getItems().addAll(BIT_RATE_VALUES);
-        choiceBitRate.setConverter(new StringConverter<Integer>() {
-            @Override
-            public String toString(Integer object) {
-                return object + " Mbps";
-            }
-
-            @Override
-            public Integer fromString(String string) {
-                return Integer.valueOf(string.split(" ")[0]);
-            }
-        });
         choiceBitRate.getSelectionModel().selectLast();
         // set local dir to save video
         fieldLocalPath.textProperty().bind(Bindings.createStringBinding(() ->
                         getModel().getLocalPath().getAbsolutePath(),
                 getModel().localPathProperty()));
         // choose new local dir
-        btnChooseLocal.setOnAction(event -> {
+        btnAlterLocal.setOnAction(event -> {
             File chosenDir = FileManager.getInstance().chooseDirectory(
                     "Choose directory to save video files",
                     getModel().getLocalPath());
@@ -138,7 +115,7 @@ public class ScreenRecordController extends BaseController<ScreenRecordModel> {
            Action dealing with video files
          ************************************************** */
         btnOpenFolder.setOnAction(event ->
-                FileManager.browseFileDir(getModel().getLocalPath().toURI()));
+                FileManager.openFile(getModel().getLocalPath()));
         btnOpenFile.setOnAction(event ->
                 FileManager.openFile(listVideos.getSelectionModel().getSelectedItem()));
         btnOpenFile.disableProperty().bind(Bindings.isNull(listVideos.getSelectionModel().selectedItemProperty()));

@@ -1,5 +1,6 @@
 package cn.j1angvei.adbfx.functions.device;
 
+import cn.j1angvei.adbfx.FileManager;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ListProperty;
 import javafx.fxml.FXML;
@@ -9,11 +10,10 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.io.FileUtils;
 
-import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.ResourceBundle;
 
 /**
  * @author j1angvei
@@ -34,9 +34,10 @@ public class ImageHolder extends ScrollPane {
     @FXML
     private MenuItem menuDelete;
 
-    public ImageHolder() {
+    public ImageHolder(ResourceBundle resourceBundle) {
         FXMLLoader fxmlLoader = new FXMLLoader(
                 getClass().getResource("/ImageHolder.fxml"));
+        fxmlLoader.setResources(resourceBundle);
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
         try {
@@ -46,8 +47,8 @@ public class ImageHolder extends ScrollPane {
         }
     }
 
-    public ImageHolder(File file, DoubleProperty scaleRatio, ListProperty<File> allImages) {
-        this();
+    public ImageHolder(File file, DoubleProperty scaleRatio, ListProperty<File> allImages, ResourceBundle resourceBundle) {
+        this(resourceBundle);
 
         Image image = new Image(file.toURI().toString());
         double realWidth = image.getWidth();
@@ -55,27 +56,11 @@ public class ImageHolder extends ScrollPane {
         imageView.setImage(image);
         imageView.fitWidthProperty().bind(scaleRatio.multiply(realWidth));
 
-        menuOpenFile.setOnAction(event -> {
-            try {
-                Desktop.getDesktop().browse(file.toURI());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
-        menuOpenDir.setOnAction(event -> {
-            try {
-                Desktop.getDesktop().browse(file.getParentFile().toURI());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
+        menuOpenFile.setOnAction(event -> FileManager.openFile(file));
+        menuOpenDir.setOnAction(event -> FileManager.openFile(file.getParentFile()));
         menuDelete.setOnAction(event -> {
             allImages.remove(file);
-            try {
-                FileUtils.forceDelete(file);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            FileManager.deleteFile(file);
         });
 
     }

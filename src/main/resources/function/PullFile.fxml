@@ -7,79 +7,75 @@
 <VBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" spacing="4.0" xmlns="http://javafx.com/javafx/10.0.1"
       fx:controller="cn.j1angvei.adbfx.functions.files.PullFileController">
     <children>
-        <TitledPane text="Desktop Location" expanded="false">
+        <TitledPane text="%param_settings">
             <content>
                 <HBox alignment="CENTER" spacing="8.0">
                     <children>
-                        <Label text="Save Location:"/>
-                        <TextField fx:id="fieldLocalPath" promptText="choose location to save files"
-                                   HBox.hgrow="SOMETIMES"/>
-                        <Button fx:id="btnChooseLocalPath" mnemonicParsing="false" text="Choose"/>
+                        <Label text="%save_location_local"/>
+                        <TextField fx:id="fieldLocalPath" HBox.hgrow="SOMETIMES"/>
+                        <Button fx:id="btnAlterLocalPath" mnemonicParsing="false" text="%alter"/>
                     </children>
                 </HBox>
             </content>
         </TitledPane>
-        <TitledPane collapsible="false" maxHeight="1.7976931348623157E308" text="Android Device Files"
-                    VBox.vgrow="SOMETIMES">
-            <content>
-                <BorderPane>
-                    <center>
-                        <ListView fx:id="listSubFiles">
-                            <BorderPane.margin>
-                                <Insets right="12.0"/>
-                            </BorderPane.margin>
-                            <placeholder>
-                                <Text text="No files under this directory (Directory excluded)"/>
-                            </placeholder>
-                        </ListView>
-                    </center>
-                    <right>
-                        <VBox alignment="CENTER" prefWidth="120.0" spacing="12.0" BorderPane.alignment="CENTER">
-                            <children>
-                                <Button fx:id="btnSelectAll" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
-                                        text="Select All"/>
-                                <Button fx:id="btnClearSelection" maxWidth="1.7976931348623157E308"
-                                        mnemonicParsing="false" text="Clear Selection"/>
-                                <Button fx:id="btnPullFiles" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
-                                        text="Pull Files"/>
-                                <Button fx:id="btnOpenLocal" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
-                                        text="Open Folder"/>
-                                <ProgressIndicator fx:id="progressIndicator" maxHeight="-Infinity" maxWidth="-Infinity"
-                                                   prefHeight="100.0" prefWidth="100.0" progress="0.0"/>
-                            </children>
-                        </VBox>
-                    </right>
-                    <top>
-                        <HBox alignment="CENTER" spacing="8.0" BorderPane.alignment="CENTER">
-                            <children>
-                                <Label text="Device Directory:"/>
-                                <MenuButton fx:id="menuCurrentRemotePath" maxWidth="1.7976931348623157E308"
-                                            mnemonicParsing="false" text="Choose Directory" HBox.hgrow="SOMETIMES">
-                                    <items>
-                                        <MenuItem mnemonicParsing="false">
-                                            <graphic>
-                                                <ListView fx:id="listSubPaths"
-                                                          prefWidth="${menuCurrentRemotePath.width}">
-                                                    <placeholder>
-                                                        <Text text="No sub directory, try to click refresh button"/>
-                                                    </placeholder>
-                                                </ListView>
-                                            </graphic>
-                                        </MenuItem>
-                                    </items>
-                                </MenuButton>
-                                <Button fx:id="btnUpperPath" mnemonicParsing="false" text="Upper"/>
-                                <Button fx:id="btnRefresh" mnemonicParsing="false" text="Refresh"/>
-                            </children>
-                            <padding>
-                                <Insets bottom="4.0" top="4.0"/>
-                            </padding>
-                        </HBox>
-                    </top>
-                </BorderPane>
-            </content>
-        </TitledPane>
-        <TitledPane expanded="false" text="Output">
+        <BorderPane VBox.vgrow="SOMETIMES">
+            <padding>
+                <Insets left="4.0" right="4.0"/>
+            </padding>
+            <center>
+                <ListView fx:id="listSubFiles">
+                    <BorderPane.margin>
+                        <Insets right="12.0"/>
+                    </BorderPane.margin>
+                    <placeholder>
+                        <Text text="%no_file_under_dir"/>
+                    </placeholder>
+                </ListView>
+            </center>
+            <right>
+                <VBox alignment="CENTER" prefWidth="120.0" spacing="12.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Button fx:id="btnSelectAll" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                                text="%select_all"/>
+                        <Button fx:id="btnClearSelection" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                                text="%clear_selection"/>
+                        <Button fx:id="btnPullFiles" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                                text="%pull_files"/>
+                        <Button fx:id="btnOpenLocal" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                                text="%open_folder"/>
+                        <ProgressIndicator fx:id="progressIndicator" maxHeight="-Infinity" maxWidth="-Infinity"
+                                           prefHeight="100.0" prefWidth="100.0" progress="0.0"/>
+                    </children>
+                </VBox>
+            </right>
+            <top>
+                <HBox alignment="CENTER" spacing="8.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label text="%remote_dir"/>
+                        <MenuButton fx:id="menuCurrentRemotePath" maxWidth="1.7976931348623157E308"
+                                    mnemonicParsing="false" text="%choose_dir" HBox.hgrow="SOMETIMES">
+                            <items>
+                                <MenuItem mnemonicParsing="false">
+                                    <graphic>
+                                        <ListView fx:id="listSubPaths" prefWidth="${menuCurrentRemotePath.width}">
+                                            <placeholder>
+                                                <Text text="%no_sub_dir_or_refresh_first"/>
+                                            </placeholder>
+                                        </ListView>
+                                    </graphic>
+                                </MenuItem>
+                            </items>
+                        </MenuButton>
+                        <Button fx:id="btnUpperPath" mnemonicParsing="false" text="%upper_dir"/>
+                        <Button fx:id="btnRefresh" mnemonicParsing="false" text="%refresh"/>
+                    </children>
+                    <padding>
+                        <Insets bottom="4.0" top="4.0"/>
+                    </padding>
+                </HBox>
+            </top>
+        </BorderPane>
+        <TitledPane expanded="false" text="%log_record">
             <content>
                 <TextArea fx:id="areaOutput" editable="false"/>
             </content>

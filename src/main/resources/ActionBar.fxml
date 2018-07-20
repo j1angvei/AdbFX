@@ -23,9 +23,10 @@
         <Region HBox.hgrow="SOMETIMES"/>
         <ToolBar>
             <items>
+                <Label text="%choose_device"/>
                 <ComboBox fx:id="comboAllDevices"/>
                 <!--<Button mnemonicParsing="false" text="WiFi"/>-->
-                <Button fx:id="btnRestartAdb" mnemonicParsing="false" text="Restart ADB"/>
+                <Button fx:id="btnRestartAdb" mnemonicParsing="false" text="%restart_adb"/>
             </items>
         </ToolBar>
     </children>

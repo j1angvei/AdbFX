@@ -7,11 +7,11 @@
 <VBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" spacing="8.0" xmlns="http://javafx.com/javafx/10.0.1"
       fx:controller="cn.j1angvei.adbfx.functions.apps.UninstallAppController">
     <children>
-        <TitledPane text="Param Settings">
+        <TitledPane text="%param_settings">
             <content>
                 <VBox>
                     <children>
-                        <CheckBox fx:id="checkKeepData" mnemonicParsing="false" text="Keep data"/>
+                        <CheckBox fx:id="checkKeepData" mnemonicParsing="false" text="%keep_data"/>
                     </children>
                 </VBox>
             </content>
@@ -22,8 +22,8 @@
         <HBox spacing="8.0">
             <children>
                 <TextField fx:id="fieldPackageName"
-                           promptText="enter package name or drag apk here to parse package name" HBox.hgrow="ALWAYS"/>
-                <Button fx:id="btnStartUninstall" mnemonicParsing="false" text="Uninstall"/>
+                           promptText="%enter_package_name" HBox.hgrow="ALWAYS"/>
+                <Button fx:id="btnStartUninstall" mnemonicParsing="false" text="%uninstall"/>
             </children>
             <VBox.margin>
                 <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"/>
@@ -31,16 +31,16 @@
         </HBox>
         <TabPane tabClosingPolicy="UNAVAILABLE">
             <tabs>
-                <Tab text="Uninstall History">
+                <Tab text="%uninstall_history">
                     <content>
                         <VBox alignment="TOP_CENTER" spacing="4.0">
                             <children>
                                 <ListView fx:id="listUninstallHistory">
                                     <placeholder>
-                                        <Text text="No uninstall history"/>
+                                        <Text text="%history_empty"/>
                                     </placeholder>
                                 </ListView>
-                                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Clear"
+                                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%clear_history"
                                         fx:id="btnClearHistory">
                                     <VBox.margin>
                                         <Insets left="8.0" right="8.0"/>
@@ -50,16 +50,16 @@
                         </VBox>
                     </content>
                 </Tab>
-                <Tab text="Installed Packages(third party packages)">
+                <Tab text="%installed_packages">
                     <content>
                         <VBox alignment="CENTER" spacing="4.0">
                             <children>
                                 <ListView fx:id="listInstalledPackages">
                                     <placeholder>
-                                        <Text text="No packages installed " fx:id="textNoPackages"/>
+                                        <Text text="%history_empty" fx:id="textNoPackages"/>
                                     </placeholder>
                                 </ListView>
-                                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Refresh"
+                                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%refresh_list"
                                         fx:id="btnRefreshPackages">
                                     <VBox.margin>
                                         <Insets left="8.0" right="8.0"/>
@@ -71,7 +71,7 @@
                 </Tab>
             </tabs>
         </TabPane>
-        <TitledPane expanded="false" text="Uninstall Result">
+        <TitledPane expanded="false" text="%log_record">
             <content>
                 <TextArea fx:id="areaResult"/>
             </content>

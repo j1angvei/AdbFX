@@ -23,7 +23,7 @@ import java.util.concurrent.Callable;
 public class PullFileController extends BaseController<PullFileModel> {
 
     public TextField fieldLocalPath;
-    public Button btnChooseLocalPath;
+    public Button btnAlterLocalPath;
 
     public MenuButton menuCurrentRemotePath;
     public Button btnUpperPath;
@@ -82,7 +82,7 @@ public class PullFileController extends BaseController<PullFileModel> {
         fieldLocalPath.textProperty().bind(Bindings.createStringBinding(() ->
                 getModel().getLocalPath().getAbsolutePath(), getModel().localPathProperty()));
         //choose new local path
-        btnChooseLocalPath.setOnAction(event -> {
+        btnAlterLocalPath.setOnAction(event -> {
             File chosenDir = FileManager.getInstance().chooseDirectory(
                     "Choose directory to save pulled files",
                     getModel().getLocalPath());

@@ -1,18 +1,16 @@
 package cn.j1angvei.adbfx.home;
 
 import cn.j1angvei.adbfx.BaseController;
+import cn.j1angvei.adbfx.FileManager;
 import cn.j1angvei.adbfx.functions.Function;
 import cn.j1angvei.adbfx.functions.FunctionCell;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.BorderPane;
 import javafx.util.Callback;
-
-import java.io.IOException;
 
 
 public class HomeController extends BaseController<HomeModel> {
@@ -26,6 +24,7 @@ public class HomeController extends BaseController<HomeModel> {
 
     @Override
     protected void initArguments() {
+
         listFunctions.getItems().addAll(Function.values());
         listFunctions.setCellFactory(new Callback<ListView<Function>, ListCell<Function>>() {
             @Override
@@ -44,12 +43,9 @@ public class HomeController extends BaseController<HomeModel> {
         listFunctions.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                try {
-                    Node node = FXMLLoader.load(getClass().getResource(Function.values()[newValue.intValue()].ui));
-                    borderMain.setCenter(node);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                Node node = FileManager.loadFxml(Function.values()[newValue.intValue()].ui);
+                borderMain.setCenter(node);
+
             }
         });
 

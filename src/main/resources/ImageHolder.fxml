@@ -21,8 +21,8 @@
     <contextMenu>
         <ContextMenu>
             <items>
-                <MenuItem fx:id="menuOpenFile" mnemonicParsing="false" text="Open File"/>
-                <MenuItem fx:id="menuOpenDir" mnemonicParsing="false" text="Open Directory"/>
+                <MenuItem fx:id="menuOpenFile" mnemonicParsing="false" text="%open_file"/>
+                <MenuItem fx:id="menuOpenDir" mnemonicParsing="false" text="%open_folder"/>
                 <!--<Menu mnemonicParsing="false" text="Rename">-->
                 <!--<items>-->
                 <!--<MenuItem fx:id="menuRename" mnemonicParsing="false" text="Confirm">-->
@@ -32,7 +32,7 @@
                 <!--</MenuItem>-->
                 <!--</items>-->
                 <!--</Menu>-->
-                <MenuItem fx:id="menuDelete" mnemonicParsing="false" text="Delete"/>
+                <MenuItem fx:id="menuDelete" mnemonicParsing="false" text="%delete"/>
             </items>
         </ContextMenu>
     </contextMenu>

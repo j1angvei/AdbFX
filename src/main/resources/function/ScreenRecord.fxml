@@ -8,42 +8,42 @@
 <VBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.171"
       fx:controller="cn.j1angvei.adbfx.functions.device.ScreenRecordController">
     <children>
-        <TitledPane expanded="false" text="Param Settings">
+        <TitledPane text="%param_settings">
             <content>
                 <FlowPane hgap="8.0" vgap="8.0">
                     <children>
                         <HBox alignment="CENTER_LEFT" spacing="8.0">
                             <children>
-                                <Label text="Size:"/>
+                                <Label text="%record_video_size"/>
                                 <CheckBox fx:id="checkDefaultSize" mnemonicParsing="false" selected="true"
-                                          text="Use Device Resolution"/>
-                                <TextField fx:id="fieldWidth" prefWidth="72.0" promptText="Width"/>
+                                          text="%use_device_resolution"/>
+                                <TextField fx:id="fieldWidth" prefWidth="72.0" promptText="%width"/>
                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="x">
                                     <HBox.margin>
                                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0"/>
                                     </HBox.margin>
                                 </Text>
-                                <TextField fx:id="fieldHeight" prefWidth="72.0" promptText="Height"/>
+                                <TextField fx:id="fieldHeight" prefWidth="72.0" promptText="%height"/>
                                 <Separator orientation="VERTICAL"/>
                             </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" spacing="4.0">
                             <children>
-                                <Label text="Time Limit(s):"/>
+                                <Label text="%record_time_limit"/>
                                 <ComboBox fx:id="comboTimeLimit"/>
                                 <Separator orientation="VERTICAL"/>
-                                <Label text="Bit rate(Mbps):"/>
+                                <Label text="%bit_rate"/>
                                 <ChoiceBox fx:id="choiceBitRate"/>
                                 <Separator orientation="VERTICAL"/>
-                                <CheckBox fx:id="checkTouch" mnemonicParsing="false" text="Show Touch"/>
+                                <CheckBox fx:id="checkTouch" mnemonicParsing="false" text="%show_touch_event"/>
                                 <Separator orientation="VERTICAL"/>
                             </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" spacing="4.0">
                             <children>
-                                <Label text="Local Path:"/>
+                                <Label text="%save_location_local"/>
                                 <TextField fx:id="fieldLocalPath" HBox.hgrow="SOMETIMES"/>
-                                <Button fx:id="btnChooseLocal" mnemonicParsing="false" text="Choose"/>
+                                <Button fx:id="btnAlterLocal" mnemonicParsing="false" text="%alter"/>
                             </children>
                         </HBox>
                     </children>
@@ -55,18 +55,18 @@
                 <ListView fx:id="listVideos" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
                           AnchorPane.rightAnchor="136.0" AnchorPane.topAnchor="0.0">
                     <placeholder>
-                        <Text text="No ScreenRecording is taken!"/>
+                        <Text text="%no_record_is_taken"/>
                     </placeholder>
                 </ListView>
                 <VBox alignment="CENTER" prefWidth="136.0" spacing="16.0"
                       AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
                         <Button fx:id="btnStartRecording" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
-                                text="Start"/>
+                                text="%start_record"/>
                         <Button fx:id="btnOpenFolder" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
-                                text="Open Folder"/>
+                                text="%open_folder"/>
                         <Button fx:id="btnOpenFile" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
-                                text="Open File"/>
+                                text="%open_file"/>
                         <Label fx:id="labelCountDown" text="00:00" visible="false">
                             <font>
                                 <Font size="36.0"/>
@@ -79,7 +79,7 @@
                 </VBox>
             </children>
         </AnchorPane>
-        <TitledPane expanded="false" text="Output" VBox.vgrow="SOMETIMES">
+        <TitledPane expanded="false" text="%log_record" VBox.vgrow="SOMETIMES">
             <content>
                 <TextArea fx:id="areaOutput" prefHeight="400"/>
             </content>

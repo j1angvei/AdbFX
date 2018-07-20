@@ -1,5 +1,6 @@
 package cn.j1angvei.adbfx;
 
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
@@ -8,14 +9,15 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.net.URI;
 import java.util.Collections;
 import java.util.List;
+import java.util.ResourceBundle;
 
 @Slf4j
 public class FileManager {
@@ -80,6 +82,35 @@ public class FileManager {
         });
     }
 
+    public static Node loadFxml(@NonNull String path) {
+        try {
+            return FXMLLoader.load(AdbFxApp.class.getResource(path), ResourceBundle.getBundle("strings"));
+        } catch (IOException e) {
+            log.error("Error when load fxml {},{}", path, e);
+        }
+        return null;
+    }
+
+    public static String getStrings(String key) {
+        return ResourceBundle.getBundle("strings").getString(key);
+    }
+
+    public static void openFile(@NonNull File file) {
+        try {
+            Desktop.getDesktop().open(file);
+        } catch (IOException e) {
+            log.error("Error when open file {},{}", file, e);
+        }
+    }
+
+    public static void deleteFile(@NonNull File file) {
+        try {
+            FileUtils.forceDelete(file);
+        } catch (IOException e) {
+            log.error("Error when delete file{}, {}", file, e);
+        }
+    }
+
     void init(Stage stage) {
         if (stage == null) {
             throw new NullPointerException("Can't set stage to null");
@@ -99,22 +130,6 @@ public class FileManager {
             return addedFiles;
         }
         return Collections.emptyList();
-    }
-
-    public static void browseFileDir(@NonNull URI uri) {
-        try {
-            Desktop.getDesktop().browse(uri);
-        } catch (IOException e) {
-            log.error("Error when try to open file {} in desktop, {}", uri, e);
-        }
-    }
-
-    public static void openFile(@NonNull File file) {
-        try {
-            Desktop.getDesktop().open(file);
-        } catch (IOException e) {
-            log.error("Error when open file {},{}", file, e);
-        }
     }
 
     public File chooseDirectory(String title, File initDir) {

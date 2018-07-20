@@ -8,23 +8,22 @@
 <VBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" xmlns="http://javafx.com/javafx/10.0.1"
       fx:controller="cn.j1angvei.adbfx.functions.device.ScreenShotController">
     <children>
-        <TitledPane expanded="false" text="Param Settings" VBox.vgrow="NEVER">
+        <TitledPane expanded="false" text="%param_settings" VBox.vgrow="NEVER">
             <content>
                 <VBox alignment="TOP_CENTER" spacing="8.0">
                     <children>
                         <HBox alignment="CENTER_LEFT" spacing="8.0">
                             <children>
-                                <Label text="Device  orientation:"/>
-                                <CheckBox fx:id="checkLandscape" mnemonicParsing="false" text="Landscape"/>
+                                <Label text="%screen_shot_orientation"/>
+                                <CheckBox fx:id="checkLandscape" mnemonicParsing="false" text="%landscape"/>
                                 <Region HBox.hgrow="SOMETIMES"/>
                             </children>
                         </HBox>
                         <HBox alignment="CENTER" spacing="8.0">
                             <children>
-                                <Label text="Save location:"/>
-                                <TextField fx:id="fieldSaveDir" editable="false"
-                                           promptText="Choose dir to save screenShot" HBox.hgrow="ALWAYS"/>
-                                <Button fx:id="btnChooseDir" mnemonicParsing="false" text="Choose"/>
+                                <Label text="%save_location_local"/>
+                                <TextField fx:id="fieldSaveDir" editable="false" HBox.hgrow="ALWAYS"/>
+                                <Button fx:id="btnAlterDir" mnemonicParsing="false" text="%alter"/>
                             </children>
                         </HBox>
                         <!--<Label text="Hint"/>-->
@@ -67,7 +66,7 @@
                     </padding>
                 </VBox>
                 <Button fx:id="btnTakeScreenShot" mnemonicParsing="false" prefHeight="72.0" prefWidth="72.0"
-                        style="-fx-background-radius: 72; -fx-border-radius: 72;" text="Take"
+                        style="-fx-background-radius: 72; -fx-border-radius: 72;" text="%take_screen_shot"
                         StackPane.alignment="CENTER_RIGHT">
                     <StackPane.margin>
                         <Insets right="32.0"/>
