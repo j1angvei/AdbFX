@@ -1,5 +1,6 @@
 package cn.j1angvei.adbfx;
 
+import cn.j1angvei.adbfx.actionbar.AdbStartService;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.input.Dragboard;
@@ -9,6 +10,8 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
+import net.lingala.zip4j.core.ZipFile;
+import net.lingala.zip4j.exception.ZipException;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 
@@ -140,17 +143,31 @@ public class FileManager {
 
     }
 
-//    public static void simpleUnzip(String zipFilePath, String destDir) {
-//        try {
-//            ZipFile zipFile = new ZipFile(zipFilePath);
-//            zipFile.extractAll(destDir);
-//        } catch (ZipException e) {
-//            log.error("Error when unzip file {} to {}", zipFilePath, destDir, e);
-//        }
-//    }
-//
+    public static void simpleUnzip(String zipFilePath, String destDir) {
+        try {
+            File old = new File(destDir);
+            if (old.exists()) {
+                FileUtils.forceDelete(old);
+            }
+            boolean mkdir = old.mkdirs();
+            log.debug("generate dir:{}, {}", destDir, mkdir);
+
+            ZipFile zipFile = new ZipFile(zipFilePath);
+            zipFile.extractAll(destDir);
+            File file = new File(AdbStartService.ADB_PATH);
+            file.setExecutable(true, false);
+        } catch (ZipException | IOException e) {
+            log.error("Error when unzip file {} to {}", zipFilePath, destDir, e);
+        }
+    }
+
 //    public static void unzip(String zipFilePath, String destDir) {
 //        File targetDir = new File(destDir);
+//        try {
+//            FileUtils.forceDelete(targetDir);
+//        } catch (IOException e) {
+//            log.error("Error when remove old files {}", destDir, e);
+//        }
 //
 //        try (ZipArchiveInputStream i = new ZipArchiveInputStream(new FileInputStream(zipFilePath))) {
 //            ZipArchiveEntry entry = null;
@@ -160,6 +177,7 @@ public class FileManager {
 //                    continue;
 //                }
 //                String name = targetDir.getAbsolutePath() + File.separator + entry.getName();
+//                log.debug("file:{},mode:{}", name, entry.getUnixMode());
 //                File f = new File(name);
 //                if (entry.isDirectory()) {
 //                    if (!f.isDirectory() && !f.mkdirs()) {
@@ -167,7 +185,6 @@ public class FileManager {
 //                    }
 //                } else {
 //                    File parent = f.getParentFile();
-//                    entry.setUnixMode();
 //                    if (!parent.isDirectory() && !parent.mkdirs()) {
 //                        throw new IOException("failed to create directory " + parent);
 //                    }

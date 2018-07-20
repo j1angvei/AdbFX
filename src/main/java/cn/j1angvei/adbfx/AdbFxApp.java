@@ -1,5 +1,6 @@
 package cn.j1angvei.adbfx;
 
+import cn.j1angvei.adbfx.actionbar.AdbStartService;
 import cn.j1angvei.adbfx.adb.PackageManager;
 import com.android.ddmlib.AndroidDebugBridge;
 import javafx.application.Application;
@@ -7,6 +8,9 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.SystemUtils;
+
+import java.io.File;
 
 @Slf4j
 public class AdbFxApp extends Application {
@@ -25,32 +29,33 @@ public class AdbFxApp extends Application {
     }
 
     public static void main(String[] args) {
-//        initEnvironment();
+        initEnvironment();
         AdbFxApp.launch(args);
     }
 
-//    private static void initEnvironment() {
-//        boolean adbExisted = new File(AdbStartService.ADB_PATH).exists();
-//        if (!adbExisted) {
-//            String adbFilePath;
-//            if (SystemUtils.IS_OS_MAC) {
-//                adbFilePath = ADB_MAC;
-//            } else if (SystemUtils.IS_OS_LINUX) {
-//                adbFilePath = ADB_LINUX;
-//            } else if (SystemUtils.IS_OS_WINDOWS) {
-//                adbFilePath = ADB_WINDOWS;
-//            } else {
-//                throw new IllegalArgumentException("Unsupported system OS!");
-//            }
-//            adbFilePath = SystemUtils.getUserDir().getAbsolutePath() + File.separator + adbFilePath;
-//            log.debug("adb file paths:{}", adbFilePath);
-//            String destDir = SystemUtils.getUserHome().getAbsolutePath() + File.separator + ".adbfx" + File.separator;
-//
-//            FileManager.unzip(adbFilePath, destDir);
-//
-//
-//        }
-//    }
+    private static void initEnvironment() {
+        boolean adbExisted = new File(AdbStartService.ADB_PATH).exists();
+        if (adbExisted) {
+            return;
+        }
+
+        String adbFilePath;
+        if (SystemUtils.IS_OS_MAC) {
+            adbFilePath = ADB_MAC;
+        } else if (SystemUtils.IS_OS_LINUX) {
+            adbFilePath = ADB_LINUX;
+        } else if (SystemUtils.IS_OS_WINDOWS) {
+            adbFilePath = ADB_WINDOWS;
+        } else {
+            throw new IllegalArgumentException("Unsupported system OS!");
+        }
+        adbFilePath = SystemUtils.getUserDir().getAbsolutePath() + File.separator + adbFilePath;
+        log.debug("adb file paths:{}", adbFilePath);
+        String destDir = SystemUtils.getUserHome().getAbsolutePath() + File.separator + ".adbfx" + File.separator;
+
+        FileManager.simpleUnzip(adbFilePath, destDir);
+
+    }
 
     @Override
     public void stop() throws Exception {
