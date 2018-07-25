@@ -14,7 +14,7 @@
     <center>
         <StackPane BorderPane.alignment="CENTER">
             <children>
-                <TabPane fx:id="tabOpennedFunctions">
+                <TabPane fx:id="tabOpenedFunctions">
                     <tabs>
                         <Tab text="Untitled Tab 1">
                             <content>
