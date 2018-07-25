@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
-<VBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1"
+<VBox xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="cn.j1angvei.adbfx.functions.apps.InstallApkController">
     <children>
         <TitledPane text="%param_settings">

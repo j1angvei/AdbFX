@@ -80,8 +80,7 @@ public class ScreenShotController extends BaseController<ScreenShotModel> {
             } else {
                 return new ImageHolder(getModel().getSavedImages().get(param),
                         sliderScale.valueProperty(),
-                        getModel().getSavedImages(),
-                        getResourceBundle());
+                        getModel().getSavedImages());
             }
         });
         paginationImages.pageCountProperty().bind(Bindings.createIntegerBinding(() ->

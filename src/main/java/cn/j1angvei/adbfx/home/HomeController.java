@@ -1,54 +1,54 @@
 package cn.j1angvei.adbfx.home;
 
 import cn.j1angvei.adbfx.BaseController;
-import cn.j1angvei.adbfx.NodeManager;
 import cn.j1angvei.adbfx.functions.Function;
-import cn.j1angvei.adbfx.functions.FunctionCell;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.scene.Node;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
+import javafx.beans.binding.Bindings;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
-import javafx.util.Callback;
+import javafx.scene.layout.TilePane;
+import javafx.scene.layout.VBox;
+
+import java.util.function.Consumer;
+import java.util.stream.Stream;
 
 
 public class HomeController extends BaseController<HomeModel> {
-    public ListView<Function> listFunctions;
-    public BorderPane borderMain;
+    @FXML
+    private BorderPane borderMain;
+    @FXML
+    private TabPane tabOpennedFunctions;
+    @FXML
+    private TilePane tileFunctionList;
+    @FXML
+    private VBox boxNoDevice;
+
 
     @Override
     protected HomeModel initModel() {
-        return new HomeModel();
+        return HomeModel.getInstance();
     }
 
     @Override
     protected void initArguments() {
+        boxNoDevice.visibleProperty().bind(Bindings.isNull(getModel().getSelectedDevice()));
+        tileFunctionList.visibleProperty().bind(getModel().getOpenedFunctions().emptyProperty());
 
-        listFunctions.getItems().addAll(Function.values());
-        listFunctions.setCellFactory(new Callback<ListView<Function>, ListCell<Function>>() {
+        Stream.of(Function.values()).forEach(new Consumer<Function>() {
             @Override
-            public ListCell<Function> call(ListView<Function> param) {
-                return new FunctionCell(getResourceBundle());
+            public void accept(Function function) {
+                FunctionTile tile = new FunctionTile(function);
+                tile.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        getModel().getOpenedFunctions().add(function);
+                    }
+                });
+                tileFunctionList.getChildren().add(tile);
             }
         });
-        listFunctions.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Function>() {
-            @Override
-            public void changed(ObservableValue<? extends Function> observable, Function oldValue, Function newValue) {
-                if (newValue != null) {
-
-                }
-            }
-        });
-        listFunctions.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                Node node = NodeManager.getInstance().loadFxml(Function.values()[newValue.intValue()].ui);
-                borderMain.setCenter(node);
-
-            }
-        });
-
     }
 
     @Override

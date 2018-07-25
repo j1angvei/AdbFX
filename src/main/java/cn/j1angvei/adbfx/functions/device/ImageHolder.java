@@ -1,10 +1,10 @@
 package cn.j1angvei.adbfx.functions.device;
 
 import cn.j1angvei.adbfx.FileManager;
+import cn.j1angvei.adbfx.NodeManager;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ListProperty;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
@@ -12,8 +12,6 @@ import javafx.scene.image.ImageView;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.ResourceBundle;
 
 /**
  * @author j1angvei
@@ -34,21 +32,12 @@ public class ImageHolder extends ScrollPane {
     @FXML
     private MenuItem menuDelete;
 
-    public ImageHolder(ResourceBundle resourceBundle) {
-        FXMLLoader fxmlLoader = new FXMLLoader(
-                getClass().getResource("/ImageHolder.fxml"));
-        fxmlLoader.setResources(resourceBundle);
-        fxmlLoader.setRoot(this);
-        fxmlLoader.setController(this);
-        try {
-            fxmlLoader.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
+    public ImageHolder() {
+        NodeManager.loadCustomNode(this, "/ImageHolder.fxml");
     }
 
-    public ImageHolder(File file, DoubleProperty scaleRatio, ListProperty<File> allImages, ResourceBundle resourceBundle) {
-        this(resourceBundle);
+    public ImageHolder(File file, DoubleProperty scaleRatio, ListProperty<File> allImages) {
+        this();
 
         Image image = new Image(file.toURI().toString());
         double realWidth = image.getWidth();
