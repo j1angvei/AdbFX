@@ -1,13 +1,11 @@
 package cn.j1angvei.adbfx.home;
 
-import cn.j1angvei.adbfx.actionbar.ActionBarModel;
 import cn.j1angvei.adbfx.functions.Function;
 import com.android.ddmlib.IDevice;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SetProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleSetProperty;
+import javafx.beans.Observable;
+import javafx.beans.property.*;
 import javafx.collections.FXCollections;
+import javafx.scene.control.Tab;
 import lombok.Getter;
 
 /**
@@ -17,20 +15,27 @@ import lombok.Getter;
 @Getter
 public class HomeModel {
 
-    private static HomeModel sInstance;
-    private final ObjectProperty<IDevice> selectedDevice;
+    private static final HomeModel INSTANCE = new HomeModel();
+
+    // action bar
+    private final ObjectProperty<IDevice> updatedDevice;
+    private final ListProperty<IDevice> connectedDevices;
+    private final ObjectProperty<IDevice> chosenDevice;
+
+    // function tile
     private final SetProperty<Function> openedFunctions;
+    private final MapProperty<Function, Tab> initializedTabs;
 
     private HomeModel() {
-        selectedDevice = new SimpleObjectProperty<>();
-        selectedDevice.bind(ActionBarModel.getInstance().getChosenDevice());
+        updatedDevice = new SimpleObjectProperty<>();
+        connectedDevices = new SimpleListProperty<>(FXCollections.observableArrayList(param -> new Observable[]{updatedDevice}));
+        chosenDevice = new SimpleObjectProperty<>();
+
         openedFunctions = new SimpleSetProperty<>(FXCollections.observableSet());
+        initializedTabs = new SimpleMapProperty<>(FXCollections.observableHashMap());
     }
 
     public static HomeModel getInstance() {
-        if (sInstance == null) {
-            sInstance = new HomeModel();
-        }
-        return sInstance;
+        return INSTANCE;
     }
 }

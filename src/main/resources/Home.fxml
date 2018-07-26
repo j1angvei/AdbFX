@@ -1,35 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="borderMain"
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="borderMain" xmlns="http://javafx.com/javafx/10.0.1"
             fx:controller="cn.j1angvei.adbfx.home.HomeController">
     <top>
-        <fx:include source="ActionBar.fxml"/>
+        <HBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" xmlns="http://javafx.com/javafx/10.0.1">
+            <children>
+                <ImageView fitHeight="32.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@img/logo_on.png"/>
+                    </image>
+                </ImageView>
+                <MenuBar>
+                    <menus>
+                        <Menu mnemonicParsing="false" text="Settings">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Preferences"/>
+                                <MenuItem mnemonicParsing="false" text="Mini Mode"/>
+                                <RadioMenuItem mnemonicParsing="false" text="Front"/>
+                                <SeparatorMenuItem mnemonicParsing="false"/>
+                                <Menu mnemonicParsing="false" text="WIFI Device">
+                                    <items>
+                                        <CustomMenuItem mnemonicParsing="false">
+                                            <content>
+                                                <HBox alignment="CENTER_LEFT" spacing="4.0">
+                                                    <children>
+                                                        <TextField prefWidth="84.0" promptText="ip:port"
+                                                                   HBox.hgrow="NEVER"/>
+                                                        <Button mnemonicParsing="false" text="Connect"/>
+                                                    </children>
+                                                </HBox>
+                                            </content>
+                                        </CustomMenuItem>
+                                    </items>
+                                </Menu>
+                                <MenuItem fx:id="menuRestartAdb" mnemonicParsing="false" text="Restart ADB"/>
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+                <ToggleButton fx:id="toggleBtnFunctions" mnemonicParsing="false" text="Functions"/>
+                <Region HBox.hgrow="SOMETIMES"/>
+                <Label text="Devices:"/>
+                <ComboBox fx:id="comboAllDevices"/>
+            </children>
+            <padding>
+                <Insets left="8.0" right="8.0"/>
+            </padding>
+        </HBox>
     </top>
     <center>
         <StackPane BorderPane.alignment="CENTER">
             <children>
-                <TabPane fx:id="tabOpenedFunctions">
-                    <tabs>
-                        <Tab text="Untitled Tab 1">
-                            <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
-                            </content>
-                        </Tab>
-                        <Tab text="Untitled Tab 2">
-                            <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
-                            </content>
-                        </Tab>
-                    </tabs>
-                </TabPane>
-                <TilePane fx:id="tileFunctionList" style="-fx-background-color: white;"/>
-                <VBox fx:id="boxNoDevice" alignment="CENTER" style="-fx-background-color: white;">
+                <TabPane fx:id="tabOpenedFunctions"/>
+                <ScrollPane fx:id="scrollFunctionTileContainer" fitToHeight="true" fitToWidth="true"
+                            StackPane.alignment="CENTER">
+                    <content>
+                        <TilePane fx:id="tileFunctions" alignment="CENTER_LEFT" hgap="16.0" vgap="16.0">
+                            <padding>
+                                <Insets bottom="16.0" left="16.0" right="16.0" top="16.0"/>
+                            </padding>
+                        </TilePane>
+                    </content>
+                </ScrollPane>
+                <VBox fx:id="boxNoDevice" alignment="CENTER" style="-fx-background-color: white;" visible="false">
                     <children>
                         <Label alignment="CENTER" contentDisplay="TOP"
                                text="No device connected, please connect your phone via USB or WIFI">
@@ -46,5 +84,10 @@
             </children>
         </StackPane>
     </center>
+    <left>
+        <fx:define>
+            <ListView fx:id="listFunctions" BorderPane.alignment="CENTER"/>
+        </fx:define>
+    </left>
 
 </BorderPane>

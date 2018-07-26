@@ -1,7 +1,7 @@
 package cn.j1angvei.adbfx.adb;
 
-import cn.j1angvei.adbfx.actionbar.ActionBarModel;
 import cn.j1angvei.adbfx.functions.apps.PackageInfo;
+import cn.j1angvei.adbfx.home.HomeModel;
 import com.android.ddmlib.AndroidDebugBridge;
 import com.android.ddmlib.Client;
 import com.android.ddmlib.IDevice;
@@ -32,7 +32,7 @@ public final class PackageManager {
     }
 
     public static IDevice getChosenDevice() {
-        return ActionBarModel.getInstance().getChosenDevice().get();
+        return HomeModel.getInstance().getChosenDevice().get();
     }
 
     public PackageInfo loadFromCache(String packageName, String deviceSn) {

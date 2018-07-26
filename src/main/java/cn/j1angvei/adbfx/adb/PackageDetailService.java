@@ -5,6 +5,7 @@ import com.android.ddmlib.*;
 import javafx.beans.property.ListProperty;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
+import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
@@ -26,13 +27,15 @@ public class PackageDetailService extends Service<Void> {
 
     private final ListProperty<PackageInfo> mPackageInfoContainer;
     private List<String> mPackageList;
+    private IDevice mDevice;
 
     public PackageDetailService(ListProperty<PackageInfo> container) {
         mPackageInfoContainer = container;
     }
 
-    public void restart(List<String> pkgList) {
+    public void restart(@NonNull List<String> pkgList, @NonNull IDevice device) {
         mPackageList = pkgList;
+        mDevice = device;
         restart();
     }
 
@@ -48,24 +51,23 @@ public class PackageDetailService extends Service<Void> {
 
                 mPackageInfoContainer.clear();
 
-                IDevice device = PackageManager.getChosenDevice();
 
                 mPackageList.forEach(packageName -> {
 
-                    PackageInfo cached = PackageManager.getInstance().loadFromCache(packageName, device.getSerialNumber());
+                    PackageInfo cached = PackageManager.getInstance().loadFromCache(packageName, mDevice.getSerialNumber());
                     if (cached != null) {
                         mPackageInfoContainer.add(cached);
                         return;
                     }
 
-                    PackageInfo packageInfo = new PackageInfo(packageName, device.getSerialNumber());
+                    PackageInfo packageInfo = new PackageInfo(packageName, mDevice.getSerialNumber());
 
                     String cmd = String.format("pm dump %s", packageName);
 
                     log.debug("Get package detail:{}", cmd);
 
                     try {
-                        device.executeShellCommand(cmd, new MultiLineReceiver() {
+                        mDevice.executeShellCommand(cmd, new MultiLineReceiver() {
                             @Override
                             public void processNewLines(String[] lines) {
                                 AtomicBoolean inPermissionBlock = new AtomicBoolean(false);

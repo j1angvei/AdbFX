@@ -1,6 +1,6 @@
 package cn.j1angvei.adbfx.functions.apps;
 
-import cn.j1angvei.adbfx.actionbar.ActionBarModel;
+import cn.j1angvei.adbfx.home.HomeModel;
 import com.android.ddmlib.IDevice;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
@@ -15,7 +15,7 @@ public class UninstallAppModel {
 
     public UninstallAppModel() {
         chosenDevice = new SimpleObjectProperty<>();
-        chosenDevice.bind(ActionBarModel.getInstance().getChosenDevice());
+        chosenDevice.bind(HomeModel.getInstance().getChosenDevice());
 
         packageName = new SimpleStringProperty();
         keepData = new SimpleBooleanProperty();

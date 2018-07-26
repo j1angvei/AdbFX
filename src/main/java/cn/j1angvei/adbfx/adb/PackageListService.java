@@ -5,6 +5,7 @@ import com.android.ddmlib.IDevice;
 import com.android.ddmlib.MultiLineReceiver;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
+import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
@@ -18,10 +19,12 @@ public class PackageListService extends Service<List<String>> {
 
     private String status;
     private String type;
+    private IDevice mDevice;
 
-    public void restart(String status, String type) {
+    public void restart(@NonNull String status, @NonNull String type, @NonNull IDevice device) {
         this.status = status;
         this.type = type;
+        mDevice = device;
         restart();
     }
 
@@ -34,7 +37,6 @@ public class PackageListService extends Service<List<String>> {
                     log.error("Error when list packages, should set status(enable, disable, all) and type(system app, third party app or all)");
                     throw new NullPointerException("list package arguments is NULL, set status and type first");
                 }
-                IDevice device = PackageManager.getChosenDevice();
 
                 List<String> packageList = new ArrayList<>();
 
@@ -42,7 +44,7 @@ public class PackageListService extends Service<List<String>> {
                 log.debug("get list packages cmd:{}", cmd);
 
                 try {
-                    device.executeShellCommand(cmd, new MultiLineReceiver() {
+                    mDevice.executeShellCommand(cmd, new MultiLineReceiver() {
                         @Override
                         public void processNewLines(String[] lines) {
                             Stream.of(lines)

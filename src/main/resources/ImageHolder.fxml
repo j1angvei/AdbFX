@@ -23,15 +23,15 @@
             <items>
                 <MenuItem fx:id="menuOpenFile" mnemonicParsing="false" text="%open_file"/>
                 <MenuItem fx:id="menuOpenDir" mnemonicParsing="false" text="%open_folder"/>
-                <!--<Menu mnemonicParsing="false" text="Rename">-->
-                <!--<items>-->
-                <!--<MenuItem fx:id="menuRename" mnemonicParsing="false" text="Confirm">-->
-                <!--<graphic>-->
-                <!--<TextField fx:id="fieldName"/>-->
-                <!--</graphic>-->
-                <!--</MenuItem>-->
-                <!--</items>-->
-                <!--</Menu>-->
+                <Menu mnemonicParsing="false" text="Rename">
+                    <items>
+                        <MenuItem fx:id="menuRename" mnemonicParsing="false" text="Confirm">
+                            <graphic>
+                                <TextField fx:id="fieldName"/>
+                            </graphic>
+                        </MenuItem>
+                    </items>
+                </Menu>
                 <MenuItem fx:id="menuDelete" mnemonicParsing="false" text="%delete"/>
             </items>
         </ContextMenu>

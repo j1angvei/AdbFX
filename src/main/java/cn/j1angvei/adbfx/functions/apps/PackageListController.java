@@ -84,7 +84,7 @@ public class PackageListController extends BaseController<PackageListModel> {
         //refresh package list
         btnRefreshList.setOnAction(event -> {
             getModel().getPackageInfoList().clear();
-            mPackageListService.restart(getModel().getStatusArg().get(), getModel().getTypeArg().get());
+            mPackageListService.restart(getModel().getStatusArg().get(), getModel().getTypeArg().get(), getChosenDevice());
         });
 
         //change placeholder text
@@ -98,7 +98,7 @@ public class PackageListController extends BaseController<PackageListModel> {
         //when get package list is done, load package detail.
         mPackageListService.valueProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null && !newValue.isEmpty()) {
-                mPackageDetailService.restart(newValue);
+                mPackageDetailService.restart(newValue, getChosenDevice());
             }
         });
 

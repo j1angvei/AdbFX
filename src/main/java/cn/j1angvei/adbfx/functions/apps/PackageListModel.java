@@ -1,12 +1,11 @@
 package cn.j1angvei.adbfx.functions.apps;
 
-import cn.j1angvei.adbfx.DeviceModel;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import lombok.Getter;
 
 @Getter
-public class PackageListModel extends DeviceModel {
+public class PackageListModel {
     private final ListProperty<PackageInfo> packageInfoList;
     private final SetProperty<String> listArguments;
     private final StringProperty statusArg;
