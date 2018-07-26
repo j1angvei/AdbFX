@@ -3,80 +3,102 @@ package cn.j1angvei.adbfx.functions.device;
 import cn.j1angvei.adbfx.FileManager;
 import cn.j1angvei.adbfx.NodeManager;
 import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.ListProperty;
-import javafx.fxml.FXML;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.scene.Group;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import lombok.extern.slf4j.Slf4j;
+import javafx.scene.layout.StackPane;
 
 import java.io.File;
+import java.util.ResourceBundle;
 
 /**
  * @author j1angvei
  * @since 18/7/17
  */
-@Slf4j
-public class ImageHolder extends ScrollPane {
-    @FXML
-    private ImageView imageView;
-    @FXML
-    private MenuItem menuOpenFile;
-    @FXML
-    private MenuItem menuOpenDir;
-    //    @FXML
-//    private MenuItem menuRename;
-//    @FXML
-//    private TextField fieldName;
-    @FXML
-    private MenuItem menuDelete;
+public abstract class ImageHolder extends ScrollPane {
+    private ObjectProperty<File> imgFile;
+    private DoubleProperty scale;
 
     public ImageHolder() {
-        NodeManager.loadCustomNode(this, "/ImageHolder.fxml");
+        imgFile = new SimpleObjectProperty<>();
+        scale = new SimpleDoubleProperty();
+
+        setFitToHeight(true);
+        setFitToWidth(true);
+        initContextMenu();
+
+        ImageView imageView = new ImageView();
+        imageView.setPreserveRatio(true);
+        imageView.setPickOnBounds(true);
+        Group group = new Group(imageView);
+        StackPane stackPane = new StackPane(group);
+        setContent(stackPane);
+
+        imgFile.addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                Image image = new Image(newValue.toURI().toString());
+                double realWidth = image.getWidth();
+                imageView.setImage(image);
+                imageView.fitWidthProperty().bind(scale.multiply(realWidth));
+            }
+        });
     }
 
-    public ImageHolder(File file, DoubleProperty scaleRatio, ListProperty<File> allImages) {
+    public ImageHolder(File file) {
         this();
+        imgFile.set(file);
+    }
 
-        Image image = new Image(file.toURI().toString());
-        double realWidth = image.getWidth();
+    private void initContextMenu() {
+        ResourceBundle resourceBundle = NodeManager.defaultResources();
 
-        imageView.setImage(image);
-        imageView.fitWidthProperty().bind(scaleRatio.multiply(realWidth));
+        ContextMenu contextMenu = new ContextMenu();
+        MenuItem openFile = new MenuItem(resourceBundle.getString("open_file"));
+        openFile.setOnAction(event -> FileManager.openFile(getImgFile()));
 
-        menuOpenFile.setOnAction(event -> FileManager.openFile(file));
-        menuOpenDir.setOnAction(event -> FileManager.openFile(file.getParentFile()));
-        menuDelete.setOnAction(event -> {
-            allImages.remove(file);
-            FileManager.deleteFile(file);
+        MenuItem openDir = new MenuItem(resourceBundle.getString("open_folder"));
+        openDir.setOnAction(event -> FileManager.openFile(getImgFile().getParentFile()));
+
+        MenuItem delete = new MenuItem(resourceBundle.getString("delete"));
+        delete.setOnAction(event -> {
+            FileManager.deleteFile(imgFile.get());
+            onDelete();
         });
 
+        contextMenu.getItems().addAll(openFile, openDir, delete);
+
+        setContextMenu(contextMenu);
     }
 
-    public void setImage(File file) {
+    public abstract void onDelete();
 
+    public File getImgFile() {
+        return imgFile.get();
+    }
 
-//        scrollPane.viewportBoundsProperty().addListener(new ChangeListener<Bounds>() {
-//            @Override
-//            public void changed(ObservableValue<? extends Bounds> observable, Bounds oldValue, Bounds bounds) {
-//                if (!mSliderInit) {
-//                    mSliderInit = true;
-//
-//                    double viewPortWidth = bounds.getWidth();
-//                    double viewPortHeight = bounds.getHeight();
-//
-//                    double widthRatio = viewPortWidth / mRealWidth;
-//                    double heightRatio = viewPortHeight / mRealHeight;
-//                    double initRatio = Math.min(widthRatio, heightRatio);
-//
-//                    log.debug("real:{},{};viewPort:{},{};initRatio:{}",
-//                            mRealWidth, mRealHeight, viewPortWidth, viewPortHeight, initRatio);
-//                    slider.setValue(initRatio);
-//
-//
-//                }
-//            }
-//        });
+    public void setImgFile(File imgFile) {
+        this.imgFile.set(imgFile);
+    }
+
+    public ObjectProperty<File> imgFileProperty() {
+        return imgFile;
+    }
+
+    public double getScale() {
+        return scale.get();
+    }
+
+    public void setScale(double scale) {
+        this.scale.set(scale);
+    }
+
+    public DoubleProperty scaleProperty() {
+        return scale;
     }
 }

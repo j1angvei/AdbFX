@@ -16,7 +16,7 @@ public abstract class BaseController<M> implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.resourceBundle = resources;
-        mChosenDevice = HomeModel.getInstance().getChosenDevice();
+        mChosenDevice = HomeModel.getInstance().getSelectedDevice();
         mModel = initModel();
         initArguments();
         initView();

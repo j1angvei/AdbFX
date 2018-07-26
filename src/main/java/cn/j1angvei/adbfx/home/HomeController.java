@@ -19,7 +19,6 @@ import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
-import javafx.util.Callback;
 import javafx.util.Duration;
 import javafx.util.StringConverter;
 import org.apache.commons.lang3.StringUtils;
@@ -63,11 +62,7 @@ public class HomeController extends BaseController<HomeModel> {
         return HomeModel.getInstance();
     }
 
-    @Override
-    protected void initArguments() {
-
-
-    }
+    private static final Duration START_DURATION = Duration.ZERO;
 
     @Override
     protected void initView() {
@@ -78,6 +73,22 @@ public class HomeController extends BaseController<HomeModel> {
 
         setupFunctionList();
 
+    }
+
+    private Timeline mShowEntryTimeline;
+    private Timeline mHideEntryTimeline;
+
+    @Override
+    protected void initArguments() {
+
+        KeyValue leftKv = new KeyValue(listFunctions.prefWidthProperty(), listFunctions.getMinWidth());
+        Duration startDuration = Duration.ZERO;
+        KeyValue rightKv = new KeyValue(listFunctions.prefWidthProperty(), listFunctions.getMaxWidth());
+        Duration endDuration = new Duration(350);
+
+        mShowEntryTimeline = new Timeline(new KeyFrame(startDuration, leftKv), new KeyFrame(endDuration, rightKv));
+        mHideEntryTimeline = new Timeline(new KeyFrame(startDuration, rightKv), new KeyFrame(endDuration, leftKv));
+        mHideEntryTimeline.setOnFinished(event -> borderMain.setLeft(null));
     }
 
     private void setupActionBar() {
@@ -134,7 +145,7 @@ public class HomeController extends BaseController<HomeModel> {
             }
         });
         //bind chosen device
-        getModel().getChosenDevice().bind(comboAllDevices.valueProperty());
+        getModel().getSelectedDevice().bind(comboAllDevices.valueProperty());
 
         //restart adb daemon
         menuRestartAdb.setOnAction(event -> {
@@ -149,13 +160,28 @@ public class HomeController extends BaseController<HomeModel> {
         });
 
         adbStartService.restart();
+
+
+        // show/hide function entry
+        toggleBtnFunctions.selectedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                setFunctionEntryVisibility(newValue);
+            }
+        });
+        toggleBtnFunctions.disableProperty().bind(scrollFunctionTileContainer.visibleProperty());
     }
 
     private void setupContentArea() {
 
-        boxNoDevice.visibleProperty().bind(Bindings.isNull(getModel().getChosenDevice()));
+        boxNoDevice.visibleProperty().bind(Bindings.isNull(getModel().getSelectedDevice()));
 
         scrollFunctionTileContainer.visibleProperty().bind(getModel().getOpenedFunctions().emptyProperty());
+        scrollFunctionTileContainer.visibleProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                setFunctionEntryVisibility(false);
+            }
+        });
 
         Stream.of(Function.values()).forEach(function -> {
             FunctionTile tile = new FunctionTile(function);
@@ -173,50 +199,38 @@ public class HomeController extends BaseController<HomeModel> {
                     getModel().getInitializedTabs().put(function, tab);
                 }
                 tabOpenedFunctions.getTabs().add(tab);
+                selectFunctionTab(function);
             }
         });
 
     }
 
-
     private void setupFunctionList() {
 
-        KeyValue left = new KeyValue(listFunctions.prefWidthProperty(), 0);
-        Duration start = Duration.ZERO;
-        KeyValue right = new KeyValue(listFunctions.prefWidthProperty(), 160);
-        Duration end = new Duration(350);
-
-
-        Timeline showTimeline = new Timeline(new KeyFrame(start, left), new KeyFrame(end, right));
-        Timeline hideTimeline = new Timeline(new KeyFrame(start, right), new KeyFrame(end, left));
-        hideTimeline.setOnFinished(event -> borderMain.setLeft(null));
-
-        toggleBtnFunctions.selectedProperty().addListener(new ChangeListener<Boolean>() {
-            @Override
-            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-                if (newValue) {
-                    borderMain.setLeft(listFunctions);
-                    showTimeline.playFromStart();
-                } else {
-                    hideTimeline.playFromStart();
-                }
-            }
-        });
         listFunctions.getItems().setAll(Function.values());
-        listFunctions.setCellFactory(new Callback<ListView<Function>, ListCell<Function>>() {
-            @Override
-            public ListCell<Function> call(ListView<Function> param) {
-                return new FunctionCell(getResourceBundle());
+        listFunctions.setCellFactory(param -> new FunctionCell(getResourceBundle()));
+        listFunctions.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                getModel().getOpenedFunctions().add(newValue);
+                selectFunctionTab(newValue);
             }
         });
-        listFunctions.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Function>() {
-            @Override
-            public void changed(ObservableValue<? extends Function> observable, Function oldValue, Function newValue) {
-                if (newValue != null) {
-                    getModel().getOpenedFunctions().add(newValue);
-                }
-            }
-        });
+    }
+
+    private void setFunctionEntryVisibility(boolean show) {
+        if (show) {
+            borderMain.setLeft(listFunctions);
+            mShowEntryTimeline.playFromStart();
+        } else {
+            mHideEntryTimeline.playFromStart();
+        }
+    }
+
+    private void selectFunctionTab(Function function) {
+        Tab tab = getModel().getInitializedTabs().get(function);
+        if (tab != null && tabOpenedFunctions.getTabs().contains(tab)) {
+            tabOpenedFunctions.getSelectionModel().select(tab);
+        }
     }
 
     @Override

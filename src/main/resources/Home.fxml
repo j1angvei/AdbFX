@@ -60,11 +60,16 @@
                 <ScrollPane fx:id="scrollFunctionTileContainer" fitToHeight="true" fitToWidth="true"
                             StackPane.alignment="CENTER">
                     <content>
-                        <TilePane fx:id="tileFunctions" alignment="CENTER_LEFT" hgap="16.0" vgap="16.0">
-                            <padding>
-                                <Insets bottom="16.0" left="16.0" right="16.0" top="16.0"/>
-                            </padding>
-                        </TilePane>
+                        <StackPane>
+                            <children>
+                                <TilePane fx:id="tileFunctions" alignment="CENTER_LEFT" hgap="16.0" vgap="16.0"
+                                          StackPane.alignment="CENTER">
+                                    <padding>
+                                        <Insets bottom="16.0" left="16.0" right="16.0" top="16.0"/>
+                                    </padding>
+                                </TilePane>
+                            </children>
+                        </StackPane>
                     </content>
                 </ScrollPane>
                 <VBox fx:id="boxNoDevice" alignment="CENTER" style="-fx-background-color: white;" visible="false">
@@ -84,10 +89,7 @@
             </children>
         </StackPane>
     </center>
-    <left>
-        <fx:define>
-            <ListView fx:id="listFunctions" BorderPane.alignment="CENTER"/>
-        </fx:define>
-    </left>
-
+    <fx:define>
+        <ListView fx:id="listFunctions" BorderPane.alignment="CENTER" minWidth="0" maxWidth="180"/>
+    </fx:define>
 </BorderPane>

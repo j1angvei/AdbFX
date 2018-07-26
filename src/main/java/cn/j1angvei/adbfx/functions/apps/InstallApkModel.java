@@ -23,7 +23,7 @@ public class InstallApkModel {
 
     public InstallApkModel() {
         chosenDevice = new SimpleObjectProperty<>();
-        chosenDevice.bind(HomeModel.getInstance().getChosenDevice());
+        chosenDevice.bind(HomeModel.getInstance().getSelectedDevice());
 
         apksToInstall = new SimpleListProperty<>(FXCollections.observableArrayList());
         installArgs = new SimpleSetProperty<>(FXCollections.observableSet());

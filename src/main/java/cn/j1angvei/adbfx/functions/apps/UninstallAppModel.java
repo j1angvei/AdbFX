@@ -15,7 +15,7 @@ public class UninstallAppModel {
 
     public UninstallAppModel() {
         chosenDevice = new SimpleObjectProperty<>();
-        chosenDevice.bind(HomeModel.getInstance().getChosenDevice());
+        chosenDevice.bind(HomeModel.getInstance().getSelectedDevice());
 
         packageName = new SimpleStringProperty();
         keepData = new SimpleBooleanProperty();

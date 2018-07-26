@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 @Slf4j
@@ -45,8 +46,8 @@ public class NodeManager {
         return AdbFxApp.class.getResource(path);
     }
 
-    private static ResourceBundle defaultResources() {
-        return ResourceBundle.getBundle("strings");
+    public static ResourceBundle defaultResources() {
+        return ResourceBundle.getBundle("strings", Locale.getDefault());
     }
 
     public static Node loadFxml(@NonNull String path) {

@@ -78,9 +78,15 @@ public class ScreenShotController extends BaseController<ScreenShotModel> {
                 imageView.setPreserveRatio(true);
                 return imageView;
             } else {
-                return new ImageHolder(getModel().getSavedImages().get(param),
-                        sliderScale.valueProperty(),
-                        getModel().getSavedImages());
+                File file = getModel().getSavedImages().get(param);
+                ImageHolder imageHolder = new ImageHolder(file) {
+                    @Override
+                    public void onDelete() {
+                        getModel().getSavedImages().remove(file);
+                    }
+                };
+                imageHolder.scaleProperty().bind(sliderScale.valueProperty());
+                return imageHolder;
             }
         });
         paginationImages.pageCountProperty().bind(Bindings.createIntegerBinding(() ->

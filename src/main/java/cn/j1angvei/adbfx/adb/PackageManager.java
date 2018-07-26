@@ -32,7 +32,7 @@ public final class PackageManager {
     }
 
     public static IDevice getChosenDevice() {
-        return HomeModel.getInstance().getChosenDevice().get();
+        return HomeModel.getInstance().getSelectedDevice().get();
     }
 
     public PackageInfo loadFromCache(String packageName, String deviceSn) {
