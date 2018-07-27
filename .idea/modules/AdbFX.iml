@@ -25,6 +25,7 @@
     <orderEntry type="library" name="Gradle: ch.qos.logback:logback-core:1.2.3" level="project" />
     <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.25" level="project" />
     <orderEntry type="library" name="Gradle: org.controlsfx:controlsfx:8.40.14" level="project" />
+    <orderEntry type="library" name="Gradle: com.jfoenix:jfoenix:8.0.5" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.projectlombok:lombok:1.16.20" level="project" />
     <orderEntry type="library" name="Gradle: com.android.tools:common:26.3.0-alpha03" level="project" />
     <orderEntry type="library" name="Gradle: net.sf.kxml:kxml2:2.3.0" level="project" />

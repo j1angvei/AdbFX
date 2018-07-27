@@ -47,5 +47,6 @@ dependencies {
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
     //ui
     compile group: 'org.controlsfx', name: 'controlsfx', version: '8.40.14'
+    compile 'com.jfoenix:jfoenix:8.0.5' // Java 8
 
 }

@@ -1,0 +1,65 @@
+.flow-pane {
+    -fx-background-color: #303F9F;
+}
+
+.button, .toggle-button {
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-pref-height: 12;
+    -fx-max-height: 12;
+    -fx-min-height: 12;
+    -fx-pref-width: 12;
+    -fx-max-width: 12;
+    -fx-min-width: 12;
+    -fx-background-color: transparent;
+}
+
+.btn-close {
+    -fx-background-color: #eb6c5f;
+}
+
+.btn-close:pressed {
+    -fx-background-color: #b0514b;
+}
+
+.btn-min {
+    -fx-background-color: #f4bf4f;
+}
+
+.btn-min:pressed {
+    -fx-background-color: #b7903b;
+}
+
+.tg-btn-max {
+    -fx-background-color: #65c655;
+}
+
+.tg-btn-max:pressed {
+    -fx-background-color: #4d9840;
+}
+
+.tg-btn-max:selected {
+    -fx-background-color: #65c655;
+}
+
+.tg-btn-max:pressed:selected {
+    -fx-background-color: #4d9840;
+}
+
+.img-close {
+    -fx-image: url("img/close_l.png");
+}
+
+.img-min {
+    -fx-image: url("img/min_l.png");
+}
+
+.img-max-off {
+    -fx-image: url("img/max_off_l.png");
+}
+
+.img-max-on {
+    -fx-image: url("img/max_on_l.png");
+}
+
+

@@ -1,0 +1,66 @@
+.flow-pane {
+    -fx-background-color: #303F9F;
+}
+
+.button, .toggle-button {
+    -fx-pref-height: 12;
+    -fx-max-height: 12;
+    -fx-min-height: 12;
+    -fx-pref-width: 12;
+    -fx-max-width: 12;
+    -fx-min-width: 12;
+}
+
+.btn-close {
+    -fx-background-color: transparent;
+}
+
+.btn-close:hover {
+    -fx-background-color: red;
+}
+
+.btn-close:pressed {
+    -fx-background-color: darkred;
+}
+
+.btn-min {
+    -fx-background-color: transparent;
+}
+
+.btn-min:hover {
+    -fx-background-color: #cdcdcd;
+}
+
+.btn-min:pressed {
+    -fx-background-color: #8a8a8a;
+}
+
+.tg-btn-max {
+    -fx-background-color: transparent;
+}
+
+.tg-btn-max:pressed {
+    -fx-background-color: #8a8a8a;
+}
+
+.tg-btn-max:hover {
+    -fx-background-color: #cdcdcd;
+}
+
+.img-close {
+    -fx-image: url("img/close_r.png");
+}
+
+.img-min {
+    -fx-image: url("img/min_r.png");
+}
+
+.img-max-off {
+    -fx-image: url("img/max_off_r.png");
+}
+
+.img-max-on {
+    -fx-image: url("img/max_on_r.png");
+}
+
+

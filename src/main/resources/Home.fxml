@@ -2,56 +2,74 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="borderMain" xmlns="http://javafx.com/javafx/10.0.1"
             fx:controller="cn.j1angvei.adbfx.home.HomeController">
     <top>
-        <HBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" xmlns="http://javafx.com/javafx/10.0.1">
+        <VBox>
             <children>
-                <ImageView fitHeight="32.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@img/logo_on.png"/>
-                    </image>
-                </ImageView>
-                <MenuBar>
-                    <menus>
-                        <Menu mnemonicParsing="false" text="Settings">
-                            <items>
-                                <MenuItem mnemonicParsing="false" text="Preferences"/>
-                                <MenuItem mnemonicParsing="false" text="Mini Mode"/>
-                                <RadioMenuItem mnemonicParsing="false" text="Front"/>
-                                <SeparatorMenuItem mnemonicParsing="false"/>
-                                <Menu mnemonicParsing="false" text="WIFI Device">
-                                    <items>
-                                        <CustomMenuItem mnemonicParsing="false">
-                                            <content>
-                                                <HBox alignment="CENTER_LEFT" spacing="4.0">
-                                                    <children>
-                                                        <TextField prefWidth="84.0" promptText="ip:port"
-                                                                   HBox.hgrow="NEVER"/>
-                                                        <Button mnemonicParsing="false" text="Connect"/>
-                                                    </children>
-                                                </HBox>
-                                            </content>
-                                        </CustomMenuItem>
-                                    </items>
-                                </Menu>
-                                <MenuItem fx:id="menuRestartAdb" mnemonicParsing="false" text="Restart ADB"/>
-                            </items>
-                        </Menu>
-                    </menus>
-                </MenuBar>
-                <ToggleButton fx:id="toggleBtnFunctions" mnemonicParsing="false" text="Functions"/>
-                <Region HBox.hgrow="SOMETIMES"/>
-                <Label text="Devices:"/>
-                <ComboBox fx:id="comboAllDevices"/>
+                <fx:include source="WindowBar.fxml"/>
+                <StackPane prefHeight="40" style="-fx-background-color: #3F51B5">
+                    <children>
+                        <ImageView fitHeight="32.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true"
+                                   StackPane.alignment="CENTER_LEFT">
+                            <image>
+                                <Image url="@img/logo_on.png"/>
+                            </image>
+                        </ImageView>
+                        <ComboBox fx:id="comboAllDevices" StackPane.alignment="CENTER"
+                                  style="-fx-background-color: transparent; -fx-text-fill: white"/>
+                        <HBox alignment="CENTER" maxWidth="96.0" prefWidth="96.0" StackPane.alignment="CENTER_RIGHT">
+                            <children>
+                                <ToggleButton fx:id="toggleBtnFunctions" mnemonicParsing="false"
+                                              style="-fx-background-color: transparent">
+                                    <graphic>
+                                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                            <image>
+                                                <Image url="@img/list.png"/>
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </ToggleButton>
+
+                                <Button mnemonicParsing="false" style="-fx-background-color: transparent">
+                                    <graphic>
+                                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                            <image>
+                                                <Image url="@img/mini_mode.png"/>
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <ToggleButton mnemonicParsing="false" style="-fx-background-color: transparent">
+                                    <graphic>
+                                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                            <image>
+                                                <Image url="@img/pin.png"/>
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </ToggleButton>
+                                <Button mnemonicParsing="false" style="-fx-background-color: transparent">
+                                    <graphic>
+                                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                            <image>
+                                                <Image url="@img/settings.png"/>
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                </StackPane>
             </children>
-            <padding>
-                <Insets left="8.0" right="8.0"/>
-            </padding>
-        </HBox>
+        </VBox>
     </top>
     <center>
         <StackPane BorderPane.alignment="CENTER">
@@ -90,6 +108,6 @@
         </StackPane>
     </center>
     <fx:define>
-        <ListView fx:id="listFunctions" BorderPane.alignment="CENTER" minWidth="0" maxWidth="180"/>
+        <ListView fx:id="listFunctions" maxWidth="180" minWidth="0" BorderPane.alignment="CENTER"/>
     </fx:define>
 </BorderPane>

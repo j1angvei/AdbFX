@@ -78,6 +78,7 @@ public class AdbFxApp extends Application {
             primaryStage.setHeight(600);
             primaryStage.setMinHeight(450);
             String title = FileManager.getStrings("app_title");
+//            primaryStage.initStyle(StageStyle.UNDECORATED);
             primaryStage.setTitle(title);
             primaryStage.show();
         }

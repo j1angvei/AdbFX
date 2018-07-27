@@ -33,8 +33,8 @@ public class HomeController extends BaseController<HomeModel> {
     private BorderPane borderMain;
 
     // action bar
-    @FXML
-    private MenuItem menuRestartAdb;
+//    @FXML
+//    private MenuItem menuRestartAdb;
     @FXML
     private ComboBox<IDevice> comboAllDevices;
 
@@ -148,16 +148,16 @@ public class HomeController extends BaseController<HomeModel> {
         getModel().getSelectedDevice().bind(comboAllDevices.valueProperty());
 
         //restart adb daemon
-        menuRestartAdb.setOnAction(event -> {
-            comboAllDevices.getItems().clear();
-            comboAllDevices.getSelectionModel().clearSelection();
-            adbStartService.restart();
-        });
-        adbStartService.runningProperty().addListener((observable, oldValue, newValue) -> {
-            menuRestartAdb.setDisable(newValue);
-            String text = getResourceBundle().getString(newValue ? "starting" : "restart_adb");
-            menuRestartAdb.setText(text);
-        });
+//        menuRestartAdb.setOnAction(event -> {
+//            comboAllDevices.getItems().clear();
+//            comboAllDevices.getSelectionModel().clearSelection();
+//            adbStartService.restart();
+//        });
+//        adbStartService.runningProperty().addListener((observable, oldValue, newValue) -> {
+//            menuRestartAdb.setDisable(newValue);
+//            String text = getResourceBundle().getString(newValue ? "starting" : "restart_adb");
+//            menuRestartAdb.setText(text);
+//        });
 
         adbStartService.restart();
 
@@ -169,7 +169,7 @@ public class HomeController extends BaseController<HomeModel> {
                 setFunctionEntryVisibility(newValue);
             }
         });
-        toggleBtnFunctions.disableProperty().bind(scrollFunctionTileContainer.visibleProperty());
+        toggleBtnFunctions.visibleProperty().bind(Bindings.not(scrollFunctionTileContainer.visibleProperty()));
     }
 
     private void setupContentArea() {
